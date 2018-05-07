@@ -19,6 +19,7 @@ class LayoutRendering
     {
         $view = new TemplateView("layout.php");
         $view->meta = (new TemplateView("meta.php"))->render();
+        $view->modal = (new TemplateView("modal.php"))->render();
         $view->nav = (new TemplateView("nav.php"))->render();
         // REPLACE LINE ABOVE WITH CODE BLOCK BELOW WHEN READY FOR IT
         //        if (AuthController::authenticate()) {

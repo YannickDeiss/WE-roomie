@@ -7,6 +7,7 @@
  */
 
 echo $this->meta;
+echo $this->modal;
 echo $this->nav;
 echo $this->content;
 echo $this->footer;
