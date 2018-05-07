@@ -6,6 +6,7 @@
  * Time: 18:29
  */
 
-echo $this->header;
+echo $this->meta;
+echo $this->nav;
 echo $this->content;
 echo $this->footer;
