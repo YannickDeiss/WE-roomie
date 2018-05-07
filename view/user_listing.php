@@ -1,77 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="dist/css/styles.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
-        crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-    <title>Roomie - Find your Roommate today</title>
-</head>
-
-<body>
-    <div class="container">
-        <nav class="nav">
-            <div id="cssmenu">
-                <div class="roomie-logo">
-                    <img src="dist/images/logo.png" alt="Roomie" width="120rem" height="50rem">
-                </div>
-                <ul>
-                    <li>
-                        <a href='homepage.php'>
-                            <i class="fas fa-home"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href='#'>
-                            <i class="fas fa-user"></i>
-                            <span>Hermann</span>
-                        </a>
-                    </li>
-                </ul>
+<main class="content">
+    <div class="listing-grid">
+        <div class="section-heading">
+            <h2>List of your posted rooms</h2>
+        </div>
+        <div class="listing-item border-dotted">
+            <div class="add-listing-button-wrapper">
+                <button onclick="location.href='user_listing_edit.php'" type="button" class="add-listing-button">
+                    <span class="unselectable">Add</span>
+                </button>
             </div>
-        </nav>
-        <main class="content">
-            <div class="listing-grid">
-                <div class="section-heading">
-                    <h2>List of your posted rooms</h2>
-                </div>
-                <div class="listing-item border-dotted">
-                    <div class="add-listing-button-wrapper">
-                        <button onclick="location.href='user_listing_edit.php'" type="button" class="add-listing-button">
-                            <span class="unselectable">Add</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="listing-item">
-                    <img src="" alt="Listing Image">
-                    <div class="listing-info">
-                        <h2>Nice 3 room apartment in Basel</h2>
-                        <h3>Basel, Basel-Stadt</h3>
-                        <p>Die freundliche, top renovierte 2 Zimmer Wohnung befindet sich an zentraler Lage im 4.OG mit Lift.
-                            Die Wohnung verfügt über ein neues Bad und eine moderne Küche mit Glaskeramik, Geschirrspüler,
-                            Luftabzug, Laminat-Böden, wie auch über ein Kellerabteil. Waschküche und Trockenraum zur Mitbenützung.
-                        </p>
-                        <div class="listing-details">
-                            <ul>
-                                <li>Rent: 1500 CHF</li>
-                                <li>Size: 150 m2</li>
-                                <li>Rooms: 4</li>
-                                <li>From: 01.06.2018</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="options">
-                        <a href="user_listing_edit.php">
-                            <i class="fa fa-edit"></i>Edit</a>
-                        <a href="listing_detail.php">
-                            <!-- the link above needs to be changed with the real one -->
-                            <i class="fa fa-trash"></i>Delete</a>
-                    </div>
+        </div>
+        <div class="listing-item">
+            <img src="" alt="Listing Image">
+            <div class="listing-info">
+                <h2>Nice 3 room apartment in Basel</h2>
+                <h3>Basel, Basel-Stadt</h3>
+                <p>Die freundliche, top renovierte 2 Zimmer Wohnung befindet sich an zentraler Lage im 4.OG mit Lift.
+                    Die Wohnung verfügt über ein neues Bad und eine moderne Küche mit Glaskeramik, Geschirrspüler,
+                    Luftabzug, Laminat-Böden, wie auch über ein Kellerabteil. Waschküche und Trockenraum zur
+                    Mitbenützung.
+                </p>
+                <div class="listing-details">
+                    <ul>
+                        <li>Rent: 1500 CHF</li>
+                        <li>Size: 150 m2</li>
+                        <li>Rooms: 4</li>
+                        <li>From: 01.06.2018</li>
+                    </ul>
                 </div>
             </div>
-        </main>
+            <div class="options">
+                <a href="user_listing_edit.php">
+                    <i class="fa fa-edit"></i>Edit</a>
+                <a href="listing_detail.php">
+                    <!-- the link above needs to be changed with the real one -->
+                    <i class="fa fa-trash"></i>Delete</a>
+            </div>
+        </div>
+    </div>
+</main>

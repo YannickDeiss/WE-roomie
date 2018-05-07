@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="dist/css/styles.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
-            integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
-            crossorigin="anonymous"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
-    <title>Roomie - Find your Roommate today</title>
-</head>
-
-<body>
 <!-- MODAL: LOGIN -->
 <div class="login-modal">
     <div class="modal-content">
@@ -86,39 +70,6 @@
 </div>
 <!-- /END MODAL: SIGNUP -->
 <div class="container">
-    <nav class="nav">
-        <div id="cssmenu">
-            <div class="roomie-logo">
-                <img src="dist/images/logo.png" alt="Roomie" width="120rem" height="50rem">
-            </div>
-            <ul>
-                <li>
-                    <a href='homepage.php'>
-                        <i class="fas fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <li class="active">
-                    <a href='#' class="login-trigger">
-                        <i class="fas fa-sign-in-alt"></i>
-                        <span>Login</span>
-                    </a>
-                </li>
-                <li>
-                    <a href='#' class="signup-trigger">
-                        <i class="fas fa-ellipsis-v"></i>
-                        <span>Sign up</span>
-                    </a>
-                </li>
-                <li>
-                    <a href='#'>
-                        <i class="fas fa-user"></i>
-                        <span>Hermann</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <main class="content">
         <div class="reset-content">
             <div class="reset-left">
