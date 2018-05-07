@@ -27,7 +27,7 @@ class LayoutRendering
 //            $view->header = (new TemplateView("nav.php"))->render();
 //        }
         $view->content = $contentView->render();
-        $view->footer = (new TemplateView("assets/footer/footer.php"))->render();
+        $view->footer = (new TemplateView("footer.php"))->render();
         echo $view->render();
     }
 }
