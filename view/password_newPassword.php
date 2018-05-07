@@ -20,13 +20,13 @@
                     <img src="dist/images/logo.png" alt="Roomie" width="120rem" height="50rem">
                 </div>
                 <ul>
-                    <li class="active">
-                        <a href='#'>
+                    <li>
+                        <a href='homepage.php'>
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href='#' class="login-trigger">
                             <i class="fas fa-sign-in-alt"></i>
                             <span>Login</span>
@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href='user_listing.html'>
+                        <a href='#'>
                             <i class="fas fa-user"></i>
                             <span>Hermann</span>
                         </a>
@@ -48,12 +48,31 @@
             </div>
         </nav>
         <main class="content">
-             <div class="listing-detail-grid">
-                 <div class="image-area">Image Area</div>
-                 <div class="details-area">Details Area</div>
-                 <div class="contact-area">Contact Area</div>
-                 <div class="map-area">Map Area</div>
-             </div>
+            <div class="reset-content">
+                <div class="reset-left">
+                    <div class="reset unselectable">Password Reset</div>
+                    <div class="eula unselectable">Enter your new password</div>
+                </div>
+                <div class="reset-right">
+                    <svg class="snake" viewBox="0 0 320 300">
+                        <defs>
+                            <linearGradient inkscape:collect="always" id="linearGradient" x1="13" y1="193.49992" x2="307" y2="193.49992" gradientUnits="userSpaceOnUse">
+                                <stop style="stop-color:#030303;" offset="0" id="stop876" />
+                                <stop style="stop-color:#030303;" offset="1" id="stop878" />
+                            </linearGradient>
+                        </defs>
+                        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"
+                        />
+                    </svg>
+                    <div class="form">
+                        <label class="reset-label unselectable" for="new-password">New Password</label>
+                        <input type="email" id="new-password">
+                        <label class="reset-label unselectable" for="re-password">Re-type Password</label>
+                        <input type="password" id="re-password">
+                        <input type="submit" id="reset-submit" value="Submit">
+                    </div>
+                </div>
+            </div>
         </main>
         <footer class="footer">footer</footer>
     </div>
@@ -84,7 +103,7 @@
                     <input type="password" id="login-password">
                     <input type="submit" id="login-submit" value="Submit">
                     <div class="reset-link">
-                        <a href="password_reset.html">Reset Password</a>
+                        <a href="#">Reset Password</a>
                     </div>
                 </div>
 
@@ -123,11 +142,3 @@
             </div>
         </div>
     </div>
-    <!-- /END MODAL: SIGNUP -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="dist/js/all.min.js" async defer></script>
-
-
-</body>
-
-</html>

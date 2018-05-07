@@ -21,7 +21,7 @@
                 </div>
                 <ul>
                     <li>
-                        <a href='./index.html'>
+                        <a href='homepage.php'>
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="listing-item border-dotted">
                     <div class="add-listing-button-wrapper">
-                        <button onclick="location.href='user_listing_edit.html'" type="button" class="add-listing-button">
+                        <button onclick="location.href='user_listing_edit.php'" type="button" class="add-listing-button">
                             <span class="unselectable">Add</span>
                         </button>
                     </div>
@@ -66,19 +66,12 @@
                         </div>
                     </div>
                     <div class="options">
-                        <a href="user_listing_edit.html">
+                        <a href="user_listing_edit.php">
                             <i class="fa fa-edit"></i>Edit</a>
-                        <a href="./listing_detail.html"> 
+                        <a href="listing_detail.php">
                             <!-- the link above needs to be changed with the real one -->
                             <i class="fa fa-trash"></i>Delete</a>
                     </div>
                 </div>
             </div>
         </main>
-        <footer class="footer">footer</footer>
-    </div>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="dist/js/all.min.js" async defer></script>
-</body>
-
-</html>

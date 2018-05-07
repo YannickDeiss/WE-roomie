@@ -21,13 +21,13 @@
                 </div>
                 <ul>
                     <li>
-                        <a href='./index.html'>
+                        <a href='homepage.php'>
                             <i class="fas fa-home"></i>
                             <span>Home</span>
                         </a>
                     </li>
                     <li class="active">
-                        <a href='./user_listing.html'>
+                        <a href='user_listing.php'>
                             <i class="fas fa-user"></i>
                             <span>Hermann</span>
                         </a>
@@ -89,13 +89,3 @@
                 </div>
             </div>
         </main>
-        <footer class="footer">footer</footer>
-    </div>
-
-
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="dist/js/all.min.js" async defer></script>
-
-</body>
-
-</html>

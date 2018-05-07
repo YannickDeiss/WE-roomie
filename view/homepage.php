@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href='user_listing.html'>
+                        <a href='user_listing.php'>
                             <i class="fas fa-user"></i>
                             <span>Hermann</span>
                         </a>
@@ -61,31 +61,31 @@
                 <div class="search-form-wrapper">
                     <span class="input input--isao">
                         <input class="input__field input__field--isao" type="text" />
-                        <label class="input__label input__label--isao" for="input-38" data-content="Search Where">
+                        <label class="input__label input__label--isao" data-content="Search Where">
                             <span class="input__label-content input__label-content--isao">Search Where</span>
                         </label>
                     </span>
                     <span class="input input--isao">
                         <input class="input__field input__field--isao" type="text" />
-                        <label class="input__label input__label--isao" for="input-39" data-content="Min Rooms">
+                        <label class="input__label input__label--isao" data-content="Min Rooms">
                             <span class="input__label-content input__label-content--isao">Min Rooms</span>
                         </label>
                     </span>
                     <span class="input input--isao">
                         <input class="input__field input__field--isao" type="text" />
-                        <label class="input__label input__label--isao" for="input-40" data-content="Max Rooms">
+                        <label class="input__label input__label--isao" data-content="Max Rooms">
                             <span class="input__label-content input__label-content--isao">Max Rooms</span>
                         </label>
                     </span>
                     <span class="input input--isao">
                         <input class="input__field input__field--isao" type="text" />
-                        <label class="input__label input__label--isao" for="input-40" data-content="Min Rent">
+                        <label class="input__label input__label--isao" data-content="Min Rent">
                             <span class="input__label-content input__label-content--isao">Min Rent</span>
                         </label>
                     </span>
                     <span class="input input--isao">
                         <input class="input__field input__field--isao" type="text" />
-                        <label class="input__label input__label--isao" for="input-40" data-content="Max Rent">
+                        <label class="input__label input__label--isao" data-content="Max Rent">
                             <span class="input__label-content input__label-content--isao">Max Rent</span>
                         </label>
                     </span>
@@ -455,13 +455,13 @@
                     />
                 </svg>
                 <div class="form">
-                    <label class="login-label unselectable" for="email">Email</label>
+                    <label class="login-label unselectable" for="login-email">Email</label>
                     <input type="email" id="login-email">
-                    <label class="login-label unselectable" for="password">Password</label>
+                    <label class="login-label unselectable" for="login-password">Password</label>
                     <input type="password" id="login-password">
                     <input type="submit" id="login-submit" value="Submit">
                     <div class="reset-link">
-                        <a href="password_reset.html">Reset Password</a>
+                        <a href="password_reset.php">Reset Password</a>
                     </div>
                 </div>
 
@@ -491,20 +491,12 @@
                     />
                 </svg>
                 <div class="form">
-                    <label class="login-label" for="email">Email</label>
+                    <label class="login-label" for="signup-email">Email</label>
                     <input type="email" id="signup-email">
-                    <label class="login-label" for="password">Password</label>
+                    <label class="login-label" for="signup-password">Password</label>
                     <input type="password" id="signup-password">
                     <input type="submit" id="signup-submit" value="Submit">
                 </div>
             </div>
         </div>
     </div>
-    <!-- /END MODAL: SIGNUP -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="dist/js/all.min.js" async defer></script>
-
-
-</body>
-
-</html>
