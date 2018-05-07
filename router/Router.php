@@ -14,7 +14,7 @@ use controller\ListingController;
 use controller\RegisterController;
 use controller\AuthController;
 use controller\ErrorController;
-use controller\UserPasswordResetController;
+use controller\PasswordResetController;
 use controller\PDFController;
 use controller\SearchController;
 use controller\UserController;
@@ -161,26 +161,26 @@ class Router
 
 
 // Password Request and Reset
-        self::route("GET", "/password/request", function () {
-            UserPasswordResetController::requestView();
+        self::route("GET", "/password/reset", function () {
+            PasswordResetController::requestView();
         });
 
         self::route("POST", "/password/request", function () {
-            UserPasswordResetController::resetEmail();
+            PasswordResetController::resetEmail();
             self::redirect("/checkMail");
         });
 
         self::route("GET", "/checkMail", function () {
-            UserPasswordResetController::checkEmailView();
+            PasswordResetController::checkEmailView();
         });
 
         self::route("POST", "/password/reset", function () {
-            UserPasswordResetController::reset();
+            PasswordResetController::reset();
             self::redirect("/login");
         });
 
         self::route("GET", "/password/reset", function () {
-            UserPasswordResetController::resetView();
+            PasswordResetController::resetView();
         });
 
 
