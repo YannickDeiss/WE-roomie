@@ -28,18 +28,13 @@
                 <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"
                 />
             </svg>
-            <div class="form">
-                <label class="login-label unselectable" for="login-email">Email</label>
-                <input type="email" id="login-email">
-                <label class="login-label unselectable" for="login-password">Password</label>
-                <input type="password" id="login-password">
-                <input type="submit" id="login-submit" value="Submit">
-                <div class="reset-link">
-                    <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset" class="forgot">Reset Password</a>
-
-                </div>
-            </div>
-
+            <form class="form">
+                <label class="login-label" for="email">Email</label>
+                <input type="email" id="signup-email">
+                <label class="login-label" for="password">Password</label>
+                <input type="password" id="signup-password">
+                <input type="submit" id="signup-submit" value="Submit">
+            </form>
         </div>
 
     </div>
@@ -67,13 +62,13 @@
                 <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"
                 />
             </svg>
-            <div class="form">
+            <form class="form">
                 <label class="login-label" for="signup-email">Email</label>
                 <input type="email" id="signup-email">
                 <label class="login-label" for="signup-password">Password</label>
                 <input type="password" id="signup-password">
                 <input type="submit" id="signup-submit" value="Submit">
-            </div>
+            </form>
         </div>
     </div>
 </div>

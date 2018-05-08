@@ -1301,7 +1301,8 @@ div.shadow {
   -webkit-transform: rotate(135deg);
   transform: rotate(135deg); }
 
-.login-modal, .signup-modal {
+.login-modal,
+.signup-modal {
   font-family: 'Inter UI', sans-serif;
   position: fixed;
   left: 0;
@@ -1314,7 +1315,8 @@ div.shadow {
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s; }
 
-.modal-content, .reset-content {
+.modal-content,
+.reset-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1341,7 +1343,8 @@ div.shadow {
   transform: scale(1);
   transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s; }
 
-#close-login-modal-button, #close-signup-modal-button {
+#close-login-modal-button,
+#close-signup-modal-button {
   border-radius: 50%;
   position: relative;
   top: 0;
@@ -1350,10 +1353,12 @@ div.shadow {
   box-shadow: #505050 0px 0px 5px;
   outline: transparent; }
 
-#close-login-modal-button:hover, #close-signup-modal-button:hover {
+#close-login-modal-button:hover,
+#close-signup-modal-button:hover {
   color: #303030; }
 
-#close-login-modal-button:active, #close-signup-modal-button:active {
+#close-login-modal-button:active,
+#close-signup-modal-button:active {
   position: relative;
   right: 9px;
   top: 1px;
@@ -1361,14 +1366,16 @@ div.shadow {
   box-shadow: none; }
 
 @media (max-width: 768px) {
-  .modal-content, .reset-content {
+  .modal-content,
+  .reset-content {
     flex-direction: column;
     height: 630px;
     width: 320px; }
   .reset-content {
     position: relative; } }
 
-.login-left, .reset-left {
+.login-left,
+.reset-left {
   background: white;
   height: calc(100% - 40px);
   top: 20px;
@@ -1376,19 +1383,22 @@ div.shadow {
   width: 50%; }
 
 @media screen and (max-width: 768px) {
-  .login-left, .reset-left {
+  .login-left,
+  .reset-left {
     height: 100%;
     left: 20px;
     width: calc(100% - 40px);
     max-height: 270px; } }
 
-.login, .reset {
+.login,
+.reset {
   font-size: 50px;
   font-weight: 900;
   margin: 50px 40px 40px; }
 
 @media screen and (max-width: 768px) {
-  .login, .reset {
+  .login,
+  .reset {
     font-size: 40px;
     font-weight: 900;
     margin-top: 20px; } }
@@ -1399,7 +1409,8 @@ div.shadow {
   line-height: 1.5;
   margin: 40px; }
 
-.login-right, .reset-right {
+.login-right,
+.reset-right {
   background: #f96f5d;
   box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
   border-radius: 0.5rem;
@@ -1408,7 +1419,8 @@ div.shadow {
   width: 50%; }
 
 @media screen and (max-width: 768px) {
-  .login-right, .reset-right {
+  .login-right,
+  .reset-right {
     flex-shrink: 0;
     height: 100%;
     width: 100%;
@@ -1424,60 +1436,61 @@ div.shadow {
   stroke-width: 4;
   stroke-dasharray: 240 1386; }
 
-.form {
-  margin: 40px;
-  position: absolute; }
-
-.login-label, .reset-label {
-  color: #ffffff;
-  display: block;
-  font-size: 16px;
-  font-weight: bold;
-  height: 16px;
-  margin-top: 20px;
-  margin-bottom: 5px; }
-
-input {
-  background: transparent;
-  border: 0;
-  color: #f2f2f2;
-  font-size: 20px;
-  height: 30px;
-  line-height: 30px;
-  outline: none !important;
-  width: 100%; }
-
-input::-moz-focus-inner {
-  border: 0; }
-
-#login-submit, #signup-submit, #reset-submit {
-  color: white;
-  font-weight: bold;
-  margin-top: 40px;
-  transition: color 300ms; }
-
-#login-submit:focus, #signup-submit:focus, #reset-submit:focus {
-  color: #f2f2f2; }
-
-#login-submit:active, #signup-submit:active, #reset-submit:active {
-  color: #d0d0d2; }
-
-.reset-link {
-  width: 100%;
-  margin-top: 27px;
-  margin-left: 30%; }
-  .reset-link a {
-    text-decoration: none;
-    font-size: 1rem;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: bold; }
-  .reset-link a:hover {
-    color: rgba(59, 59, 59, 0.74); }
-
-@media screen and (max-width: 768px) {
-  .reset-link {
-    margin-top: 40px; } }
+form {
+  background-color: transparent; }
+  form.form {
+    margin: 40px;
+    position: absolute; }
+    form.form .login-label,
+    form.form .reset-label {
+      color: #ffffff;
+      display: block;
+      font-size: 16px;
+      font-weight: bold;
+      height: 16px;
+      margin-top: 20px;
+      margin-bottom: 5px; }
+    form.form input {
+      background: transparent;
+      border: 0;
+      color: #f2f2f2;
+      font-size: 20px;
+      height: 30px;
+      line-height: 30px;
+      outline: none !important;
+      width: 100%; }
+    form.form input::-moz-focus-inner {
+      border: 0; }
+    form.form #login-submit,
+    form.form #signup-submit,
+    form.form #reset-submit {
+      color: white;
+      font-weight: bold;
+      margin-top: 40px;
+      transition: color 300ms; }
+    form.form #login-submit:focus,
+    form.form #signup-submit:focus,
+    form.form #reset-submit:focus {
+      color: #f2f2f2; }
+    form.form #login-submit:active,
+    form.form #signup-submit:active,
+    form.form #reset-submit:active {
+      color: #d0d0d2; }
+    form.form .reset-link {
+      width: 100%;
+      margin-top: 27px;
+      margin-left: 30%; }
+      form.form .reset-link a {
+        text-decoration: none;
+        font-size: 1rem;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold; }
+      form.form .reset-link a:hover {
+        color: rgba(59, 59, 59, 0.74); }
+      @media screen and (max-width: 768px) {
+        form.form .reset-link {
+          margin-top: 40px; } }
 
 .listing-grid {
   display: grid;
@@ -1647,13 +1660,13 @@ input::-moz-focus-inner {
     .form-layout {
       max-width: 200px; } }
 
-form {
+form.form-layout {
   background-color: #ffffff;
   padding: 20px 40px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s; }
   @media screen and (max-width: 768px) {
-    form {
+    form.form-layout {
       padding: 20px 40px;
       box-shadow: none; } }
 
