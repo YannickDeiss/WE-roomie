@@ -23,7 +23,6 @@ class RegisterController
 {
     public static function registerUser($view = null)
     {
-        //print_r($_POST);
         $user = new User();
         $user->setUserName($_POST["email"]);
         $user->setEmail($_POST["email"]);
@@ -38,8 +37,25 @@ class RegisterController
                 $userValidator->setUserNameError("Username already exists");
             }
         }
-        //$userDAO = new UserDAO();
-        //$userDAO->create($user);
+            $user->setPassword("");
+            if (is_null($view))
+                $view = new TemplateView("view/modal.php");
+            $view->user = $user;
+            $view->userValidator = $userValidator;
+            LayoutRendering::basicLayout($view);
+            return false;
+    }
+
+    public static function validateUserEntry(){
+        $user = new User();
+        $user->setUserName($_POST["name"]);
+        $user->setEmail($_POST["email"]);
+        $user->setPassword($_POST["password"]);
+        $userValidator = new UserValidator($user);
+        if ($userValidator->isValid()) {
+            return true;
+        }
+        return false;
     }
 
     public static function editUser($view = null)

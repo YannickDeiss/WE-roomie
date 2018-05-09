@@ -132,7 +132,7 @@ class Router
 
         self::route("POST", "/register", function () {
             if (RegisterController::registerUser()){
-                //AuthController::login();
+                AuthController::login();
                 self::redirect("/user");
             }
         });
