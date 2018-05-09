@@ -9,14 +9,14 @@
 </header>
 
 <search class="search">
-    <div class="search-indicator">
+    <div class="search-indicator" onclick="pageJump()">
         <p class="unselectable">Search</p>
         <i class="fas fa-angle-double-down"></i>
     </div>
-    <div class="search-form">
+    <div class="search-form" id="searchArea">
         <div class="search-form-wrapper">
                     <span class="input input--isao">
-                        <input class="input__field input__field--isao" id="autocomplete" placeholder="" onfocus="geolocate()" type="text"/>
+                        <input class="input__field input__field--isao" id="autocomplete" placeholder="" type="text"/>
                         <label class="input__label input__label--isao" data-content="Location">
                             <span class="input__label-content input__label-content--isao">Location</span>
                         </label>
@@ -133,29 +133,20 @@
     function initAutocomplete() {
         // Create the autocomplete object, restricting the search to geographical
         // location types.
+        //https://stackoverflow.com/questions/42135049/google-maps-autocomplete-to-restrict-places-shown-in-a-specific-country
         autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']});
+            {types: ['(cities)'], componentRestrictions: {country: 'CH'}});
 
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
     }
-    function geolocate() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function (position) {
-                var geolocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                var circle = new google.maps.Circle({
-                    center: geolocation,
-                    radius: position.coords.accuracy
-                });
-                autocomplete.setBounds(circle.getBounds());
-            });
-        }
+
+    function pageJump() {
+        document.getElementById("searchArea").scrollIntoView({behavior: "smooth"});;
     }
+
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-l7QLzikVgEmkS67AMHR1cI0c9tKgIQ&libraries=places&callback=initAutocomplete"
