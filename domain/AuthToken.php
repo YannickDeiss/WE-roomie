@@ -33,7 +33,7 @@ class AuthToken {
      * @AssociationType int
      * @AssociationMultiplicity 1
      */
-    private $agentid;
+    private $userID;
     /**
      * @AttributeType int
      */
@@ -124,8 +124,8 @@ class AuthToken {
      * @return int
      * @ReturnType int
      */
-    public function getAgentid() {
-        return $this->agentid;
+    public function getUserID() {
+        return $this->userID;
     }
 
     /**
@@ -135,8 +135,8 @@ class AuthToken {
      * @ParamType agentid int
      * @ReturnType void
      */
-    public function setAgentid($agentid) {
-        $this->agentid = $agentid;
+    public function setUserID($userID) {
+        $this->userID = $userID;
     }
 
     /**

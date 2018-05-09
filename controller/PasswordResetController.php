@@ -39,7 +39,7 @@ class PasswordResetController
                 }
             }
             $user->setPassword("");
-            $resetView = new TemplateView("view/assets/resetPassword/resetPassword.php");
+            $resetView = new TemplateView("view/password_reset.php");
             $resetView->token = $_POST["token"];
             LayoutRendering::basicLayout($resetView);
             return false;
@@ -49,7 +49,7 @@ class PasswordResetController
 
     public static function resetEmail(){
         $token = AuthServiceImpl::getInstance()->issueToken(AuthServiceImpl::RESET_TOKEN, $_POST["email"]);
-        $emailView = new TemplateView("userPasswordResetEmail.php");
+        $emailView = new TemplateView("view/password_resetEmail.php");
         $emailView->resetLink = $GLOBALS["ROOT_URL"] . "/password/reset?token=" . $token;
         return EmailServiceClient::sendEmail($_POST["email"], "Password Reset Email", $emailView->render());
     }

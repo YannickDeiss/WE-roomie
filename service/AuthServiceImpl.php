@@ -13,7 +13,7 @@ use domain\AuthToken;
 //use dao\AgentDAO;
 use http\HTTPException;
 use http\HTTPStatusCode;
-//use dao\AuthTokenDAO;
+use dao\AuthTokenDAO;
 /**
  * @access public
  * @author andreas.martin
@@ -189,7 +189,7 @@ class AuthServiceImpl implements AuthService
         if (!empty($authToken)) {
             if (time() <= (new \DateTime($authToken->getExpiration()))->getTimestamp()) {
                 if (hash_equals(hash('sha384', hex2bin($tokenArray[1])), $authToken->getValidator())) {
-                    $this->currentUserId = $authToken->getAgentid();
+                    $this->currentUserId = $authToken->getUserID();
                     if ($authToken->getType() === self::RESET_TOKEN) {
                         $authTokenDAO->delete($authToken);
                     }
@@ -222,11 +222,11 @@ class AuthServiceImpl implements AuthService
         $token->setSelector(bin2hex(random_bytes(5)));
         if ($type === self::AGENT_TOKEN) {
             $token->setType(self::AGENT_TOKEN);
-            $token->setAgentid($this->currentUserId);
+            $token->setUserID($this->currentUserId);
             $timestamp = (new \DateTime('now'))->modify('+30 days');
         } elseif (isset($email)) {
             $token->setType(self::RESET_TOKEN);
-            $token->setAgentid((new UserDAO())->findByEmail($email)->getId());
+            $token->setUserID((new UserDAO())->findByEmail($email)->getId());
             $timestamp = (new \DateTime('now'))->modify('+1 hour');
         } else {
             throw new HTTPException(HTTPStatusCode::HTTP_406_NOT_ACCEPTABLE, 'RESET_TOKEN without email');

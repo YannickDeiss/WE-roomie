@@ -14,8 +14,8 @@ class AuthController
 {
 
     public static function authenticate(){
-        if (isset($_SESSION["agentLogin"])) {
-            if(AuthServiceImpl::getInstance()->validateToken($_SESSION["agentLogin"]["token"])) {
+        if (isset($_SESSION["userLogin"])) {
+            if(AuthServiceImpl::getInstance()->validateToken($_SESSION["userLogin"]["token"])) {
                 return true;
             }
         }
@@ -32,7 +32,7 @@ class AuthController
         if($authService->verifyUser($_POST["email"],$_POST["password"]))
         {
             $token = $authService->issueToken();
-            $_SESSION["agentLogin"]["token"] = $token;
+            $_SESSION["userLogin"]["token"] = $token;
             if(isset($_POST["remember"])) {
                 setcookie("token", $token, (new \DateTime('now'))->modify('+30 days')->getTimestamp(), "/");
             }
