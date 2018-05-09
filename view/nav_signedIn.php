@@ -22,14 +22,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href='user_listing.php'>
+                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'>
                         <i class="fas fa-user"></i>
                         <span>Hermann</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fas fa-sign-out"></i>
+                    <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/logout">
+                        <i class="fas fa-sign-out-alt"></i>
                         <span>Logout</span>
                     </a>
                 </li>
