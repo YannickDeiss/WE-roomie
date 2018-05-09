@@ -159,9 +159,8 @@ class Router
         });
 
         self::route("POST", "/password/request", function () {
-            PasswordResetController::resetEmail();
-//            self::redirect("password/checkMail");
-            self::redirect("/password/reset");
+//            PasswordResetController::resetEmail();
+            self::redirect("/password/checkMail");
         });
 
         self::route("GET", "/password/checkMail", function () {

@@ -56,7 +56,7 @@ class PasswordResetController
 
     public static function checkEmailView()
     {
-        $view = new TemplateView("view/assets/checkMails/checkMail.php");
+        $view = new TemplateView("password_checkMail.php");
         LayoutRendering::basicLayout($view);
     }
 
