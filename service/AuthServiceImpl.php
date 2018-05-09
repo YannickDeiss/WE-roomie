@@ -112,6 +112,24 @@ class AuthServiceImpl implements AuthService
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
+
+    public function createUser($user){
+
+        $password = $user->getPassword();
+        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        $userDAO = new UserDAO();
+        if (!is_null($userDAO->findByEmail($user->getEmail()))) {
+            $user->setEmailError(true);
+            return false;
+        }
+        if (!is_null($userDAO->findByUserName($user->getUserName()))) {
+            $user->setUserNameError(true);
+            return false;
+        }
+        $userDAO->create($user);
+        return true;
+    }
+
     /**
      * @access public
      * @param null $user
