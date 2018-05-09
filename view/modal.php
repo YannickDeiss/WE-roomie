@@ -7,7 +7,7 @@
  */
 ?>
 <!-- MODAL: LOGIN -->
-<div class="login-modal">
+<div class="login-modal z-index-10">
     <div class="modal-content">
         <div class="fas fa-times-circle" id="close-login-modal-button"></div>
         <div class="login-left">
@@ -30,10 +30,12 @@
             </svg>
             <form class="form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" method="post">
                 <label class="login-label" for="email">Email</label>
-                <input type="email" name="email" id="signup-email">
+                <input type="email" name="email" id="login-email">
+                <label class="login-label error hidden" for="email">*Email already exists</label>
                 <label class="login-label" for="password">Password</label>
-                <input type="password" name="password" id="signup-password">
-                <input type="submit" id="signup-submit" value="Submit">
+                <label class="login-label error" for="email">*Password not strong enough</label>
+                <input type="password" name="password" id="login-password">
+                <input type="submit" id="login-submit" value="Submit">
                 <div class="reset-link">
                     <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset">Reset Password</a>
                 </div>
@@ -44,7 +46,7 @@
 <!-- /END MODAL: LOGIN -->
 
 <!-- MODAL: SIGNUP -->
-<div class="signup-modal">
+<div class="signup-modal z-index-10">
     <div class="modal-content">
         <div class="fas fa-times-circle" id="close-signup-modal-button"></div>
         <div class="login-left">
@@ -66,8 +68,10 @@
             </svg>
             <form class="form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/register" method="post">
                 <label class="login-label" for="signup-email">Email</label>
+                <label class="login-label error hidden" for="email">*Email already exists</label>
                 <input type="email" name="email" id="signup-email">
                 <label class="login-label" for="signup-password">Password</label>
+                <label class="login-label error" for="email">*Password not strong enough</label>
                 <input type="password" name="password" id="signup-password">
                 <input type="submit" id="signup-submit" value="Submit">
             </form>
