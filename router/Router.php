@@ -161,16 +161,17 @@ class Router
 
 
 // Password Request and Reset
-        self::route("GET", "/password/reset", function () {
+        self::route("GET", "/password/request", function () {
             PasswordResetController::requestView();
         });
 
         self::route("POST", "/password/request", function () {
             PasswordResetController::resetEmail();
-            self::redirect("/checkMail");
+//            self::redirect("password/checkMail");
+            self::redirect("/password/reset");
         });
 
-        self::route("GET", "/checkMail", function () {
+        self::route("GET", "/password/checkMail", function () {
             PasswordResetController::checkEmailView();
         });
 
