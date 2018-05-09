@@ -177,6 +177,7 @@ class Router
         });
 
 
+
 // user paths
         self::route_auth("GET", '/user', $authFunction, function () {
             ListingController::readAll();

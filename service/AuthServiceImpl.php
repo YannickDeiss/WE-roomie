@@ -9,7 +9,7 @@
 namespace service;
 use dao\UserDAO;
 use domain\User;
-//use domain\AuthToken;
+use domain\AuthToken;
 //use dao\AgentDAO;
 use http\HTTPException;
 use http\HTTPStatusCode;
