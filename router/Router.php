@@ -122,23 +122,16 @@ class Router
         });
 
 // Login path
-        self::route("GET", "/login", function () {
-            UserController::loginView();
-        });
 
         self::route("POST", "/login", function () {
             AuthController::login();
             self::redirect("/user");
         });
 
-
 // Register path
-        self::route("GET", "/register", function () {
-            RegisterController::registerView();
-        });
 
         self::route("POST", "/register", function () {
-            if (RegisterController::register()){
+            if (RegisterController::registerUser()){
                 AuthController::login();
                 self::redirect("/user");
             }
