@@ -9,11 +9,11 @@
 </header>
 
 <search class="search">
-    <div class="search-indicator">
+    <div class="search-indicator" onclick="pageJump()">
         <p class="unselectable">Search</p>
         <i class="fas fa-angle-double-down"></i>
     </div>
-    <div class="search-form">
+    <div class="search-form" id="searchArea">
         <div class="search-form-wrapper">
                     <span class="input input--isao">
                         <input class="input__field input__field--isao" id="autocomplete" placeholder="" type="text"/>
@@ -141,6 +141,10 @@
         // When the user selects an address from the dropdown, populate the address
         // fields in the form.
         autocomplete.addListener('place_changed', fillInAddress);
+    }
+
+    function pageJump() {
+        document.getElementById("searchArea").scrollIntoView({behavior: "smooth"});;
     }
 
 
