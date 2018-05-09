@@ -1,8 +1,13 @@
+<head>
+    <link src="mapsStyle.css"
+</head>
+
 <header class="header">
     <div class="header-content unselectable">
         <h1>Find your new home today</h1>
     </div>
 </header>
+
 <search class="search">
     <div class="search-indicator">
         <p class="unselectable">Search</p>
@@ -11,9 +16,9 @@
     <div class="search-form">
         <div class="search-form-wrapper">
                     <span class="input input--isao">
-                        <input class="input__field input__field--isao" type="text"/>
-                        <label class="input__label input__label--isao" data-content="Search Where">
-                            <span class="input__label-content input__label-content--isao">Search Where</span>
+                        <input class="input__field input__field--isao" id="autocomplete" placeholder="" onfocus="geolocate()" type="text"/>
+                        <label class="input__label input__label--isao" data-content="Location">
+                            <span class="input__label-content input__label-content--isao">Location</span>
                         </label>
                     </span>
             <span class="input input--isao">
@@ -113,5 +118,46 @@
     </div>
 </main>
 
+ <script>
 
+    var placeSearch, autocomplete;
+    var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+    };
+
+    function initAutocomplete() {
+        // Create the autocomplete object, restricting the search to geographical
+        // location types.
+        autocomplete = new google.maps.places.Autocomplete(
+            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+            {types: ['geocode']});
+
+        // When the user selects an address from the dropdown, populate the address
+        // fields in the form.
+        autocomplete.addListener('place_changed', fillInAddress);
+    }
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                var circle = new google.maps.Circle({
+                    center: geolocation,
+                    radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-l7QLzikVgEmkS67AMHR1cI0c9tKgIQ&libraries=places&callback=initAutocomplete"
+        async defer></script>
 
