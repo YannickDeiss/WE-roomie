@@ -34,9 +34,11 @@
                 <label class="login-label" for="password">Password</label>
                 <input type="password" name="password" id="signup-password">
                 <input type="submit" id="signup-submit" value="Submit">
+                <div class="reset-link">
+                    <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset">Reset Password</a>
+                </div>
             </form>
         </div>
-
     </div>
 </div>
 <!-- /END MODAL: LOGIN -->

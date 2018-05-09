@@ -18,13 +18,13 @@ class PasswordResetController
 {
 
     public static function resetView(){
-        $resetView = new TemplateView("view/password_reset.php");
+        $resetView = new TemplateView("password_reset.php");
         //$resetView->token = $_GET["token"];
         LayoutRendering::basicLayout($resetView);
     }
     
     public static function requestView(){
-        $view = new TemplateView("view//password_request.php");
+        $view = new TemplateView("password_request.php");
         LayoutRendering::basicLayout($view);
     }
     
