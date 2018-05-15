@@ -154,11 +154,11 @@ class Router
 
 
 // Password Request and Reset
-        self::route("GET", "/password/request", function () {
-            PasswordResetController::requestView();
+        self::route("GET", "/password/reset", function () {
+            PasswordResetController::resetView();
         });
 
-        self::route("POST", "/password/request", function () {
+        self::route("POST", "/password/reset", function () {
             PasswordResetController::resetEmail();
             self::redirect("/password/checkMail");
         });
@@ -167,13 +167,13 @@ class Router
             PasswordResetController::checkEmailView();
         });
 
-        self::route("POST", "/password/reset", function () {
-            PasswordResetController::reset();
-            self::redirect("/login");
+        self::route("GET", "/password/request", function () {
+            PasswordResetController::requestView();
         });
 
-        self::route("GET", "/password/reset", function () {
-            PasswordResetController::resetView();
+        self::route("POST", "/password/request", function () {
+            PasswordResetController::reset();
+            self::redirect("/");
         });
 
 

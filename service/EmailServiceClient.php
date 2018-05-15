@@ -39,7 +39,7 @@ class EmailServiceClient
             }
           ],
           "from": {
-            "email": "roomie@fhnw.ch",
+            "email": "roomie-support@fhnw.ch",
             "name": "Roomie Support"
           },
           "subject": "subject",
