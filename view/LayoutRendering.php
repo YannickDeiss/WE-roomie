@@ -19,9 +19,9 @@ class LayoutRendering
         $view->meta = (new TemplateView("meta.php"))->render();
         $view->modal = (new TemplateView("modal.php"))->render();
         $view->nav = (new TemplateView("nav.php"))->render();
-//        if (AuthController::authenticate()) {
-//            $view->nav = (new TemplateView("nav_signedIn.php"))->render();
-//        }
+        if (AuthController::authenticate()) {
+            $view->nav = (new TemplateView("nav_signedIn.php"))->render();
+        }
         $view->content = $contentView->render();
         $view->footer = (new TemplateView("footer.php"))->render();
         echo $view->render();
