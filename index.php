@@ -26,6 +26,7 @@ try {
         HTTPHeader::setStatusHeader(HTTPStatusCode::HTTP_204_NO_CONTENT);
     } else {
         Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO']);
+        file_put_contents("php://stderr", "hello, this is a test!\n");
     }
 
 } catch (HTTPException $exception) {
