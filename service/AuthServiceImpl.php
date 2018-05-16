@@ -127,6 +127,7 @@ class AuthServiceImpl implements AuthService
 
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        //$user->setPassword($password);
         $userDAO = new UserDAO();
         if (!is_null($userDAO->findByEmail($user->getEmail()))) {
             $user->setEmailError(true);
@@ -195,8 +196,8 @@ class AuthServiceImpl implements AuthService
     public function updatePassword($user)
     {
         $password = $user->getPassword();
-        //$user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-        $user->setPassword($password);
+        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        //$user->setPassword($password);
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
             $user->set($this->currentUserId);

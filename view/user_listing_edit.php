@@ -7,27 +7,27 @@
             <form class="entry-form" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit">
                 <h1>Create Your listing</h1>
                 <div class="form-group">
-                    <input type="text" required/>
+                    <input type="text" required name="title"/>
                     <label>Title</label>
                 </div>
                 <div class="form-group">
-                    <input id="autocomplete" placeholder="" onfocus="geolocate()" type="text" required/>
+                    <input id="autocomplete" placeholder="" onfocus="geolocate()" type="text" required name="location"/>
                     <label>Location</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" required/>
+                    <input type="text" required name="rooms"/>
                     <label>Rooms</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" required/>
+                    <input type="text" required name="rent"/>
                     <label>Rent</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" required/>
+                    <input type="text" required name="squareMeters"/>
                     <label>Square Meters</label>
                 </div>
                 <div class="form-group">
-                    <input type="date" required/>
+                    <input type="date" required name="availableFrom"/>
                     <label class="label-top">Available From</label>
                 </div>
                 <div class="form-group">
@@ -35,15 +35,15 @@
                     <label class="label-top">Description</label>
                 </div>
                 <div class="form-group">
-                    <input type="file" required/>
+                    <input type="file" required name="image1"/>
                     <label class="label-top">Image 1</label>
                 </div>
                 <div class="form-group">
-                    <input type="file" required/>
+                    <input type="file" required name="image2"/>
                     <label class="label-top">Image 2</label>
                 </div>
                 <div class="form-group">
-                    <input type="file" required/>
+                    <input type="file" required name="image3"/>
                     <label class="label-top">Image 3</label>
                 </div>
                 <input type="button" class="green" value="Post"/>
