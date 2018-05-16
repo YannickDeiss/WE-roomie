@@ -2,6 +2,7 @@
     <div class="listing-grid">
         <div class="section-heading">
             <h2>List of your posted rooms</h2>
+            <!--style="font-style:normal;line-height:19px;font-size:36px;height:56px;margin-top:23px;"><?php echo isset($this->result) ? "We found <strong style='color: #f4476b'>" . sizeof($this->listings) . "</strong> rooms for you" : "Available Rooms" ?></p>-->
         </div>
         <div class="listing-item border-dotted">
             <div class="add-listing-button-wrapper">
