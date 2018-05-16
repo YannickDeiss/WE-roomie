@@ -98,7 +98,7 @@ class Router
         $authFunction = function () {
             if (AuthController::authenticate())
                 return true;
-            self::redirect("/login");
+            self::redirect("/");
             return false;
         };
 

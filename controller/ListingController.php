@@ -25,7 +25,6 @@ class ListingController
     public static function readAll() {
         $contentView = new TemplateView("view/user_listing.php");
         //$contentView->listings = (new ListingServiceImpl())->findAllListings();
-        //$contentView->showTools = true;
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -37,7 +36,7 @@ class ListingController
 
     public static function edit() {
         $id = $_GET["id"];
-        $contentView = new TemplateView("assets/createAd/createAd.php");
+        $contentView = new TemplateView("view/user_listing_edit.php");
         $contentView->listing = (new ListingServiceImpl())->readListing($id);
         LayoutRendering::basicLayout($contentView);
     }
