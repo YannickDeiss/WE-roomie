@@ -47,7 +47,7 @@
                     <label class="label-top">Image 3</label>
                 </div>
                 <input type="button" class="green" value="Post"/>
-                <input type="button" value="Cancel"/>
+                <input type="button" value="Cancel" onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'"/>
             </form>
         </div>
     </div>

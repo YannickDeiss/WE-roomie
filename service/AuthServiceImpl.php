@@ -126,8 +126,7 @@ class AuthServiceImpl implements AuthService
     {
 
         $password = $user->getPassword();
-        //$user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-        $user->setPassword($password);
+        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
         if (!is_null($userDAO->findByEmail($user->getEmail()))) {
             $user->setEmailError(true);

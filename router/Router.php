@@ -184,6 +184,9 @@ class Router
         });
 
 // Listing CRUD & Email
+
+
+
         self::route_auth("GET", "/listing/create", $authFunction, function () {
             ListingController::create();
         });
