@@ -29,14 +29,14 @@ class PasswordResetController
         LayoutRendering::basicLayout($view);
     }
     
-    public static function reset(){
+    public static function updatePassword(){
         if(AuthServiceImpl::getInstance()->validateToken($_POST["token"])){
             $user = AuthServiceImpl::getInstance()->readUser();
-            $user->setPassword($_POST["rePassword"]);
+            $user->setPassword($_POST["password"]);
 
             $userValidator = new UserValidator($user);
             if($userValidator->isValid()){
-                if(AuthServiceImpl::getInstance()->editUser($user)){
+                if(AuthServiceImpl::getInstance()->updatePassword($user)){
                     return true;
                 }
             }

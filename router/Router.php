@@ -172,7 +172,7 @@ class Router
         });
 
         self::route("POST", "/password/request", function () {
-            PasswordResetController::reset();
+            PasswordResetController::updatePassword();
             self::redirect("/");
         });
 
