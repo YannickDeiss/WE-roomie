@@ -19,6 +19,7 @@ class PasswordResetController
 
     public static function resetView(){
         $resetView = new TemplateView("password_reset.php");
+        //$resetView->token = $_GET["token"];
         LayoutRendering::basicLayout($resetView);
     }
     
@@ -31,7 +32,8 @@ class PasswordResetController
     public static function reset(){
         if(AuthServiceImpl::getInstance()->validateToken($_POST["token"])){
             $user = AuthServiceImpl::getInstance()->readUser();
-            $user->setPassword($_POST["password"]);
+            $user->setPassword($_POST["rePassword"]);
+
             $userValidator = new UserValidator($user);
             if($userValidator->isValid()){
                 if(AuthServiceImpl::getInstance()->editUser($user)){

@@ -143,7 +143,10 @@ class AuthServiceImpl implements AuthService
     public function editUser($user)
     {
         $password = $user->getPassword();
-        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        //$user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+
+        $user->setPassword($password);
+
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
             $user->set($this->currentUserId);
