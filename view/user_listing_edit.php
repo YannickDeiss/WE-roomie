@@ -4,7 +4,7 @@
             <h2>Post your apartment</h2>
         </div>
         <div class="form-layout">
-            <form class="entry-form" method="post" action="">
+            <form class="entry-form" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit">
                 <h1>Create Your listing</h1>
                 <div class="form-group">
                     <input type="text" required/>
