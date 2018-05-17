@@ -1,3 +1,9 @@
+<?php
+
+use view\TemplateView;
+
+?>
+
 <main class="content">
     <div class="reset-content">
         <div class="reset-left">
@@ -18,9 +24,10 @@
             </svg>
             <form class="form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/request" method="POST">
                 <label class="reset-label unselectable" for="new-password">New Password</label>
-                <input type="password" name ="password" id="new-password">
+                <input type="password" name="password" id="new-password">
                 <label class="reset-label unselectable" for="re-password">Re-type Password</label>
-                <input type="password" id="re-password">
+                <input type="password" name="rePassword" id="re-password">
+                <input type="hidden" name="token" value="<?php echo TemplateView::noHTML($this->token); ?>"/>
                 <input type="submit" id="reset-submit" value="Submit">
             </form>
         </div>

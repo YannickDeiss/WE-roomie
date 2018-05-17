@@ -16,7 +16,7 @@
             </div>
             <ul>
                 <li class="active">
-                    <a href='#'>
+                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/'>
                         <i class="fas fa-home"></i>
                         <span>Home</span>
                     </a>

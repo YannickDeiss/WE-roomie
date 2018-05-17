@@ -63,19 +63,19 @@
             <div class="product-card">
                 <div class="product-front">
                     <div class="shadow"></div>
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt.png" alt=""/>
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large.png" alt=""/>
                     <div class="image_overlay"></div>
                     <div class="view_details">View details</div>
                     <div class="stats">
                         <div class="stats-container">
-                            <span class="product_price">$39</span>
-                            <span class="product_name">Adidas Originals</span>
-                            <p>Men's running shirt</p>
+                            <span class="product_price">CHF 1500</span>
+                            <span class="product_name">3 room apartment in Basel</span>
+                            <p>Available from 01.06.2018</p>
 
                             <div class="product-options">
-                                <strong>SIZES</strong>
-                                <span>XS, S, M, L, XL, XXL</span>
-                                <strong>COLORS</strong>
+                                <strong>Rooms</strong>
+                                <span>3</span>
+                                <strong><a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/'></strong>
                             </div>
                         </div>
                     </div>
@@ -85,8 +85,7 @@
                     <div class="carousel">
                         <ul class="unselectable">
                             <li>
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large.png"
-                                     alt=""/>
+                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large.png" alt=""/>
                             </li>
                             <li>
                                 <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large2.png"

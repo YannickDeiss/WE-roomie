@@ -98,7 +98,7 @@ class Router
         $authFunction = function () {
             if (AuthController::authenticate())
                 return true;
-            self::redirect("/login");
+            self::redirect("/");
             return false;
         };
 
@@ -172,7 +172,7 @@ class Router
         });
 
         self::route("POST", "/password/request", function () {
-            PasswordResetController::reset();
+            PasswordResetController::updatePassword();
             self::redirect("/");
         });
 
@@ -184,6 +184,9 @@ class Router
         });
 
 // Listing CRUD & Email
+
+
+
         self::route_auth("GET", "/listing/create", $authFunction, function () {
             ListingController::create();
         });

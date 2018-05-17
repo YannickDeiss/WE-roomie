@@ -2,10 +2,11 @@
     <div class="listing-grid">
         <div class="section-heading">
             <h2>List of your posted rooms</h2>
+            <!--style="font-style:normal;line-height:19px;font-size:36px;height:56px;margin-top:23px;"><?php echo isset($this->result) ? "We found <strong style='color: #f4476b'>" . sizeof($this->listings) . "</strong> rooms for you" : "Available Rooms" ?></p>-->
         </div>
         <div class="listing-item border-dotted">
             <div class="add-listing-button-wrapper">
-                <button onclick="location.href='user_listing_edit.php'" type="button" class="add-listing-button">
+                <button onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/create'" type="button" class="add-listing-button">
                     <span class="unselectable">Add</span>
                 </button>
             </div>
@@ -30,9 +31,9 @@
                 </div>
             </div>
             <div class="options">
-                <a href="user_listing_edit.php">
+                <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit'>
                     <i class="fa fa-edit"></i>Edit</a>
-                <a href="listing_detail.php">
+                <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/delete'>
                     <!-- the link above needs to be changed with the real one -->
                     <i class="fa fa-trash"></i>Delete</a>
             </div>

@@ -7,6 +7,7 @@
  */
 
 namespace service;
+
 use dao\UserDAO;
 use domain\User;
 use domain\AuthToken;
@@ -14,6 +15,7 @@ use domain\AuthToken;
 use http\HTTPException;
 use http\HTTPStatusCode;
 use dao\AuthTokenDAO;
+
 /**
  * @access public
  * @author andreas.martin
@@ -28,6 +30,7 @@ class AuthServiceImpl implements AuthService
      * @AttributeType int
      */
     private $currentUserId;
+
     /**
      * @access public
      * @return AuthServiceImpl
@@ -41,18 +44,21 @@ class AuthServiceImpl implements AuthService
         }
         return self::$instance;
     }
+
     /**
      * @access protected
      */
     protected function __construct()
     {
     }
+
     /**
      * @access private
      */
     private function __clone()
     {
     }
+
     /**
      * @access public
      * @return boolean
@@ -64,6 +70,7 @@ class AuthServiceImpl implements AuthService
             return true;
         return false;
     }
+
     /**
      * @access public
      * @return int
@@ -73,6 +80,7 @@ class AuthServiceImpl implements AuthService
     {
         return $this->currentUserId;
     }
+
     /**
      * @access public
      * @param String email
@@ -98,6 +106,7 @@ class AuthServiceImpl implements AuthService
         }
         return false;
     }
+
     /**
      * @access public
      * @return User
@@ -113,10 +122,12 @@ class AuthServiceImpl implements AuthService
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
-    public function createUser($user){
+    public function createUser($user)
+    {
 
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        //$user->setPassword($password);
         $userDAO = new UserDAO();
         if (!is_null($userDAO->findByEmail($user->getEmail()))) {
             $user->setEmailError(true);
@@ -142,7 +153,10 @@ class AuthServiceImpl implements AuthService
     public function editUser($user)
     {
         $password = $user->getPassword();
-        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        //$user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+
+        $user->setPassword($password);
+
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
             $user->set($this->currentUserId);
@@ -173,6 +187,26 @@ class AuthServiceImpl implements AuthService
             return true;
         }
     }
+
+
+    /**
+     * @param $user
+     * @return bool
+     */
+    public function updatePassword($user)
+    {
+        $password = $user->getPassword();
+        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
+        //$user->setPassword($password);
+        $userDAO = new UserDAO();
+        if ($this->verifyAuth()) {
+            $user->set($this->currentUserId);
+            $userDAO->update($user);
+            return true;
+        }
+        return false;
+    }
+
     /**
      * @access public
      * @param String token
@@ -200,6 +234,7 @@ class AuthServiceImpl implements AuthService
         }
         return false;
     }
+
     /**
      * @access public
      * @param int type
