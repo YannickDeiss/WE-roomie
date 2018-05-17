@@ -16,6 +16,7 @@ Functionality
     [LISTINGS]
     - Create listing
         - Allow for uploads and retrieval of images through amazon aws s3
+        - GeoLocation by Google for Location field
     - Show list of my posted listings
     - Delete my listing
     - Edit my listing
