@@ -1,4 +1,54 @@
 LIST OF TODOS DURING THE PROJECT
 
-404 PAGE
-.env files
+
+Pages
+    - New 404 PAGE
+    - New Search result page
+    - Design footer
+
+Functionality
+    [HOMEPAGR]
+    - Show the latest listings
+
+    [SEARCH]
+    - Search
+
+    [LISTINGS]
+    - Create listing
+        - Allow for uploads and retrieval of images through amazon aws s3
+    - Show list of my posted listings
+    - Delete my listing
+    - Edit my listing
+    - Email a list of my listings to me
+    - Print a listing from the detail view page
+
+    [LOGIN]
+    - Remember me function during the login process
+    - Show name or email in the logged in navbar
+
+    [MODALS]
+    - Give feedback of already existing email address
+    - Give feedback about false email or password during login process
+
+    [PROFILE]
+    - Edit profile
+        - Change email address
+        - Change username
+        - Change password
+
+Design
+    - Add Search link to the navbar which links to search page
+    - Add link to roomie logo to navigate back to homepage "/"
+    - Make location the biggest element in the search box
+    - Add remember me checkbox to login modal
+    - Fix Mobile View of Modals
+    - Make sure everything is ok in mobile view
+    - Make the word Search change appearance when hovered
+    - Make the snake in the modals react to hover and not to mouse pressed
+    - Make font smaller on homepage in the latest listing cards
+
+Bugs
+
+- Authtoken are not being deleted in the database at the moment during password reset process
+
+
