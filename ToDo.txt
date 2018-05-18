@@ -25,7 +25,7 @@ Functionality
 
     [LOGIN]
     - Remember me function during the login process
-    - Show name or email in the logged in navbar
+    DONE ----- Show name or email in the logged in navbar
 
     [MODALS]
     - Give feedback of already existing email address

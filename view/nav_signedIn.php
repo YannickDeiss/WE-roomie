@@ -5,6 +5,18 @@
  * Date: 07.05.2018
  * Time: 14:18
  */
+
+use service\AuthServiceImpl;
+
+$user = AuthServiceImpl::getInstance()->readUser();
+$userName = '';
+if (!empty($user->getUserName())){
+    $userName = $user->getUserName();
+}else{
+    $userName = $user->getEmail();
+    $userName = explode('@', $userName);
+}
+$userName = substr($userName,0,15).' ...';
 ?>
 
 
@@ -24,7 +36,7 @@
                 <li>
                     <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'>
                         <i class="fas fa-user"></i>
-                        <span>Hermann</span>
+                        <span><?php echo $userName?></span>
                     </a>
                 </li>
                 <li>
