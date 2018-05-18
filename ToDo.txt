@@ -1,17 +1,17 @@
 LIST OF TODOS DURING THE PROJECT
 
-
 Pages
     - New 404 PAGE
     - New Search result page
+    - Edit profile page
     - Design footer
 
 Functionality
-    [HOMEPAGR]
+    [HOMEPAGE]
     - Show the latest listings
 
     [SEARCH]
-    - Search
+    - Implement Search
 
     [LISTINGS]
     - Create listing
@@ -24,7 +24,7 @@ Functionality
     - Print a listing from the detail view page
 
     [LOGIN]
-    - Remember me function during the login process
+    DONE ----- Remember me function during the login process
     DONE ----- Show name or email in the logged in navbar
 
     [MODALS]
@@ -38,15 +38,17 @@ Functionality
         - Change password
 
 Design
+    - Add Edit Profile link somewhere
     - Add Search link to the navbar which links to search page
-    - Add link to roomie logo to navigate back to homepage "/"
+    - Add link to logo to navigate back to homepage "/"
     - Make location the biggest element in the search box
-    - Add remember me checkbox to login modal
+    DONE ----- Add remember me checkbox to login modal
     - Fix Mobile View of Modals
     - Make sure everything is ok in mobile view
-    - Make the word Search change appearance when hovered
-    - Make the snake in the modals react to hover and not to mouse pressed
+    DONE ----- Make the word Search change appearance when hovered
+    DONE ----- Make the snake in the modals react to hover and not to mouse pressed
     - Make font smaller on homepage in the latest listing cards
+    DONE ----- Fix misalignment in modals "submit"
 
 Bugs
 

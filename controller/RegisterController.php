@@ -21,10 +21,9 @@ use validator\UserValidator;
 
 class RegisterController
 {
-    public static function registerUser($view = null)
-    {
+    public static function registerUser($view = null) {
         $user = new User();
-        $user->setUserName($_POST["email"]);
+        $user->setUserName('');
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
         $userValidator = new UserValidator($user);
@@ -37,16 +36,16 @@ class RegisterController
                 $userValidator->setUserNameError("Username already exists");
             }
         }
-            $user->setPassword("");
-            if (is_null($view))
-                $view = new TemplateView("view/modal.php");
-            $view->user = $user;
-            $view->userValidator = $userValidator;
-            LayoutRendering::basicLayout($view);
-            return false;
+        $user->setPassword("");
+//        if (is_null($view))
+//            $view = new TemplateView("view/modal.php");
+//        $view->user = $user;
+//        $view->userValidator = $userValidator;
+//        LayoutRendering::basicLayout($view);
+        return true;
     }
 
-    public static function validateUserEntry(){
+    public static function validateUserEntry() {
         $user = new User();
         $user->setUserName($_POST["name"]);
         $user->setEmail($_POST["email"]);
@@ -58,8 +57,7 @@ class RegisterController
         return false;
     }
 
-    public static function editUser($view = null)
-    {
+    public static function editUser($view = null) {
         $user = new User();
         $user->setUserName($_POST["name"]);
         $user->setEmail($_POST["email"]);

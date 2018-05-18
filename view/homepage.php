@@ -9,7 +9,7 @@
 </header>
 
 <search class="search">
-    <div class="search-indicator" onclick="pageJump()">
+    <div class="wobble search-indicator" onclick="pageJump()">
         <p class="unselectable">Search</p>
         <i class="fas fa-angle-double-down"></i>
     </div>

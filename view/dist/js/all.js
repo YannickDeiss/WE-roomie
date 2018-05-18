@@ -44,7 +44,7 @@ window.onload = function () {
     // MODAL SNAKE EFFECT
 
     var current = null;
-    document.querySelector('#login-email, #reset-email, #new-password').addEventListener('focus', function (e) {
+    document.querySelector('#login-email, #reset-email, #new-password').addEventListener('mouseover', function (e) {
         if (current) current.pause();
         current = anime({
             targets: 'path',
@@ -61,7 +61,7 @@ window.onload = function () {
         });
     });
 
-    document.querySelector('#login-password, #re-password').addEventListener('focus', function (e) {
+    document.querySelector('#login-password, #re-password').addEventListener('mouseover', function (e) {
         if (current) current.pause();
         current = anime({
             targets: 'path',
@@ -97,7 +97,7 @@ window.onload = function () {
         });
     });
 
-    document.querySelector('#signup-email').addEventListener('focus', function (e) {
+    document.querySelector('#signup-email').addEventListener('mouseover', function (e) {
         if (current) current.pause();
         current = anime({
             targets: 'path',
@@ -114,7 +114,7 @@ window.onload = function () {
         });
     });
 
-    document.querySelector('#signup-password').addEventListener('focus', function (e) {
+    document.querySelector('#signup-password').addEventListener('mouseover', function (e) {
         if (current) current.pause();
         current = anime({
             targets: 'path',

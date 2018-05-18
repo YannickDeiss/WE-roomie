@@ -619,6 +619,7 @@ p {
   text-align: center; }
 
 .search-indicator p {
+  cursor: pointer;
   color: #000000;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 36px;
@@ -628,6 +629,7 @@ p {
   text-align: center; }
 
 .search-indicator .fa-angle-double-down {
+  cursor: pointer;
   color: #000000; }
 
 .search-form {
@@ -1385,6 +1387,24 @@ div.shadow {
   top: 20px;
   position: relative;
   width: 50%; }
+  .login-left .reset-link,
+  .reset-left .reset-link {
+    width: 120px;
+    margin: 40px;
+    padding-left: 30px; }
+    .login-left .reset-link a,
+    .reset-left .reset-link a {
+      text-decoration: none;
+      color: #000000;
+      font-size: 13px;
+      font-weight: bold; }
+    .login-left .reset-link a:hover,
+    .reset-left .reset-link a:hover {
+      color: rgba(59, 59, 59, 0.74); }
+    @media screen and (max-width: 768px) {
+      .login-left .reset-link,
+      .reset-left .reset-link {
+        margin-top: 40px; } }
 
 @media screen and (max-width: 768px) {
   .login-left,
@@ -1476,7 +1496,6 @@ form {
       border: 0;
       color: #f2f2f2;
       font-size: 20px;
-      height: 25px;
       line-height: 30px;
       outline: none !important;
       width: 100%; }
@@ -1485,10 +1504,12 @@ form {
     form.form #login-submit,
     form.form #signup-submit,
     form.form #reset-submit {
-      color: white;
       font-weight: bold;
-      margin-top: 40px;
+      margin-top: 35px;
+      margin-left: 5px;
       transition: color 300ms; }
+    form.form #signup-submit {
+      margin-top: 30px; }
     form.form #login-submit:focus,
     form.form #signup-submit:focus,
     form.form #reset-submit:focus {
@@ -1497,21 +1518,15 @@ form {
     form.form #signup-submit:active,
     form.form #reset-submit:active {
       color: #d0d0d2; }
-    form.form .reset-link {
-      width: 100%;
-      margin-top: 27px;
-      margin-left: 30%; }
-      form.form .reset-link a {
-        text-decoration: none;
-        font-size: 1rem;
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: bold; }
-      form.form .reset-link a:hover {
-        color: rgba(59, 59, 59, 0.74); }
-      @media screen and (max-width: 768px) {
-        form.form .reset-link {
-          margin-top: 40px; } }
+    form.form .remember-label {
+      margin-left: 80px;
+      padding-top: -5px;
+      width: 80px;
+      font-size: 12px; }
+    form.form .remember-input {
+      width: 20px;
+      align-self: center;
+      margin-top: 30px; }
 
 .listing-grid {
   display: grid;
@@ -1929,7 +1944,6 @@ form.form-layout {
     transform: translateY(0); } }
 
 .wobble {
-  display: inline-block;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);

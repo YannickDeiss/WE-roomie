@@ -15,6 +15,9 @@
             <div class="eula unselectable">By logging in you agree to the ridiculously long terms that you didn't bother
                 to read
             </div>
+            <div class="reset-link">
+                <a href="./password_reset.html">Reset Password</a>
+            </div>
         </div>
         <div class="login-right">
             <svg class="snake" viewBox="0 0 320 300">
@@ -36,9 +39,8 @@
                 <label class="login-label error" for="email">*Password not strong enough</label>
                 <input type="password" name="password" id="login-password">
                 <input type="submit" id="login-submit" value="Submit">
-                <div class="reset-link">
-                    <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset">Reset Password</a>
-                </div>
+                <label class="remember-label" for="email">Remember me</label>
+                <input class="remember-input" type="checkbox" name="remember">
             </form>
         </div>
     </div>

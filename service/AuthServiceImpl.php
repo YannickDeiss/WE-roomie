@@ -124,7 +124,6 @@ class AuthServiceImpl implements AuthService
 
     public function createUser($user)
     {
-
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         //$user->setPassword($password);
@@ -133,10 +132,11 @@ class AuthServiceImpl implements AuthService
             $user->setEmailError(true);
             return false;
         }
-        if (!is_null($userDAO->findByUserName($user->getUserName()))) {
-            $user->setUserNameError(true);
-            return false;
-        }
+//        CHECK IF USERNAME ALREADY EXISTS
+//        if (!is_null($userDAO->findByUserName($user->getUserName()))) {
+//            $user->setUserNameError(true);
+//            return false;
+//        }
         $userDAO->create($user);
         return true;
     }

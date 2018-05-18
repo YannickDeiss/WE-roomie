@@ -25,23 +25,17 @@ class UserValidator
         }
     }
 
-    public function validate(User $agentuser)
+    public function validate(User $user)
     {
-        if (!is_null($agentuser)) {
-            if (empty($agentuser->getUserName())) {
-                $this->nameError = 'Please enter a name';
-                $this->valid = false;
-            }
-
-            if (empty($agentuser->getEmail())) {
+        if (!is_null($user)) {
+            if (empty($user->getEmail())) {
                 $this->emailError = 'Please enter an email address';
                 $this->valid = false;
-            } else if (!filter_var($agentuser->getEmail(), FILTER_VALIDATE_EMAIL)) {
+            } else if (!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) {
                 $this->emailError = 'Please enter a valid email address';
                 $this->valid = false;
             }
-
-            if (empty($agentuser->getPassword())) {
+            if (empty($user->getPassword())) {
                 $this->passwordError = 'Please enter a password';
                 $this->valid = false;
             }
