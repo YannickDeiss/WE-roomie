@@ -1486,8 +1486,9 @@ form {
       margin-bottom: 5px; }
       form.form .login-label.error,
       form.form .reset-label.error {
-        color: red;
-        font-size: 10px; }
+        color: black;
+        font-size: 14px;
+        font-weight: bold; }
         form.form .login-label.error.hidden,
         form.form .reset-label.error.hidden {
           display: none; }
@@ -1495,7 +1496,7 @@ form {
       background: transparent;
       border: 0;
       color: #f2f2f2;
-      font-size: 20px;
+      font-size: 16px;
       line-height: 30px;
       outline: none !important;
       width: 100%; }

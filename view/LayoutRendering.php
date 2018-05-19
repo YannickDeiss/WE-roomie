@@ -12,7 +12,6 @@ use controller\AuthController;
 
 class LayoutRendering
 {
-
     public static function basicLayout(TemplateView $contentView)
     {
         $view = new TemplateView("layout.php");

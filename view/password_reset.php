@@ -18,7 +18,7 @@
             </svg>
             <form class="form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset" method="POST">
                 <label class="reset-label unselectable" for="reset-email">Email</label>
-                <input type="email" name="email" id="reset-email">
+                <input type="email" name="email" id="reset-email" required>
                 <label class="reset-label unselectable" for="password"></label>
                 <input class="unselectable" name="password" type="password" id="password" readonly>
                 <input type="submit" id="reset-submit" value="Submit">

@@ -16,7 +16,7 @@
                 to read
             </div>
             <div class="reset-link">
-                <a href="./password_reset.html">Reset Password</a>
+                <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/password/reset">Reset Password</a>
             </div>
         </div>
         <div class="login-right">
@@ -31,13 +31,13 @@
                 <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"
                 />
             </svg>
-            <form class="form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" method="post">
+            <form class="form" id="login-form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" method="post">
                 <label class="login-label" for="email">Email</label>
-                <input type="email" name="email" id="login-email">
+                <input type="email" name="email" id="login-email" required>
                 <label class="login-label error hidden" for="email">*Email already exists</label>
                 <label class="login-label" for="password">Password</label>
-                <label class="login-label error" for="email">*Password not strong enough</label>
-                <input type="password" name="password" id="login-password">
+                <label class="login-label error hidden" for="email">*Password not strong enough</label>
+                <input type="password" name="password" id="login-password" required>
                 <input type="submit" id="login-submit" value="Submit">
                 <label class="remember-label" for="email">Remember me</label>
                 <input class="remember-input" type="checkbox" name="remember">
@@ -68,12 +68,12 @@
                 <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143"
                 />
             </svg>
-            <form class="form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/register" method="post">
+            <form class="form" id="signup-form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/register" method="post">
                 <label class="login-label" for="signup-email">Email</label>
-                <label class="login-label error hidden" for="email">*Email already exists</label>
+                <label class="login-label error hidden" id="signup-email-error" for="email">*Email already exists</label>
                 <input type="email" name="email" id="signup-email">
                 <label class="login-label" for="signup-password">Password</label>
-                <label class="login-label error" for="email">*Password not strong enough</label>
+                <label class="login-label error hidden" id="signup-password-error" for="password">*min 10 characters</label>
                 <input type="password" name="password" id="signup-password">
                 <input type="submit" id="signup-submit" value="Submit">
             </form>

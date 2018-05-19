@@ -37,24 +37,18 @@ class RegisterController
             }
         }
         $user->setPassword("");
-//        if (is_null($view))
-//            $view = new TemplateView("view/modal.php");
-//        $view->user = $user;
-//        $view->userValidator = $userValidator;
-//        LayoutRendering::basicLayout($view);
         return true;
     }
 
     public static function validateUserEntry() {
         $user = new User();
-        $user->setUserName($_POST["name"]);
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
-        $userValidator = new UserValidator($user);
-        if ($userValidator->isValid()) {
-            return true;
+        $emailOK = true;
+        if (AuthServiceImpl::getInstance()->findByEmail($user)) {
+            $emailOK = false;
         }
-        return false;
+        return $arr = array('email' => $emailOK);
     }
 
     public static function editUser($view = null) {
