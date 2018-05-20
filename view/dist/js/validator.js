@@ -1,12 +1,13 @@
 $(function () {
-    $('#signup-form').on('submit', function (e) {
-        $('#signup-email-error').hide();
-        $('#signup-password-error').hide();
+    $('#signup-form').on('click', function (e) {
+            let passwordField = $('#signup-password');
+            let passwordError = $('#signup-password-error');
 
-        e.preventDefault();
-
-            if ($('#signup-password').val().length <= 10) {
-                $('#signup-password-error').fadeIn(300).show();
+            $('#signup-email-error').hide();
+            passwordError.hide();
+            e.preventDefault();
+            if (passwordField.val().length <= 10) {
+                passwordError.fadeIn(300).show();
                 return;
             }
 
@@ -16,15 +17,16 @@ $(function () {
                 dataType: 'json',
                 data: {
                     email: $('#signup-email').val(),
-                    password: $('#signup-password').val()
+                    password: passwordField.val()
                 },
                 success: function (response) {
                     if (response.email === false) {
-                        $('#signup-email-error').fadeIn(300).show();
-                        // $('#signup-email').val('');
+                        passwordError.fadeIn(300).show();
                         $('#signup-password').val('');
+                        console.log('not submitted');
                     } else {
-                        $('#login-form').submit();
+                        $('#signup-form').submit();
+                        console.log('submitted');
                     }
                 }
             });
