@@ -119,34 +119,15 @@
 
  <script>
 
-    var placeSearch, autocomplete;
-    var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-    };
-
     function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        //https://stackoverflow.com/questions/42135049/google-maps-autocomplete-to-restrict-places-shown-in-a-specific-country
         autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['(cities)'], componentRestrictions: {country: 'CH'}});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
+            {types: ['(regions)'], componentRestrictions: {country: 'CH'}});
     }
 
     function pageJump() {
-        document.getElementById("searchArea").scrollIntoView({behavior: "smooth"});;
+        document.getElementById("searchArea").scrollIntoView({behavior: "smooth"});
     }
-
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-l7QLzikVgEmkS67AMHR1cI0c9tKgIQ&libraries=places&callback=initAutocomplete"
         async defer></script>

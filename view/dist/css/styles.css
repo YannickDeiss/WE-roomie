@@ -1812,6 +1812,13 @@ form.form-layout {
   background-color: #fff;
   color: green; }
 
+.entry-form input[type="number"] {
+  -moz-appearance: textfield; }
+  .entry-form input[type="number"]::-webkit-outer-spin-button,
+  .entry-form input[type="number"] ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+
 .entry-form textarea {
   width: 95%; }
 

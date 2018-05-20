@@ -24,7 +24,7 @@ class ListingController
 
     public static function readAll() {
         $contentView = new TemplateView("view/user_listing.php");
-        //$contentView->listings = (new ListingServiceImpl())->findAllListings();
+        $contentView->listings = (new ListingServiceImpl())->findAllListings();
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -43,56 +43,97 @@ class ListingController
 
     public static function update() {
         $listing = new Listing();
+
         $listing->setId("");
         if (isset($_POST["id"])) {
             $listing->setId($_POST["id"]);
         }
         $listing->setUserID($_POST["userID"]);
-        $listing->setStreet($_POST["street"]);
-        $listing->setPlz($_POST["plz"]);
-        $listing->setCity($_POST["city"]);
-        $listing->setCanton($_POST["canton"]);
-        $listing->setNumberofrooms($_POST["rooms"]);
-        $listing->setPrice($_POST["price"]);
-        $listing->setSquaremeters($_POST["squareMeters"]);
-        $listing->setDescription($_POST["description"]);
 
-        $moveInDay = ($_POST["moveInDay"]);
-        $moveInMonth = ($_POST["moveInMonth"]);
-        $moveInYear = ($_POST["moveInYear"]);
-        $listing->setMoveindate($moveInYear . "-" . $moveInMonth . "-" . $moveInDay);
+        // NEW FOR WE-ROOMIE
+        $listing->setTitle($_POST["title"]);
 
-        $moveOutDay = ($_POST["moveOutDay"]);
-        $moveOutMonth = ($_POST["moveOutMonth"]);
-        $moveOutYear = ($_POST["moveOutYear"]);
+        $location = explode(',', $_POST["location"]);
 
-        if(!($moveOutDay == "-" || $moveOutMonth == "-" || $moveOutYear == "-")){
-            $listing->setMoveoutdate($moveOutYear . "-" . $moveOutMonth . "-" . $moveOutDay);
+        $street = "";
+        $plz = "0";
+        $city = "";
+        $canton = "";
+
+//        Switzerland
+        if (count($location) === 1) {
+
         }
 
-        $listingValidator = new ListingValidator($listing);
-        if ($listingValidator->isValid()) {
-            if ($listing->getId() === "") {
-                (new ListingServiceImpl())->createListing($listing);
-            } else {
-                (new ListingServiceImpl())->updateListing($listing);
-            }
+//        Basel, Switzerland
+//        4058 Basel, Switzerland
+        if (count($location) === 2) {
+
+        }
+//        Grosspeterstrasse, Basel, Switzerland
+//        Grosspeterstrasse 12, Basel, Switzerland
+//        Grosspeterstrasse 12, 4052 Basel, Switzerland
+//        4058 Basel, Basel-Stadt, Switzerland
+        if (count($location) === 3) {
+
+        }
+
+//        Manor Basel, Greifengasse, Basel, Switzerland
+//        In der Schappe 1, 4144 Arlesheim, Basel-Landschaft, Switzerland
+//        In der Schappe 1, 4144 Arlesheim, Basel-Country, Switzerland
+//        Grosspeterstrasse, Basel, Basel City, Switzerland
+        if (count($location) === 4) {
+
+        }
+
+        $listing->setStreet($street);
+        $listing->setPlz($plz);
+        $listing->setCity($city);
+        $listing->setCanton($canton);
+
+        $listing->setNumberofrooms("0");
+        if (self::isNumber($_POST["rooms"])) {
+            $listing->setNumberofrooms($_POST["rooms"]);
+        }
+
+        $listing->setPrice("0");
+        if (self::isNumber($_POST["rent"])) {
+            $listing->setPrice($_POST["rent"]);
+        }
+
+        $listing->setSquaremeters("0");
+        if (self::isNumber($_POST["squareMeters"])) {
+            $listing->setSquaremeters($_POST["squareMeters"]);
+        }
+
+        $listing->setDescription($_POST["description"]);
+
+        $availableFrom = ($_POST["availableFrom"]);
+
+//        $listing->setMoveindate($moveInYear . "-" . $moveInMonth . "-" . $moveInDay);
+        $listing->setMoveindate(date("Y-m-d"));
+
+        if ($listing->getId() === "") {
+            (new ListingServiceImpl())->createListing($listing);
         } else {
-            $contentView = new TemplateView("assets/createAd/createAd.php");
-            $contentView->listing = $listing;
-            $contentView->listingValidator = $listingValidator;
-            LayoutRendering::basicLayout($contentView);
-            return false;
+            (new ListingServiceImpl())->updateListing($listing);
         }
         return true;
     }
+
+    public static function isNumber($entry) {
+        if (ctype_digit($entry)) {
+            return true;
+        }
+        return false;
+    }
+
 
     public static function delete() {
         $id = $_GET["id"];
         (new ListingServiceImpl())->deleteListing($id);
     }
 
-    public static function editView()
-    {
+    public static function editView() {
     }
 }

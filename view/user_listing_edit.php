@@ -1,29 +1,56 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Hermann Grieder
+ * Date: 07.01.2018
+ * Time: 01:08
+ */
+
+use domain\Listing;
+use service\AuthServiceImpl;
+use view\TemplateView;
+use validator\ListingValidator;
+
+isset($this->listing) ? $listing = $this->listing : $listing = new Listing();
+isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $listingValidator = new ListingValidator();
+?>
+
 <main class="content">
     <div class="listing-grid">
         <div class="section-heading">
-            <h2>Post your apartment</h2>
+            <h2><?php echo isset($this->listing) ? "EDIT YOUR LISTING" : "POST YOUR LISTING"; ?></h2>
         </div>
         <div class="form-layout">
             <form class="entry-form" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit">
-                <h1>Create Your listing</h1>
+                <h1><?php echo isset($this->listing) ? "EDIT YOUR LISTING" : "POST YOUR LISTING"; ?></h1>
+
+                <?php
+                if (!empty($listing->getId())) {
+                    echo '<input class="form-control" type="hidden" readonly="" name="id" value="' ?><?php echo $listing->getId();
+                    echo '">';
+                } ?>
+
+                <input class="form-control" type="hidden" readonly="" name="userID"
+                       value="<?php echo AuthServiceImpl::getInstance()->getCurrentUserId(); ?>">
+
                 <div class="form-group">
                     <input type="text" required name="title"/>
                     <label>Title</label>
                 </div>
                 <div class="form-group">
-                    <input id="autocomplete" placeholder="" onfocus="geolocate()" type="text" required name="location"/>
-                    <label>Location</label>
+                    <input id="autocomplete" placeholder="" type="text" required name="location"/>
+                    <label>Address</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" required name="rooms"/>
+                    <input type="number" step="0.5" required name="rooms"/>
                     <label>Rooms</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" required name="rent"/>
+                    <input type="number" step="0.5" required name="rent"/>
                     <label>Rent</label>
                 </div>
                 <div class="form-group">
-                    <input type="text" required name="squareMeters"/>
+                    <input type="number" step="0.01" required name="squareMeters"/>
                     <label>Square Meters</label>
                 </div>
                 <div class="form-group">
@@ -35,19 +62,22 @@
                     <label class="label-top">Description</label>
                 </div>
                 <div class="form-group">
-                    <input type="file" required name="image1"/>
+                    <input type="file" name="image1"/>
                     <label class="label-top">Image 1</label>
                 </div>
                 <div class="form-group">
-                    <input type="file" required name="image2"/>
+                    <input type="file" name="image2"/>
                     <label class="label-top">Image 2</label>
                 </div>
                 <div class="form-group">
-                    <input type="file" required name="image3"/>
+                    <input type="file" name="image3"/>
                     <label class="label-top">Image 3</label>
                 </div>
-                <input type="button" class="green" value="Post"/>
-                <input type="button" value="Cancel" onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'"/>
+                <input type="button" class="green" onclick="submitForm()" value="Submit"/>
+                <input id="submit_handle" type="submit" style="display: none">
+                <!-- <input type="button" class="green" onclick="form.submit()" value="Submit"/>-->
+                <input type="button" value="Cancel"
+                       onclick="window.location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'"/>
             </form>
         </div>
     </div>
@@ -56,28 +86,17 @@
 
 <script>
 
-    var placeSearch, autocomplete;
-    var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-    };
-
-    function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['geocode']}), componentRestrictions: {country: 'CH'}});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
+    function submitForm() {
+        $('#submit_handle').click();
+        $('#entry-form').submit();
     }
 
+    function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+            (document.getElementById('autocomplete')), {
+                componentRestrictions: {country: 'CH'}
+            });
+    }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-l7QLzikVgEmkS67AMHR1cI0c9tKgIQ&libraries=places&callback=initAutocomplete"
         async defer></script>

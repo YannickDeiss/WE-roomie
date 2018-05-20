@@ -28,7 +28,7 @@ Functionality
     DONE ----- Show name or email in the logged in navbar
 
     [MODALS]
-    - Give feedback of already existing email address
+    DONE ----- Give feedback of already existing email address
     - Give feedback about false email or password during login process
 
     [PROFILE]
