@@ -8,10 +8,9 @@
 
 namespace controller;
 
-
 use domain\Listing;
+use service\AWSUploadService;
 use service\ListingServiceImpl;
-use validator\ListingValidator;
 use view\LayoutRendering;
 use view\TemplateView;
 
@@ -19,18 +18,6 @@ class ListingController
 {
     public static function create() {
         $contentView = new TemplateView("view/user_listing_edit.php");
-        LayoutRendering::basicLayout($contentView);
-    }
-
-    public static function readAll() {
-        $contentView = new TemplateView("view/user_listing.php");
-        $contentView->listings = (new ListingServiceImpl())->findAllListings();
-        LayoutRendering::basicLayout($contentView);
-    }
-
-    public static function readTopThree() {
-        $contentView = new TemplateView("assets/adSection/adSection.php");
-        $contentView->listings = (new ListingServiceImpl())->findTopThree();
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -108,6 +95,23 @@ class ListingController
 
         $listing->setDescription($_POST["description"]);
 
+        $aws = new AWSUploadService();
+
+        if (!empty($_FILES['image1']['name'])) {
+            $imageAddress = $aws->uploadImage($_FILES['image1']);
+            $listing->setImage1($imageAddress);
+        }
+        if (!empty($_FILES['image2']['name'])) {
+            $imageAddress = $aws->uploadImage($_FILES['image2']);
+            $listing->setImage2($imageAddress);
+        }
+        if(!empty($_FILES['image3']['name'])) {
+            $imageAddress = $aws->uploadImage($_FILES['image3']);
+            $listing->setImage3($imageAddress);
+        }
+
+
+//        TODO: Available from date has to be processed and correctly written to the database
         $availableFrom = ($_POST["availableFrom"]);
 
 //        $listing->setMoveindate($moveInYear . "-" . $moveInMonth . "-" . $moveInDay);
@@ -126,6 +130,18 @@ class ListingController
             return true;
         }
         return false;
+    }
+
+    public static function readAll() {
+        $contentView = new TemplateView("view/user_listing.php");
+        $contentView->listings = (new ListingServiceImpl())->findAllListings();
+        LayoutRendering::basicLayout($contentView);
+    }
+
+    public static function readTopThree() {
+        $contentView = new TemplateView("assets/adSection/adSection.php");
+        $contentView->listings = (new ListingServiceImpl())->findTopThree();
+        LayoutRendering::basicLayout($contentView);
     }
 
 

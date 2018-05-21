@@ -21,7 +21,7 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
             <h2><?php echo isset($this->listing) ? "EDIT YOUR LISTING" : "POST YOUR LISTING"; ?></h2>
         </div>
         <div class="form-layout">
-            <form class="entry-form" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit">
+            <form class="entry-form" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit" enctype="multipart/form-data">
                 <h1><?php echo isset($this->listing) ? "EDIT YOUR LISTING" : "POST YOUR LISTING"; ?></h1>
 
                 <?php
@@ -73,9 +73,9 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                     <input type="file" name="image3"/>
                     <label class="label-top">Image 3</label>
                 </div>
-                <input type="button" class="green" onclick="submitForm()" value="Submit"/>
-                <input id="submit_handle" type="submit" style="display: none">
-                <!-- <input type="button" class="green" onclick="form.submit()" value="Submit"/>-->
+<!--                <input type="button" class="green" onclick="submitForm()" value="Submit"/>-->
+<!--                <input id="submit_handle" type="submit" style="display: none">-->
+                 <input type="button" class="green" onclick="form.submit()" value="Submit"/>
                 <input type="button" value="Cancel"
                        onclick="window.location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'"/>
             </form>
@@ -87,7 +87,7 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
 <script>
 
     function submitForm() {
-        $('#submit_handle').click();
+        // $('#submit_handle').click();
         $('#entry-form').submit();
     }
 

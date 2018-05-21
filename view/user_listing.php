@@ -20,7 +20,7 @@ use view\TemplateView;
 
         foreach ($this->listings as $listing): ?>
         <div class="listing-item">
-            <img src="" alt="Listing Image">
+            <img src="<?php echo TemplateView::noHTML($listing->getImage1()); ?>" alt="Listing Image">
             <div class="listing-info">
                 <h2><?php echo TemplateView::noHTML($listing->getTitle()); ?></h2>
                 <h3>Basel, Basel-Stadt</h3>
