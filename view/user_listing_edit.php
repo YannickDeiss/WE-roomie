@@ -34,31 +34,33 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                        value="<?php echo AuthServiceImpl::getInstance()->getCurrentUserId(); ?>">
 
                 <div class="form-group">
-                    <input type="text" required name="title"/>
+                    <input type="text" required name="title" value="<?php echo TemplateView::noHTML($listing->getTitle()) ?>"/>
                     <label>Title</label>
                 </div>
+
+                <!--TODO:-->
                 <div class="form-group">
                     <input id="autocomplete" placeholder="" type="text" required name="location"/>
                     <label>Address</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" step="0.5" required name="rooms" />
+                    <input type="number" step="0.5" required name="rooms" value="<?php echo TemplateView::noHTML($listing->getNumberofrooms()) ?>"/>
                     <label>Rooms</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" step="0.5" required name="rent"/>
+                    <input type="number" step="0.5" required name="rent" value="<?php echo TemplateView::noHTML($listing->getPrice()) ?>"/>
                     <label>Rent</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" step="0.01" required name="squareMeters"/>
+                    <input type="number" step="0.01" required name="squareMeters" value="<?php echo TemplateView::noHTML($listing->getSquaremeters()) ?>"/>
                     <label>Square Meters</label>
                 </div>
                 <div class="form-group">
-                    <input type="date" required name="availableFrom"/>
+                    <input type="date" required name="availableFrom" value="<?php echo TemplateView::noHTML($listing->getMoveindate()) ?>"/>
                     <label class="label-top">Available From</label>
                 </div>
                 <div class="form-group">
-                    <textarea name="description" cols="40" rows="5" required></textarea>
+                    <textarea name="description" cols="40" rows="5" required value="<?php echo TemplateView::noHTML($listing->getDescription()) ?>"></textarea>
                     <label class="label-top">Description</label>
                 </div>
                 <div class="form-group">

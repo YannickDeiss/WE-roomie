@@ -27,7 +27,7 @@ $userName = substr($userName,0,15).' ...';
                 <img class="wobble" src="dist/images/logo.png" alt="Roomie" width="120rem" height="50rem">
             </div>
             <ul>
-                <li class="active">
+                <li>
                     <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/'>
                         <i class="fas fa-home"></i>
                         <span>Home</span>

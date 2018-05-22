@@ -1,3 +1,7 @@
+<?php
+use view\TemplateView;
+?>
+
 <head>
     <link src="mapsStyle.css"
 </head>
@@ -57,24 +61,27 @@
     <div class="latest-available">
         <h2>Latest Available Rooms</h2>
     </div>
-
+    <?php
+    foreach ($this->listings as $listing): ?>
     <div class="listing-card">
         <div class="make-3D-space">
             <div class="product-card">
                 <div class="product-front">
                     <div class="shadow"></div>
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large.png" alt=""/>
+                    <img src="<?php echo TemplateView::noHTML($listing->getImage1()); ?>" alt=""/>
                     <div class="image_overlay"></div>
                     <div class="view_details">View details</div>
                     <div class="stats">
                         <div class="stats-container">
-                            <span class="product_price">CHF 1500</span>
-                            <span class="product_name">3 room apartment in Basel</span>
-                            <p>Available from 01.06.2018</p>
+
+
+                            <span class="product_price">CHF <?php echo TemplateView::noHTML($listing->getPrice()); ?></span>
+                            <span class="product_name"><?php echo TemplateView::noHTML($listing->getTitle()); ?></span>
+                            <p>Available from <?php echo TemplateView::noHTML($listing->getMoveindate()); ?></p>
 
                             <div class="product-options">
                                 <strong>Rooms</strong>
-                                <span>3</span>
+                                <span><?php echo TemplateView::noHTML($listing->getNumberofrooms()); ?></span>
                                 <strong><a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/'></strong>
                             </div>
                         </div>
@@ -85,14 +92,14 @@
                     <div class="carousel">
                         <ul class="unselectable">
                             <li>
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large.png" alt=""/>
+                                <img src="<?php echo TemplateView::noHTML($listing->getImage1()); ?>" alt=""/>
                             </li>
                             <li>
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large2.png"
+                                <img src="<?php echo TemplateView::noHTML($listing->getImage2()); ?>"
                                      alt=""/>
                             </li>
                             <li>
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large3.png"
+                                <img src="<?php echo TemplateView::noHTML($listing->getImage3()); ?>"
                                      alt=""/>
                             </li>
                         </ul>
@@ -115,6 +122,8 @@
             </div>
         </div>
     </div>
+
+    <?php endforeach; ?>
 </main>
 
  <script>
