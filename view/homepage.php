@@ -82,7 +82,6 @@ use view\TemplateView;
                             <div class="product-options">
                                 <strong>Rooms</strong>
                                 <span><?php echo TemplateView::noHTML($listing->getNumberofrooms()); ?></span>
-                                <strong><a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/'></strong>
                             </div>
                         </div>
                     </div>
