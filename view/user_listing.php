@@ -36,6 +36,8 @@ use view\TemplateView;
                 </div>
             </div>
             <div class="options">
+                <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/search/<?php echo $listing->getId(); ?>'>
+                    <i class="fa fa-share-square"></i>Preview</a>
                 <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit?id=<?php echo $listing->getId(); ?>'>
                     <i class="fa fa-edit"></i>Edit</a>
                 <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/delete?id=<?php echo $listing->getId(); ?>'>

@@ -138,9 +138,9 @@ class ListingController
         LayoutRendering::basicLayout($contentView);
     }
 
-    public static function readTopThree() {
+    public static function readTopNine() {
         $contentView = new TemplateView("assets/adSection/adSection.php");
-        $contentView->listings = (new ListingServiceImpl())->findTopThree();
+        $contentView->listings = (new ListingServiceImpl())->findTopNine();
         LayoutRendering::basicLayout($contentView);
     }
 

@@ -42,7 +42,7 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                     <label>Address</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" step="0.5" required name="rooms"/>
+                    <input type="number" step="0.5" required name="rooms" />
                     <label>Rooms</label>
                 </div>
                 <div class="form-group">

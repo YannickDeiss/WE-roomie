@@ -101,9 +101,9 @@ class ListingServiceImpl implements ListingService
      * @return Listing[]
      * @ReturnType Listing[]
      */
-    public function findTopThree() {
+    public function findTopNine() {
         $listingDAO = new ListingDAO();
-        return $listingDAO->findTopThree();
+        return $listingDAO->findTopNine();
     }
 
     /**

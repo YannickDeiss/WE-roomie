@@ -158,9 +158,9 @@ class ListingDAO extends BasicDAO
      * @ParamType userId int
      * @ReturnType Listing[]
      */
-    public function findTopThree() {
+    public function findTopNine() {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM "apartment" ORDER BY id DESC LIMIT 3');
+            SELECT * FROM "apartment" ORDER BY id DESC LIMIT 9');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Listing");
     }

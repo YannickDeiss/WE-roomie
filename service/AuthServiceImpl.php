@@ -246,8 +246,7 @@ class AuthServiceImpl implements AuthService
      * https://stackoverflow.com/a/31419246
      * @throws \Exception
      */
-    public
-    function issueToken($type = self::AGENT_TOKEN, $email = null) {
+    public function issueToken($type = self::AGENT_TOKEN, $email = null) {
         $token = new AuthToken();
         $token->setSelector(bin2hex(random_bytes(5)));
         if ($type === self::AGENT_TOKEN) {
