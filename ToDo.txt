@@ -8,17 +8,17 @@ Pages
 
 Functionality
     [HOMEPAGE]
-    - Show the latest listings
+    DONE ---- Show the latest listings
 
     [SEARCH]
     - Implement Search
 
     [LISTINGS]
-    - Create listing
-        - Allow for uploads and retrieval of images through amazon aws s3
-        - GeoLocation by Google for Location field
-    - Show list of my posted listings
-    - Delete my listing
+    DONE ---- Create listing
+    DONE ---- Allow for uploads and retrieval of images through amazon aws s3
+    DONE ---- GeoLocation by Google for Location field
+    DONE ---- Show list of my posted listings
+    DONE ---- Delete my listing
     - Edit my listing
     - Email a list of my listings to me
     - Print a listing from the detail view page

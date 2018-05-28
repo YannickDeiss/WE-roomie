@@ -926,6 +926,10 @@ p {
   -o-transition: all 100ms ease-out;
   transition: all 100ms ease-out; }
 
+.product-front img {
+  max-width: 100%;
+  min-height: 80%; }
+
 .product-back {
   display: none;
   transform: rotateY(180deg); }
@@ -1012,18 +1016,18 @@ div.product-card.flip180 {
   transition: all 200ms ease-out; }
 
 .stats-container .product_name {
-  font-size: 22px;
+  font-size: 18px;
   color: #000000; }
 
 .stats-container p {
-  font-size: 16px;
+  font-size: 12px;
   color: #ffffff;
   padding: 2px 0 20px 0; }
 
 .stats-container .product_price {
   float: right;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 12px;
   font-weight: 600; }
 
 .image_overlay {
@@ -1046,13 +1050,31 @@ div.product-card.flip180 {
   padding: 2px 0 0; }
 
 .product-options strong {
-  font-weight: 700;
+  font-weight: 600;
   color: #393c45;
-  font-size: 14px; }
+  font-size: 12px; }
+  .product-options strong a {
+    color: #ffffff;
+    text-decoration: none;
+    float: left;
+    padding: 15px 25px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    position: absolute;
+    right: 0;
+    -webkit-transition: color .25s;
+    -moz-transition: color .25s;
+    -ms-transition: color .25s;
+    -o-transition: color .25s;
+    transition: color .25s; }
+    .product-options strong a:hover {
+      color: #333333; }
 
 .product-options span {
   color: #ffffff;
-  font-size: 14px;
+  font-size: 12px;
   display: block;
   margin-bottom: 8px; }
 
@@ -1210,7 +1232,9 @@ div.shadow {
 .carousel ul {
   position: absolute;
   top: 0;
-  left: -30px; }
+  left: 0;
+  padding-left: 0;
+  margin-top: 0; }
 
 .carousel li {
   width: 335px;

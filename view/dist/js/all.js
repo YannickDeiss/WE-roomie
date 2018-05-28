@@ -221,42 +221,62 @@ $(document).ready(function(){
 	});	
 
 	
-	/* ----  Image Gallery Carousel   ---- */
+		/* ----  Image Gallery Carousel   ---- */
 	
-	var carousel = $('.carousel ul');
-	var carouselSlideWidth = 335;
-	var carouselWidth = 0;	
-	var isAnimating = false;
+		var carousels = $('.carousel ul');
+		$(carousels).each(function(index, carousel){
+		{
 	
-	// building the width of the casousel
-	$('.carousel li').each(function(){
-		carouselWidth += carouselSlideWidth;
-	});
-	$(carousel).css('width', carouselWidth);
+			var carouselSlideWidth = parseInt($(carousel).parent().css('width'),10);
+			var carouselWidth = 0;
+			var isAnimating = false;
 	
-	// Load Next Image
-	$('div.carouselNext').on('click', function(){
-		var parent = $(this).closest('.product-card');	
-		var currentLeft = Math.abs(parseInt(parent.find('.carousel ul').css("left")));
-		var newLeft = currentLeft + carouselSlideWidth;
-		if(newLeft >= carouselWidth || isAnimating === true){return;}
-		parent.find('.carousel ul').css({'left': "-" + newLeft + "px",
-							   "transition": "300ms ease-out"
-							 });
-		isAnimating = true;
-		setTimeout(function(){isAnimating = false;}, 300);			
-	});
+			// building the width of the carousel
+			$(carousel).find('li').each(function () {
+				carouselWidth += carouselSlideWidth;
+				$(carousel).find('img').css('width', carouselSlideWidth);
+                $(carousel).find('img').css('height', '100%');
+			});
+			$(carousel).css('width', carouselWidth);
 	
-	// Load Previous Image
-	$('div.carouselPrev').on('click', function(){
-		var parent = $(this).closest('.product-card');
-		var currentLeft = Math.abs(parseInt(parent.find('.carousel ul').css("left")));
-		var newLeft = currentLeft - carouselSlideWidth;
-		if(newLeft < 0  || isAnimating === true){return;}
-		parent.find('.carousel ul').css({'left': "-" + newLeft + "px",
-							   "transition": "300ms ease-out"
-							 });
-	    isAnimating = true;
-		setTimeout(function(){isAnimating = false;}, 300);			
-	});
+			// Load Next Image
+			var next = $(carousel).parent().find('div.carouselNext');
+	
+			next.on('click', function () {
+				console.log(this);
+				var parent = $(this).closest('.product-card');
+				var currentLeft = Math.abs(parseInt(parent.find('.carousel ul').css("left")));
+				var newLeft = currentLeft + carouselSlideWidth;
+				if (newLeft >= carouselWidth || isAnimating === true) {
+					return;
+				}
+				parent.find('.carousel ul').css({
+					'left': "-" + newLeft + "px",
+					"transition": "300ms ease-out"
+				});
+				isAnimating = true;
+				setTimeout(function () {
+					isAnimating = false;
+				}, 300);
+			});
+	
+			// Load Previous Image
+			var prev = $(carousel).parent().find('div.carouselPrev');
+			prev.on('click', function () {
+				var parent = $(this).closest('.product-card');
+				var currentLeft = Math.abs(parseInt(parent.find('.carousel ul').css("left")));
+				var newLeft = currentLeft - carouselSlideWidth;
+				if (newLeft < 0 || isAnimating === true) {
+					return;
+				}
+				parent.find('.carousel ul').css({
+					'left': "-" + newLeft + "px",
+					"transition": "300ms ease-out"
+				});
+				isAnimating = true;
+				setTimeout(function () {
+					isAnimating = false;
+				}, 300);
+			});
+		}});
 });

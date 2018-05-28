@@ -68,13 +68,19 @@ use view\TemplateView;
             <div class="product-card">
                 <div class="product-front">
                     <div class="shadow"></div>
-                    <img src="<?php echo TemplateView::noHTML($listing->getImage1()); ?>" alt=""/>
+                    <?php if (!empty($listing->getImage1())){
+                        echo '
+                                <img src="'?>
+                        <?php echo TemplateView::noHTML($listing->getImage1()); ?> <?php echo '"
+                                     alt=""/>';
+                    }else{
+                        echo '
+                                <img src="dist/images/not-available.jpg" alt=""/>';
+                    }?>
                     <div class="image_overlay"></div>
-                    <div class="view_details">View details</div>
+                    <div class="view_details">View images</div>
                     <div class="stats">
                         <div class="stats-container">
-
-
                             <span class="product_price">CHF <?php echo TemplateView::noHTML($listing->getPrice()); ?></span>
                             <span class="product_name"><?php echo TemplateView::noHTML($listing->getTitle()); ?></span>
                             <p>Available from <?php echo TemplateView::noHTML($listing->getMoveindate()); ?></p>
@@ -82,6 +88,9 @@ use view\TemplateView;
                             <div class="product-options">
                                 <strong>Rooms</strong>
                                 <span><?php echo TemplateView::noHTML($listing->getNumberofrooms()); ?></span>
+                                <strong><a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/search/<?php echo $listing->getId(); ?>'>
+                                        View Details
+                                    </a></strong>
                             </div>
                         </div>
                     </div>
@@ -90,17 +99,37 @@ use view\TemplateView;
                     <div class="shadow"></div>
                     <div class="carousel">
                         <ul class="unselectable">
-                            <li>
-                                <img src="<?php echo TemplateView::noHTML($listing->getImage1()); ?>" alt=""/>
-                            </li>
-                            <li>
-                                <img src="<?php echo TemplateView::noHTML($listing->getImage2()); ?>"
+                            <?php if (!empty($listing->getImage1())){
+                                echo '
+                                <li>
+                                <img src="'?>
+                                <?php echo TemplateView::noHTML($listing->getImage1()); ?> <?php echo '"
                                      alt=""/>
-                            </li>
-                            <li>
-                                <img src="<?php echo TemplateView::noHTML($listing->getImage3()); ?>"
+                                </li>';
+                            }else{
+                                echo '
+                                <li>
+                                <img src="dist/images/not-available.jpg" alt=""/>
+                                </li>';
+                            }?>
+
+                            <?php if (!empty($listing->getImage2())){
+                                echo '
+                                <li>
+                                <img src="'?>
+                                <?php echo TemplateView::noHTML($listing->getImage2()); ?> <?php echo '"
                                      alt=""/>
-                            </li>
+                                </li>';
+                            }?>
+
+                            <?php if (!empty($listing->getImage3())){
+                                echo '
+                                <li>
+                                <img src="'?>
+                                <?php echo TemplateView::noHTML($listing->getImage3()); ?> <?php echo '"
+                                     alt=""/>
+                                </li>';
+                            }?>
                         </ul>
                         <div class="arrows-perspective">
                             <div class="carouselPrev">
