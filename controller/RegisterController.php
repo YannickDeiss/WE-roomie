@@ -69,9 +69,7 @@ class RegisterController
         $user->setPassword($_POST["oldPassword"]);
         $user->setNewPassword($_POST["newPassword"]);
 
-
-
-        $userValidator = new UserValidator($user);
+        $userValidator = new UserValidator($user, true);
         if ($userValidator->isValid()) {
             if (AuthServiceImpl::getInstance()->editUser($user)) {
                 return true;

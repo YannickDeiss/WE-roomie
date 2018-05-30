@@ -19,14 +19,14 @@ class UserValidator
     private $newPasswordError = null;
     private $passwordMatchError = null;
 
-    public function __construct(User $user = null)
+    public function __construct(User $user = null, $update = false)
     {
         if (!is_null($user)) {
-            $this->validate($user);
+            $this->validate($user, $update);
         }
     }
 
-    public function validate(User $user)
+    public function validate(User $user, $update)
     {
         if (!is_null($user)) {
             if (empty($user->getEmail())) {
@@ -36,18 +36,21 @@ class UserValidator
                 $this->emailError = 'Please enter a valid email address';
                 $this->valid = false;
             }
-            if (empty($user->getPassword())) {
+            if (empty($user->getPassword() && !$update)) { //new user
                 $this->passwordError = 'Please enter a password';
                 $this->valid = false;
-            }else if(empty($user->getNewPassword())) {
-                    $this->newPasswordError = 'Please enter your new password';
-                    $this->valid = false;
-                }
 
-                else if($user->getPassword() !== $user->getNewPassword()){
-                    $this->newPasswordError = 'Passwords did not match';
-                    $this->valid = false;
-                }
+            }
+            if (empty($user->getPassword() && $update && !empty($user->getNewPassword()))) { //edit
+                $this->passwordError = 'Please enter your old password';
+                $this->valid = false;
+
+            }
+            if (empty(!$user->getPassword() && $update && empty($user->getNewPassword()))) { //edit
+                $this->passwordError = 'Please enter a new password';
+                $this->valid = false;
+
+            }
         } else {
             $this->valid = false;
         }

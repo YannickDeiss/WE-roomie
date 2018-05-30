@@ -143,14 +143,33 @@ class AuthServiceImpl implements AuthService
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function editUser($user) {
+    public function editUser(User $user) {
+
+        $id = $_POST["id"];
+        $email = $user->getEmail();
+        $password = $user->getPassword();
+        $newPassword = $user->getNewPassword();
+        $username = $user->getUserName();
+
+        $userDAO = new UserDAO();
+        if ($this->verifyAuth()) {
+            $user->setID($this->currentUserId);
+            if ((!is_null($userDAO->findByEmail($email)) && ($userDAO->findByEmail($email) !== $email))) {
+                $user->setEmailError(true);
+                return false;
+            }
+            if (!empty($password)){
+
+            }
+        }
+
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
-            $user->set($this->currentUserId);
+            $user->setID($this->currentUserId);
             if ($userDAO->read($this->currentUserId)->getId() == $user->getId()) {
-                if (!is_null($userDAO->findByEmail($user->getEmail() && $userDAO->findByEmail($user->getEmail() !== $user->getEmail())))) {
+                if ((!is_null($userDAO->findByEmail($user->getEmail())) && ($userDAO->findByEmail($user->getEmail()) !== $user->getEmail()))) {
                     $user->setEmailError(true);
                     return false;
                 }

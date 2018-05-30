@@ -114,7 +114,7 @@ class User
         $this->email = $email;
     }
 
-    public function set($currentUserId)
+    public function setID($currentUserId)
     {
         $this->id = $currentUserId;
 
