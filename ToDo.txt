@@ -39,6 +39,7 @@ Functionality
         - Change password
 
 Design
+    - Edit your profile title add margin (sunscht frog loris)
     - Add Edit Profile link somewhere
     - Add Search link to the navbar which links to search page
     - Add link to logo to navigate back to homepage "/"

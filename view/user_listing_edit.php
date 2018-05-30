@@ -70,14 +70,30 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                     <textarea name="description" cols="40" rows="5" required><?php echo TemplateView::noHTML($listing->getDescription()) ?></textarea>
                     <label class="label-top">Description</label>
                 </div>
+
+                <?php
+                $link = $listing->getImage1();
+                echo isset($link) ? "<img width='150px' src=$link>" : "" ?>
+
+
                 <div class="form-group">
                     <input type="file" name="image1"/>
                     <label class="label-top">Image 1</label>
                 </div>
+
+                <?php
+                $link = $listing->getImage2();
+                echo isset($link) ? "<img width='150px' src=$link>" : "" ?>
+
                 <div class="form-group">
                     <input type="file" name="image2"/>
                     <label class="label-top">Image 2</label>
                 </div>
+
+                <?php
+                $link = $listing->getImage3();
+                echo isset($link) ? "<img width='150px' src=$link>" : "" ?>
+
                 <div class="form-group">
                     <input type="file" name="image3"/>
                     <label class="label-top">Image 3</label>

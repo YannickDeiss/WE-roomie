@@ -50,7 +50,7 @@ use view\TemplateView;
                         </label>
                     </span>
             <div class="search-button-wrapper">
-                <button class="search-button">
+                <button class="search-button" value="submit">
                     <span class="unselectable">Search</span>
                 </button>
             </div>

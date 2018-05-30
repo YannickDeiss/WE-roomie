@@ -44,7 +44,7 @@ class ListingController
 
         $listing->setStreet($_POST["title"]);
         $listing->setStreet($_POST["street"]);
-        $listing->setStreetNumber($_POST["streetNumber"]);
+        $listing->setStreetnumber($_POST["streetNumber"]);
         $listing->setPlz($_POST["plz"]);
         $listing->setCity($_POST["city"]);
         $listing->setCanton($_POST["canton"]);
@@ -109,9 +109,9 @@ class ListingController
         LayoutRendering::basicLayout($contentView);
     }
 
-    public static function readTopNine() {
+    public static function readTopTen() {
         $contentView = new TemplateView("assets/adSection/adSection.php");
-        $contentView->listings = (new ListingServiceImpl())->findTopNine();
+        $contentView->listings = (new ListingServiceImpl())->findTopTen();
         LayoutRendering::basicLayout($contentView);
     }
 

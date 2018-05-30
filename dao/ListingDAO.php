@@ -27,7 +27,7 @@ class ListingDAO extends BasicDAO
         $stmt->bindValue(':userid', $listing->getUserID());
         $stmt->bindValue(':title', $listing->getTitle());
         $stmt->bindValue(':street', $listing->getStreet());
-        $stmt->bindValue(':streetnumber', $listing->getStreetNumber());
+        $stmt->bindValue(':streetnumber', $listing->getStreetnumber());
         $stmt->bindValue(':zip', $listing->getPlz());
         $stmt->bindValue(':city', $listing->getCity());
         $stmt->bindValue(':canton', $listing->getCanton());
@@ -159,9 +159,9 @@ class ListingDAO extends BasicDAO
      * @ParamType userId int
      * @ReturnType Listing[]
      */
-    public function findTopNine() {
+    public function findTopTen() {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM "apartment" ORDER BY id DESC LIMIT 9');
+            SELECT * FROM "apartment" ORDER BY id DESC LIMIT 10');
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Listing");
     }
