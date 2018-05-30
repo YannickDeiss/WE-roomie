@@ -1,3 +1,7 @@
+<?php
+use view\TemplateView;
+?>
+
 <main class="content">
     <div class="listing-detail-grid">
         <div class="image-area">Image Area</div>
@@ -54,6 +58,13 @@
                 </div>
             </div>
         </div>
-        <div class="map-area">Map Area</div>
+        <div class="map-area" id="map">
+
+
+            <iframe width="100%" height="100%" frameborder='0'
+                    scrolling='no' marginheight='0' marginwidth='0'
+                    src='https://maps.google.com/maps?&amp;q="an der hohlen gasse 6"&amp;output=embed'>
+            </iframe>
+        </div>
     </div>
 </main>
