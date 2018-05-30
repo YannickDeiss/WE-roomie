@@ -22,11 +22,12 @@ class ListingDAO extends BasicDAO
      */
     public function create(Listing $listing) {
         $stmt = $this->pdoInstance->prepare('
-            INSERT INTO "apartment" ("userid", title, street, zip, city, canton, numberofrooms, price, squaremeters, publisheddate, moveindate, description, image1, image2, image3)
-           VALUES (:userid, :title, :street, :zip, :city, :canton, :numberofrooms, :price, :squaremeters, :publisheddate, :moveindate, :description, :image1, :image2, :image3)');
+            INSERT INTO "apartment" ("userid", title, street, streetnumber, zip, city, canton, numberofrooms, price, squaremeters, publisheddate, moveindate, description, image1, image2, image3)
+           VALUES (:userid, :title, :street, :streetnumber, :zip, :city, :canton, :numberofrooms, :price, :squaremeters, :publisheddate, :moveindate, :description, :image1, :image2, :image3)');
         $stmt->bindValue(':userid', $listing->getUserID());
         $stmt->bindValue(':title', $listing->getTitle());
         $stmt->bindValue(':street', $listing->getStreet());
+        $stmt->bindValue(':streetnumber', $listing->getStreetNumber());
         $stmt->bindValue(':zip', $listing->getPlz());
         $stmt->bindValue(':city', $listing->getCity());
         $stmt->bindValue(':canton', $listing->getCanton());
@@ -130,7 +131,7 @@ class ListingDAO extends BasicDAO
      */
     public function findByUserID($userid) {
         $stmt = $this->pdoInstance->prepare('
-            SELECT * FROM "apartment" WHERE "userid" = :Id ORDER BY id;');
+            SELECT * FROM "apartment" WHERE "userid" = :Id ORDER BY id DESC;');
         $stmt->bindValue(':Id', $userid);
         $stmt->execute();
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Listing");

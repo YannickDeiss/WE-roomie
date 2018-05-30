@@ -35,48 +35,19 @@ class ListingController
         if (isset($_POST["id"])) {
             $listing->setId($_POST["id"]);
         }
+
         $listing->setUserID($_POST["userID"]);
 
         // NEW FOR WE-ROOMIE
         $listing->setTitle($_POST["title"]);
 
-        $location = explode(',', $_POST["location"]);
 
-        $street = "";
-        $plz = "0";
-        $city = "";
-        $canton = "";
-
-//        Switzerland
-        if (count($location) === 1) {
-
-        }
-
-//        Basel, Switzerland
-//        4058 Basel, Switzerland
-        if (count($location) === 2) {
-
-        }
-//        Grosspeterstrasse, Basel, Switzerland
-//        Grosspeterstrasse 12, Basel, Switzerland
-//        Grosspeterstrasse 12, 4052 Basel, Switzerland
-//        4058 Basel, Basel-Stadt, Switzerland
-        if (count($location) === 3) {
-
-        }
-
-//        Manor Basel, Greifengasse, Basel, Switzerland
-//        In der Schappe 1, 4144 Arlesheim, Basel-Landschaft, Switzerland
-//        In der Schappe 1, 4144 Arlesheim, Basel-Country, Switzerland
-//        Grosspeterstrasse, Basel, Basel City, Switzerland
-        if (count($location) === 4) {
-
-        }
-
-        $listing->setStreet($street);
-        $listing->setPlz($plz);
-        $listing->setCity($city);
-        $listing->setCanton($canton);
+        $listing->setStreet($_POST["title"]);
+        $listing->setStreet($_POST["street"]);
+        $listing->setStreetNumber($_POST["streetNumber"]);
+        $listing->setPlz($_POST["plz"]);
+        $listing->setCity($_POST["city"]);
+        $listing->setCanton($_POST["canton"]);
 
         $listing->setNumberofrooms("0");
         if (self::isNumber($_POST["rooms"])) {

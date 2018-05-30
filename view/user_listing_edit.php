@@ -34,15 +34,22 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                        value="<?php echo AuthServiceImpl::getInstance()->getCurrentUserId(); ?>">
 
                 <div class="form-group">
-                    <input type="text" required name="title" value="<?php echo TemplateView::noHTML($listing->getTitle()) ?>"/>
+                    <input type="text" required name="title"
+                           value="<?php echo TemplateView::noHTML($listing->getTitle()) ?>"/>
                     <label>Title</label>
                 </div>
 
                 <!--TODO:-->
                 <div class="form-group">
                     <input id="autocomplete" placeholder="" type="text" required name="location"/>
-                    <label>Address</label>
+                    <label>Location</label>
                 </div>
+                <input hidden id="street" placeholder="" type="text" required name="street"/>
+                <input hidden id="streetNumber" placeholder="" type="number" step="1" required name="streetNumber"/>
+                <input hidden id="plz" placeholder="" type="text" required name="plz"/>
+                <input hidden id="city" placeholder="" type="text" required name="city"/>
+                <input hidden id="canton" placeholder="" type="text" required name="canton"/>
+
                 <div class="form-group">
                     <input type="number" step="0.5" required name="rooms" value="<?php echo TemplateView::noHTML($listing->getNumberofrooms()) ?>"/>
                     <label>Rooms</label>
@@ -52,7 +59,7 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                     <label>Rent</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" step="0.01" required name="squareMeters" value="<?php echo TemplateView::noHTML($listing->getSquaremeters()) ?>"/>
+                    <input type="number" step="1" required name="squareMeters" value="<?php echo TemplateView::noHTML($listing->getSquaremeters()) ?>"/>
                     <label>Square Meters</label>
                 </div>
                 <div class="form-group">
@@ -75,9 +82,9 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                     <input type="file" name="image3"/>
                     <label class="label-top">Image 3</label>
                 </div>
-<!--                <input type="button" class="green" onclick="submitForm()" value="Submit"/>-->
-<!--                <input id="submit_handle" type="submit" style="display: none">-->
-                 <input type="button" class="green" onclick="form.submit()" value="Submit"/>
+                <!--                <input type="button" class="green" onclick="submitForm()" value="Submit"/>-->
+                <!--                <input id="submit_handle" type="submit" style="display: none">-->
+                <input type="button" class="green" onclick="form.submit()" value="Submit"/>
                 <input type="button" value="Cancel"
                        onclick="window.location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'"/>
             </form>
@@ -93,12 +100,48 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
         $('#entry-form').submit();
     }
 
-    function initAutocomplete() {
-        autocomplete = new google.maps.places.Autocomplete(
-            (document.getElementById('autocomplete')), {
-                componentRestrictions: {country: 'CH'}
-            });
+    function initialize() {
+        var input = document.getElementById('autocomplete');
+        var options = {
+            types: ['address'],
+            componentRestrictions: {
+                country: 'CH'
+            }
+        };
+        autocomplete = new google.maps.places.Autocomplete(input, options);
+        google.maps.event.addListener(autocomplete, 'place_changed', function () {
+            var place = autocomplete.getPlace();
+            for (var i = 0; i < place.address_components.length; i++) {
+                for (var j = 0; j < place.address_components[i].types.length; j++) {
+                    if (place.address_components[i].types[j] == "route") {
+                        console.log(place.address_components);
+                        document.getElementById('street').value = place.address_components[i].long_name;
+                    }
+                    if (place.address_components[i].types[j] == "street_number") {
+
+                        document.getElementById('streetNumber').value = place.address_components[i].long_name;
+                    }
+                    if (place.address_components[i].types[j] == "postal_code") {
+
+                        document.getElementById('plz').value = place.address_components[i].long_name;
+                    }
+                    if (place.address_components[i].types[j] == "locality") {
+
+                        document.getElementById('city').value = place.address_components[i].long_name;
+                    }
+                    if (place.address_components[i].types[j] == "administrative_area_level_1") {
+
+                        document.getElementById('canton').value = place.address_components[i].long_name;
+
+                    }else if (place.address_components[i].types[j] == "administrative_area_level_2"){
+
+                        document.getElementById('canton').value = place.address_components[i].long_name;
+                    }
+                }
+            }
+        })
     }
+
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-l7QLzikVgEmkS67AMHR1cI0c9tKgIQ&libraries=places&callback=initAutocomplete"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-l7QLzikVgEmkS67AMHR1cI0c9tKgIQ&libraries=places&callback=initialize"
         async defer></script>

@@ -15,6 +15,7 @@ class Listing
     protected $userID;
     protected $title;
     protected $street;
+    protected $streetNumber;
     protected $plz;
     protected $city;
     protected $canton;
@@ -76,6 +77,22 @@ class Listing
      */
     public function setStreet($street) {
         $this->street = $street;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStreetNumber()
+    {
+        return $this->streetNumber;
+    }
+
+    /**
+     * @param mixed $streetNumber
+     */
+    public function setStreetNumber($streetNumber)
+    {
+        $this->streetNumber = $streetNumber;
     }
 
     /**

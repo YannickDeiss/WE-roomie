@@ -22,6 +22,7 @@ class SearchController
     public static function readAll(){
         $listing = new Listing();
         $listing->setStreet($_POST["street"]);
+        $listing->setStreetNumber($_POST["streetNumber"]);
         $listing->setPlz($_POST["plz"]);
         $listing->setCity($_POST["city"]);
         $listing->setCanton($_POST["canton"]);
