@@ -118,17 +118,11 @@ class AuthServiceImpl implements AuthService
     public function createUser($user) {
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-        //$user->setPassword($password);
         $userDAO = new UserDAO();
         if (!is_null($userDAO->findByEmail($user->getEmail()))) {
             $user->setEmailError(true);
             return false;
         }
-//        CHECK IF USERNAME ALREADY EXISTS
-//        if (!is_null($userDAO->findByUserName($user->getUserName()))) {
-//            $user->setUserNameError(true);
-//            return false;
-//        }
         $userDAO->create($user);
         return true;
     }
@@ -151,21 +145,12 @@ class AuthServiceImpl implements AuthService
      */
     public function editUser($user) {
         $password = $user->getPassword();
-        //$user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-
-        $user->setPassword($password);
-
+        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
             $user->set($this->currentUserId);
-            if ($userDAO->read($this->currentUserId)->getEmail() == $user->getEmail()) {
-                if (!is_null($userDAO->findByUserName($user->getUserName()))) {
-                    $user->setUserNameError(true);
-                    return false;
-                }
-            }
-            if ($userDAO->read($this->currentUserId)->getUserName() == $user->getUserName()) {
-                if (!is_null($userDAO->findByEmail($user->getEmail()))) {
+            if ($userDAO->read($this->currentUserId)->getId() == $user->getId()) {
+                if (!is_null($userDAO->findByEmail($user->getEmail() && $userDAO->findByEmail($user->getEmail() !== $user->getEmail())))) {
                     $user->setEmailError(true);
                     return false;
                 }
@@ -194,7 +179,6 @@ class AuthServiceImpl implements AuthService
     public function updatePassword($user) {
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-        //$user->setPassword($password);
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
             $user->set($this->currentUserId);

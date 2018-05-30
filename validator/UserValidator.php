@@ -16,7 +16,8 @@ class UserValidator
     private $nameError = null;
     private $emailError = null;
     private $passwordError = null;
-    private $userNameError;
+    private $newPasswordError = null;
+    private $passwordMatchError = null;
 
     public function __construct(User $user = null)
     {
@@ -38,7 +39,15 @@ class UserValidator
             if (empty($user->getPassword())) {
                 $this->passwordError = 'Please enter a password';
                 $this->valid = false;
-            }
+            }else if(empty($user->getNewPassword())) {
+                    $this->newPasswordError = 'Please enter your new password';
+                    $this->valid = false;
+                }
+
+                else if($user->getPassword() !== $user->getNewPassword()){
+                    $this->newPasswordError = 'Passwords did not match';
+                    $this->valid = false;
+                }
         } else {
             $this->valid = false;
         }
@@ -87,14 +96,14 @@ class UserValidator
         return $this->passwordError;
     }
 
-    public function getUserNameError()
+    public function getPasswordMatchError()
     {
-        return $this->userNameError;
+        return $this->passwordMatchError;
     }
 
-    public function setUserNameError($userNameError)
+    public function setPasswordMatchError($passwordMatchError)
     {
-        $this->userNameError = $userNameError;
+        $this->passwordMatchError = $passwordMatchError;
         $this->valid = false;
     }
 }

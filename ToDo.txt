@@ -54,5 +54,6 @@ Design
 Bugs
 
 - Authtoken are not being deleted in the database at the moment during password reset process
+- Check AuthServiceImpl for completeness and unnecessary code
 
 
