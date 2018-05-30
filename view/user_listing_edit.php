@@ -60,7 +60,7 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
                     <label class="label-top">Available From</label>
                 </div>
                 <div class="form-group">
-                    <textarea name="description" cols="40" rows="5" required value="<?php echo TemplateView::noHTML($listing->getDescription()) ?>"></textarea>
+                    <textarea name="description" cols="40" rows="5" required><?php echo TemplateView::noHTML($listing->getDescription()) ?></textarea>
                     <label class="label-top">Description</label>
                 </div>
                 <div class="form-group">

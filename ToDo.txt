@@ -20,7 +20,7 @@ Functionality
     DONE ---- Show list of my posted listings
     DONE ---- Delete my listing
     - Edit my listing
-    - Email a list of my listings to me
+    DONE ---- Email a list of my listings to me
     - Print a listing from the detail view page
 
     [LOGIN]
@@ -30,6 +30,7 @@ Functionality
     [MODALS]
     DONE ----- Give feedback of already existing email address
     - Give feedback about false email or password during login process
+    - Reactivate error feedback
 
     [PROFILE]
     - Edit profile

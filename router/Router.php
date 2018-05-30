@@ -9,6 +9,7 @@
 
 namespace router;
 
+use controller\EmailController;
 use controller\HomepageController;
 use controller\ListingController;
 use controller\RegisterController;
@@ -135,11 +136,11 @@ class Router
             }
         });
 
-        self::route_auth("GET", "/editProfile", $authFunction, function () {
+        self::route_auth("GET", "/user/edit", $authFunction, function () {
             RegisterController::editView();
         });
 
-        self::route_auth("POST", "/editProfile", $authFunction, function () {
+        self::route_auth("POST", "/user/edit", $authFunction, function () {
             if (RegisterController::update())
                 self::redirect("/user");
         });
@@ -178,6 +179,11 @@ class Router
 // user paths
         self::route_auth("GET", '/user', $authFunction, function () {
             ListingController::readAll();
+        });
+
+        self::route_auth("GET", '/user/emailListings', $authFunction, function () {
+            EmailController::sendMeMyCustomers();
+            Router::redirect("/user/");
         });
 
 // Listing CRUD & Email

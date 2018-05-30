@@ -7,7 +7,20 @@ use view\TemplateView;
     <div class="listing-grid">
         <div class="section-heading">
             <h2>List of your posted rooms</h2>
-            <!--style="font-style:normal;line-height:19px;font-size:36px;height:56px;margin-top:23px;"><?php echo isset($this->result) ? "We found <strong style='color: #f4476b'>" . sizeof($this->listings) . "</strong> rooms for you" : "Available Rooms" ?></p>-->
+            <ul>
+                <li class="active">
+                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user/edit'>
+                        <i class="fas fa-edit"></i>
+                        <span>Edit Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user/emailListings'>
+                        <i class="fas fa-envelope"></i>
+                        <span>Send List</span>
+                    </a>
+                </li>
+            </ul>
         </div>
         <div class="listing-item border-dotted">
             <div class="add-listing-button-wrapper">

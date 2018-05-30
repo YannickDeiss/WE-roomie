@@ -40,6 +40,12 @@ class RegisterController
         return true;
     }
 
+    public static function editView(){
+        $view = new TemplateView("view/user_profile_edit.php");
+        $view->user = AuthServiceImpl::getInstance()->readUser();
+        LayoutRendering::basicLayout($view);
+    }
+
     public static function validateUserEntry() {
         $user = new User();
         $user->setEmail($_POST["email"]);
@@ -73,6 +79,11 @@ class RegisterController
         $view->userValidator = $userValidator;
         LayoutRendering::basicLayout($view);
         return false;
+    }
+
+    public static function update(){
+        $view = new TemplateView("view/assets/registration/register.php");
+        return self::editUser($view);
     }
 
 }
