@@ -15,8 +15,8 @@ if (!empty($user->getUserName())) {
 } else {
     $userName = $user->getEmail();
     $userName = explode('@', $userName)[0];
+    $userName = substr($userName, 0, 15) . ' ...';
 }
-$userName = substr($userName, 0, 15) . ' ...';
 ?>
 
 
