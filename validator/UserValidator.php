@@ -36,26 +36,23 @@ class UserValidator
                 $this->emailError = 'Please enter a valid email address';
                 $this->valid = false;
             }
-            if (empty($user->getPassword() && !$update)) { //new user
-                $this->passwordError = 'Please enter a password';
-                $this->valid = false;
+            if (!empty($user->getPassword() && empty($user->getNewPassword()))) { //new user
+                if ($update) {
+                    $this->passwordError = 'Please enter a new password';
+                    $this->valid = false;
+                }
 
             }
-            if (empty($user->getPassword() && $update && !empty($user->getNewPassword()))) { //edit
-                $this->passwordError = 'Please enter your old password';
-                $this->valid = false;
-
-            }
-            if (empty(!$user->getPassword() && $update && empty($user->getNewPassword()))) { //edit
-                $this->passwordError = 'Please enter a new password';
-                $this->valid = false;
-
+            if (!empty($user->getNewPassword() && empty($user->getPassword()))) { //edit
+                if ($update) {
+                    $this->passwordError = 'Please enter your old password';
+                    $this->valid = false;
+                }
             }
         } else {
             $this->valid = false;
         }
         return $this->valid;
-
     }
 
     public function isValid()

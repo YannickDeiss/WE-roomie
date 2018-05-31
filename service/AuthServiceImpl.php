@@ -37,7 +37,8 @@ class AuthServiceImpl implements AuthService
      * @static
      * @ReturnType AuthServiceImpl
      */
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (!isset(self::$instance)) {
             self::$instance = new self();
         }
@@ -47,13 +48,15 @@ class AuthServiceImpl implements AuthService
     /**
      * @access protected
      */
-    protected function __construct() {
+    protected function __construct()
+    {
     }
 
     /**
      * @access private
      */
-    private function __clone() {
+    private function __clone()
+    {
     }
 
     /**
@@ -61,7 +64,8 @@ class AuthServiceImpl implements AuthService
      * @return boolean
      * @ReturnType boolean
      */
-    public function verifyAuth() {
+    public function verifyAuth()
+    {
         if (isset($this->currentUserId))
             return true;
         return false;
@@ -72,7 +76,8 @@ class AuthServiceImpl implements AuthService
      * @return int
      * @ReturnType int
      */
-    public function getCurrentUserId() {
+    public function getCurrentUserId()
+    {
         return $this->currentUserId;
     }
 
@@ -85,7 +90,8 @@ class AuthServiceImpl implements AuthService
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function verifyUser($email, $password) {
+    public function verifyUser($email, $password)
+    {
         $userDAO = new UserDAO();
         $user = $userDAO->findByEmail($email);
         if (isset($user)) {
@@ -107,7 +113,8 @@ class AuthServiceImpl implements AuthService
      * @ReturnType Agent
      * @throws HTTPException
      */
-    public function readUser() {
+    public function readUser()
+    {
         if ($this->verifyAuth()) {
             $userDAO = new UserDAO();
             return $userDAO->read($this->currentUserId);
@@ -115,7 +122,8 @@ class AuthServiceImpl implements AuthService
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
-    public function createUser($user) {
+    public function createUser($user)
+    {
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
@@ -127,7 +135,8 @@ class AuthServiceImpl implements AuthService
         return true;
     }
 
-    public function findByEmail($user) {
+    public function findByEmail($user)
+    {
         $userDAO = new UserDAO();
         if (!is_null($userDAO->findByEmail($user->getEmail()))) {
             return true;
@@ -143,49 +152,30 @@ class AuthServiceImpl implements AuthService
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function editUser(User $user) {
-
+    public function editUser(User $user)
+    {
         $id = $_POST["id"];
         $email = $user->getEmail();
         $password = $user->getPassword();
         $newPassword = $user->getNewPassword();
-        $username = $user->getUserName();
 
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
             $user->setID($this->currentUserId);
-            if ((!is_null($userDAO->findByEmail($email)) && ($userDAO->findByEmail($email) !== $email))) {
+            if ((!is_null($userDAO->findByEmail($email)) && ($email !== $userDAO->findById($id)->getEmail()))) {
                 $user->setEmailError(true);
                 return false;
             }
-            if (!empty($password)){
-
-            }
-        }
-
-        $password = $user->getPassword();
-        $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
-        $userDAO = new UserDAO();
-        if ($this->verifyAuth()) {
-            $user->setID($this->currentUserId);
-            if ($userDAO->read($this->currentUserId)->getId() == $user->getId()) {
-                if ((!is_null($userDAO->findByEmail($user->getEmail())) && ($userDAO->findByEmail($user->getEmail()) !== $user->getEmail()))) {
-                    $user->setEmailError(true);
-                    return false;
+            if (!empty($password)) {
+                $dbUser = $userDAO->findById($id);
+                $dbPassword = $dbUser->getPassword();
+                if (password_verify($dbPassword, $password)) {
+                        $user->setPassword(password_hash($newPassword, PASSWORD_DEFAULT));
+                        $user->setNewPassword("");
                 }
             }
             $userDAO->update($user);
-            return true;
-        } else {
-            if (!is_null($userDAO->findByEmail($user->getEmail()))) {
-                $user->setEmailError(true);
-                return false;
-            }
-            if (!is_null($userDAO->findByUserName($user->getUserName()))) {
-                $user->setUserNameError(true);
-                return false;
-            }
-            $userDAO->create($user);
+            $user->setPassword("");
             return true;
         }
     }
@@ -195,7 +185,9 @@ class AuthServiceImpl implements AuthService
      * @param $user
      * @return bool
      */
-    public function updatePassword($user) {
+    public
+    function updatePassword($user)
+    {
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
@@ -215,7 +207,8 @@ class AuthServiceImpl implements AuthService
      * @ReturnType boolean
      */
     public
-    function validateToken($token) {
+    function validateToken($token)
+    {
         $tokenArray = explode(":", $token);
         $authTokenDAO = new AuthTokenDAO();
         $authToken = $authTokenDAO->findBySelector($tokenArray[0]);
@@ -249,7 +242,9 @@ class AuthServiceImpl implements AuthService
      * https://stackoverflow.com/a/31419246
      * @throws \Exception
      */
-    public function issueToken($type = self::AGENT_TOKEN, $email = null) {
+    public
+    function issueToken($type = self::AGENT_TOKEN, $email = null)
+    {
         $token = new AuthToken();
         $token->setSelector(bin2hex(random_bytes(5)));
         if ($type === self::AGENT_TOKEN) {
