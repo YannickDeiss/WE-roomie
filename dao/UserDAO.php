@@ -68,4 +68,15 @@ class UserDAO extends BasicDAO
         return null;
     }
 
+    public function findById($id)
+    {
+        $stmt = $this->pdoInstance->prepare('
+            SELECT * FROM "user" WHERE id = :id;');
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+        if ($stmt->rowCount() > 0)
+            return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\User")[0];
+        return null;
+    }
+
 }

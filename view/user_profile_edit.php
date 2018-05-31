@@ -20,7 +20,7 @@ use view\TemplateView;
                 <h1>Edit Your Profile</h1>
 
                 <input class="form-control" type="hidden" readonly="" name="id"
-                       value="'<?php echo $user->getId(); ?>'">
+                       value="<?php echo $user->getId(); ?>">
 
                 <div class="form-group">
                     <input type="text"  name="userName"
