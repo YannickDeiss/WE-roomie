@@ -10,6 +10,8 @@ use view\TemplateView;
 
 ?>
 
+
+
 <main class="content">
     <div class="listing-grid">
         <div class="section-heading">
@@ -27,11 +29,10 @@ use view\TemplateView;
                            value="<?php echo TemplateView::noHTML($user->getUserName()) ?>"/>
                     <label>Username</label>
                 </div>
-
                 <div class="form-group">
                     <input type="text"  name="email"
                            value="<?php echo TemplateView::noHTML($user->getEmail()) ?>"/>
-                    <label>Email</label>
+                    <label <?php echo isset($this->userValidator) ? 'style="color:red;font-weight:bold;font-size:1rem"' : "" ?>><?php echo isset($this->userValidator) ? $this->userValidator->getEmailError() : "Email" ?></label>
                 </div>
 
                 <div class="form-group">
