@@ -54,6 +54,7 @@ The goal of this project was it, to create a website that connects people that a
    * User can create an account using email
    * User can login
    * User can logout
+   * Remember me function
 6. Search function
    * The website provides a search function so that user can search for ads with specific criteria
 7. Export function
@@ -71,8 +72,8 @@ The goal of this project was it, to create a website that connects people that a
    * Users can upload pictures with their ads
 3. Google Maps integration
    * Google Maps API is used in order to display the place of the room
-4. Facebook login
-   * Users can login with their Facebook credentials via Facebook API
+4. Autocomplete for addresses
+   * Using the Google places API, users should get place suggestions when filling out the search form
 
 ### Pre-Implementation
 ###### Wireframes
