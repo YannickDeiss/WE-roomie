@@ -8,6 +8,7 @@
 
 namespace controller;
 use domain\Listing;
+use service\AuthServiceImpl;
 use service\ListingServiceImpl;
 use view\TemplateView;
 use view\LayoutRendering;
@@ -21,11 +22,15 @@ class SearchController
 
     public static function readAll(){
         $listing = new Listing();
-        $listing->setStreet($_POST["street"]);
-        $listing->setStreetnumber($_POST["streetNumber"]);
-        $listing->setPlz($_POST["plz"]);
-        $listing->setCity($_POST["city"]);
-        $listing->setCanton($_POST["canton"]);
+
+        $split = explode(",", ($_POST["city"]), [0]);
+        //$listing->setCity($_POST["city"]);
+
+        $minRooms = ($_POST["minRooms"]);
+        $maxRooms = ($_POST["maxRooms"]);
+        $minRent = ($_POST["minRent"]);
+        $maxRent = ($_POST["maxRent"]);
+
         $listing->setNumberofrooms($_POST["rooms"]);
         $listing->setPrice($_POST["price"]);
         $listing->setSquaremeters($_POST["squareMeters"]);
@@ -38,6 +43,7 @@ class SearchController
     {
         $contentView = new TemplateView("view/listing_detail.php");
         $contentView->listing = (new ListingServiceImpl())->findListingById($id);
+        //$contentView->user = AuthServiceImpl::getInstance()->readUser();
         LayoutRendering::basicLayout($contentView );
     }
 }
