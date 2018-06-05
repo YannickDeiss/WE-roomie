@@ -170,25 +170,16 @@ class ListingDAO extends BasicDAO
     {
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment"
-            WHERE upper(street) = :street 
-            OR
-            plz = :plz OR
+            WHERE
             upper(city) = :city OR
-            canton = :canton OR
             numberofrooms = :numberofrooms OR
             price = :price OR
-            squaremeters = :squaremeters OR
-            moveindate = :moveindate OR
-            upper(street) = :street');
+            squaremeters = :squaremeters OR');
 
-        $stmt->bindValue(':street', strtoupper($listing->getStreet()));
-        $stmt->bindValue(':plz', strtoupper(intval($listing->getPlz())));
         $stmt->bindValue(':city', strtoupper($listing->getCity()));
-        $stmt->bindValue(':canton', $listing->getCanton());
         $stmt->bindValue(':numberofrooms', floatval($listing->getNumberofrooms()));
         $stmt->bindValue(':price', floatval($listing->getPrice()));
         $stmt->bindValue(':squaremeters', floatval($listing->getSquaremeters()));
-        $stmt->bindValue(':moveindate', ($listing->getMoveindate()));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Listing");

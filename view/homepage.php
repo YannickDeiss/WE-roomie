@@ -17,35 +17,35 @@ use view\TemplateView;
         <p class="unselectable">Search</p>
         <i class="fas fa-angle-double-down"></i>
     </div>
-    <form class="search-tag" action="">
+    <form class="search-tag" type="submit" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/search">
     <div class="search-form" id="searchArea">
         <div class="search-form-wrapper">
                     <span class="input input--isao">
-                        <input class="input__field input__field--isao" id="autocomplete" placeholder="" type="text"/>
+                        <input class="input__field input__field--isao" id="autocomplete" placeholder="" name="city" type="text"/>
                         <label class="input__label input__label--isao" data-content="Location">
                             <span class="input__label-content input__label-content--isao">Location</span>
                         </label>
                     </span>
             <span class="input input--isao">
-                        <input class="input__field input__field--isao" type="text"/>
+                        <input class="input__field input__field--isao" name="minRooms" type="text"/>
                         <label class="input__label input__label--isao" data-content="Min Rooms">
                             <span class="input__label-content input__label-content--isao">Min Rooms</span>
                         </label>
                     </span>
             <span class="input input--isao">
-                        <input class="input__field input__field--isao" type="text"/>
+                        <input class="input__field input__field--isao" name="maxRooms" type="text"/>
                         <label class="input__label input__label--isao" data-content="Max Rooms">
                             <span class="input__label-content input__label-content--isao">Max Rooms</span>
                         </label>
                     </span>
             <span class="input input--isao">
-                        <input class="input__field input__field--isao" type="text"/>
+                        <input class="input__field input__field--isao" name="minRent" type="text"/>
                         <label class="input__label input__label--isao" data-content="Min Rent">
                             <span class="input__label-content input__label-content--isao">Min Rent</span>
                         </label>
                     </span>
             <span class="input input--isao">
-                        <input class="input__field input__field--isao" type="text"/>
+                        <input class="input__field input__field--isao" name="maxRent" type="text"/>
                         <label class="input__label input__label--isao" data-content="Max Rent">
                             <span class="input__label-content input__label-content--isao">Max Rent</span>
                         </label>
