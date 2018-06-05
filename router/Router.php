@@ -186,7 +186,7 @@ class Router
             Router::redirect("/user/");
         });
 
-// Listing CRUD & Email
+// Listing CRUD
 
 
         self::route_auth("GET", "/listing/create", $authFunction, function () {

@@ -37,12 +37,6 @@ $listing = $this->listing[0];
             </div>
         </div>
         <div class="contact-area">
-            <div class="contact-details">
-                <h1>Contact</h1>
-                <p>Hermann Grieder</p>
-                <p>email@email.com</p>
-                <p>079 000 00 00</p>
-            </div>
             <div class="contact-form">
                 <div class="form-layout contact">
                     <form class="entry-form contact" method="post" action="">
@@ -69,8 +63,6 @@ $listing = $this->listing[0];
             </div>
         </div>
         <div class="map-area" id="map">
-
-
             <iframe width="100%" height="100%" frameborder='0'
                     scrolling='no' marginheight='0' marginwidth='0'
                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCc6umJix_atnmSnjG4S5S6rj4WP492C3Y&amp;q=<?php echo $listing->getStreet() . "+" . $listing->getStreetNumber() . "+" . $listing->getCity() ?>+Switzerland&amp;zoom=15">

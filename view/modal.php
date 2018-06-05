@@ -75,7 +75,7 @@
                 <label class="login-label" for="signup-password">Password</label>
                 <label class="login-label error hidden" id="signup-password-error" for="password">*min 10 characters</label>
                 <input type="password" name="password" id="signup-password">
-                <input type="submit" id="signup-submit" value="Submit">
+                <input type="button" id="signup-submit" value="Submit">
             </form>
         </div>
     </div>

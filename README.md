@@ -54,6 +54,7 @@ The goal of this project was it, to create a website that connects people that a
    * User can create an account using email
    * User can login
    * User can logout
+   * Remember me function
 6. Search function
    * The website provides a search function so that user can search for ads with specific criteria
 7. Export function
@@ -71,8 +72,8 @@ The goal of this project was it, to create a website that connects people that a
    * Users can upload pictures with their ads
 3. Google Maps integration
    * Google Maps API is used in order to display the place of the room
-4. Facebook login
-   * Users can login with their Facebook credentials via Facebook API
+4. Autocomplete for addresses
+   * Using the Google places API, users should get place suggestions when filling out the search form
 
 ### Pre-Implementation
 ###### Wireframes
@@ -112,14 +113,29 @@ Most use cases have already been shortly explained in the requirements section. 
 * **Password reset**: if forgotten, users have the possibility to reset their password.
 
 ### Implementation
-During the implementation phase, the patterns from the pre-implementation phase are 
-As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively. It has been adjusted and extended to our needs. Subsequently, important classes are described.
+During the implementation phase, the previous plans were implemented. As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively. It has been adjusted and extended to our needs. Subsequently, important classes are described.
 * **Router**: The router routes the requests to the correct resource/destination.
 * **View**: The view folder contains all the HTML pages that are necessary for the website, including headers and the footer as well as CSS files.
 * **Controller**: The controller folder contains the controller files in order to manipulate the view, or the model respectively.
 * **ListingDAO and UserDAO**: The corresponding class handles the database requests and manipulates the data stored in the respective table.
 * **Listing**: Holds the data for an apartment.
 * **User**: Holds the data for the user.
+
+
+
+
+
+###### Applied techniques, APIs and 3rd party code
+- Google Places API Autocomplete
+- Google Maps API
+- Amazon ASW S3
+- AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))
+
+
+### Usage
+Beschreiben, welche buttons welche Aktionen hervorrufen
+
+
 
 
 
@@ -177,3 +193,5 @@ CREATE TABLE "user"
 ### Conclusion
 To be mentioned:
 - The welcome page displays the newest 3 entries
+- Bilder von Responsiveness hochladen
+
