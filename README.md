@@ -2,8 +2,9 @@
 
 - [Introduction](#introduction)
   - [Overview](#overview)
-  - [Requirement Analysis](#requirement-analysis)
-  - [Use case](#use-case)
+  - [Contributors](#contributors)
+  - [Requirements](#the-following-requirements-were-defined)
+  - [Optional Requirements](#optional-requirements)
 - [Design](#design)
   - [Mockups](#mockups)
   - [Entity Relationship Diagram](#entity-relationship-diagram)
@@ -74,7 +75,7 @@ After the requirements have been designed, a use case diagram was created. The f
 
 Most use cases have already been shortly explained in the requirements section. However, hereafter, each of the use cases is explained more in detail.
 * **Register**: unregistered users can create an account which allows them to create ads for a room that they like to offer.
-* **User Login**: registered user that are currently logged out can log in using their credentials (email and password).
+* **User Login**: registered user that are currently logged out can log in using their credentials (email and password). After that, 
 * **Logout**: logged-in users can logout, what terminates the current session.
 * **Search entry**: registered users can search for rooms with specific requirements (room size, price, etc.).
 * **Contact advertiser**: logged-in users can contact an advertiser using a contact form.
@@ -103,7 +104,7 @@ To store the data, a PostgreSQL database was created. The database contains 3 ta
 * **users**: the RegisteredUsers table stores the data about the users; id, username, mail, as well as the encrypted password.
 
 ### Implementation
-As foundation of the implemented code acts the framework that was developed during classes. It has been adjusted and extended to our needs. Subsequently, important classes are described.
+As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively. It has been adjusted and extended to our needs. Subsequently, important classes are described.
 * **Router**: The router routes the requests to the correct resource/destination.
 * **View**: The view folder contains all the HTML pages that are necessary for the website, including headers and the footer as well as CSS files.
 * **Controller**: The controller folder contains the controller files in order to manipulate the view, or the model respectively.
