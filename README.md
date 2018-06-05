@@ -81,7 +81,7 @@ In order to have a general idea of the GUI and a better understanding for what w
 ![Room Details](https://github.com/Yardie83/roomie/blob/master/RoomDetailMockup.png "Room Details")
 ![Search Page](https://github.com/Yardie83/roomie/blob/master/SearchPageMockup.png "Search Page")
 
-### Database Model
+###### Database Model
 To store the data, a PostgreSQL database was created. The database contains 3 tables; authtoken, apartment, user.
 * **authtoken**: used for the remember-me and password-reset functionality.
 * **apartment**: this table stores data about the apartments that are visible as ads.
@@ -132,6 +132,7 @@ CREATE TABLE "user"
 ```
 
 The database is designed in a way that one user can have several apartments. However, one apartment corresponds to one user, and only one user.
+Additionally it is worth mentioning that the database does not store images as images in the apartment table, it stores links to images, which are stored on an Amazon server (AWS S3).
 
 
 
