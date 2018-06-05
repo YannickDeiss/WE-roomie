@@ -17,7 +17,7 @@ class HomepageController
     public static function show()
     {
         $contentView = new TemplateView("view/homepage.php");
-//        $contentView->listings = (new ListingServiceImpl())->findTopThree();
+        $contentView->listings = (new ListingServiceImpl())->findTopTen();
         LayoutRendering::basicLayout($contentView);
     }
 }

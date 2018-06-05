@@ -9,6 +9,7 @@
 
 namespace router;
 
+use controller\EmailController;
 use controller\HomepageController;
 use controller\ListingController;
 use controller\RegisterController;
@@ -27,8 +28,7 @@ class Router
 {
     protected static $routes = [];
 
-    public static function init()
-    {
+    public static function init() {
         $protocol = isset($_SERVER['HTTPS']) || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === "https") ? 'https' : 'http';
         $_SERVER['SERVER_PORT'] === "80" ? $serverPort = "" : $serverPort = ":" . $_SERVER['SERVER_PORT'];
         $GLOBALS["ROOT_URL"] = $protocol . "://" . $_SERVER['SERVER_NAME'] . $serverPort . strstr($_SERVER['PHP_SELF'], $_SERVER['ORIGINAL_PATH'], true);
@@ -39,13 +39,11 @@ class Router
         }
     }
 
-    public static function route($method, $path, $routeFunction)
-    {
+    public static function route($method, $path, $routeFunction) {
         self::route_auth($method, $path, null, $routeFunction);
     }
 
-    public static function route_auth($method, $path, $authFunction, $routeFunction)
-    {
+    public static function route_auth($method, $path, $authFunction, $routeFunction) {
         if (empty(self::$routes))
             self::init();
         $path = trim($path, '/');
@@ -59,8 +57,7 @@ class Router
         self::$routes[$method][$path] = array("authFunction" => $authFunction, "routeFunction" => $routeFunction);
     }
 
-    public static function call_route($method, $path)
-    {
+    public static function call_route($method, $path) {
         $path = trim(parse_url($path, PHP_URL_PATH), '/');
         $path_pieces = explode('/', $path);
         $parameters = [];
@@ -83,22 +80,19 @@ class Router
         $route["routeFunction"](...$parameters);
     }
 
-    public static function errorHeader()
-    {
+    public static function errorHeader() {
         HTTPHeader::setStatusHeader(HTTPStatusCode::HTTP_404_NOT_FOUND);
     }
 
-    public static function redirect($redirect_path)
-    {
+    public static function redirect($redirect_path) {
         HTTPHeader::redirect($redirect_path);
     }
 
-    public static function registerRoutes()
-    {
+    public static function registerRoutes() {
         $authFunction = function () {
             if (AuthController::authenticate())
                 return true;
-            self::redirect("/login");
+            self::redirect("/");
             return false;
         };
 
@@ -130,18 +124,23 @@ class Router
 
 // Register path
 
+        self::route("POST", "/signUpValidator", function () {
+            $response = RegisterController::validateUserEntry();
+            echo json_encode($response);
+        });
+
         self::route("POST", "/register", function () {
-            if (RegisterController::registerUser()){
+            if (RegisterController::registerUser()) {
                 AuthController::login();
                 self::redirect("/user");
             }
         });
 
-        self::route_auth("GET", "/editProfile", $authFunction, function () {
+        self::route_auth("GET", "/user/edit", $authFunction, function () {
             RegisterController::editView();
         });
 
-        self::route_auth("POST", "/editProfile", $authFunction, function () {
+        self::route_auth("POST", "/user/edit", $authFunction, function () {
             if (RegisterController::update())
                 self::redirect("/user");
         });
@@ -154,11 +153,11 @@ class Router
 
 
 // Password Request and Reset
-        self::route("GET", "/password/request", function () {
-            PasswordResetController::requestView();
+        self::route("GET", "/password/reset", function () {
+            PasswordResetController::resetView();
         });
 
-        self::route("POST", "/password/request", function () {
+        self::route("POST", "/password/reset", function () {
             PasswordResetController::resetEmail();
             self::redirect("/password/checkMail");
         });
@@ -167,15 +166,14 @@ class Router
             PasswordResetController::checkEmailView();
         });
 
-        self::route("POST", "/password/reset", function () {
-            PasswordResetController::reset();
-            self::redirect("/login");
+        self::route("GET", "/password/request", function () {
+            PasswordResetController::requestView();
         });
 
-        self::route("GET", "/password/reset", function () {
-            PasswordResetController::resetView();
+        self::route("POST", "/password/request", function () {
+            PasswordResetController::updatePassword();
+            self::redirect("/");
         });
-
 
 
 // user paths
@@ -183,7 +181,14 @@ class Router
             ListingController::readAll();
         });
 
+        self::route_auth("GET", '/user/emailListings', $authFunction, function () {
+            EmailController::sendMeMyCustomers();
+            Router::redirect("/user/");
+        });
+
 // Listing CRUD & Email
+
+
         self::route_auth("GET", "/listing/create", $authFunction, function () {
             ListingController::create();
         });

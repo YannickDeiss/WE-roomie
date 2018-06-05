@@ -9,6 +9,7 @@
 namespace service;
 
 use domain\Agent;
+use domain\User;
 
 /**
  * @access public
@@ -44,14 +45,14 @@ interface AuthService {
 
     /**
      * @access public
-     * @param $user
+     * @param $user User
      * @return boolean
      * @ParamType name string
      * @ParamType email String
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function editUser($user);
+    public function editUser(User $user);
 
     /**
      * @access public

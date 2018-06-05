@@ -7,6 +7,7 @@
  */
 
 namespace service;
+
 use dao\UserDAO;
 use domain\User;
 use domain\AuthToken;
@@ -14,6 +15,7 @@ use domain\AuthToken;
 use http\HTTPException;
 use http\HTTPStatusCode;
 use dao\AuthTokenDAO;
+
 /**
  * @access public
  * @author andreas.martin
@@ -28,51 +30,52 @@ class AuthServiceImpl implements AuthService
      * @AttributeType int
      */
     private $currentUserId;
+
     /**
      * @access public
      * @return AuthServiceImpl
      * @static
      * @ReturnType AuthServiceImpl
      */
-    public static function getInstance()
-    {
+    public static function getInstance() {
         if (!isset(self::$instance)) {
             self::$instance = new self();
         }
         return self::$instance;
     }
+
     /**
      * @access protected
      */
-    protected function __construct()
-    {
+    protected function __construct() {
     }
+
     /**
      * @access private
      */
-    private function __clone()
-    {
+    private function __clone() {
     }
+
     /**
      * @access public
      * @return boolean
      * @ReturnType boolean
      */
-    public function verifyAuth()
-    {
+    public function verifyAuth() {
         if (isset($this->currentUserId))
             return true;
         return false;
     }
+
     /**
      * @access public
      * @return int
      * @ReturnType int
      */
-    public function getCurrentUserId()
-    {
+    public function getCurrentUserId() {
         return $this->currentUserId;
     }
+
     /**
      * @access public
      * @param String email
@@ -82,8 +85,7 @@ class AuthServiceImpl implements AuthService
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function verifyUser($email, $password)
-    {
+    public function verifyUser($email, $password) {
         $userDAO = new UserDAO();
         $user = $userDAO->findByEmail($email);
         if (isset($user)) {
@@ -98,14 +100,14 @@ class AuthServiceImpl implements AuthService
         }
         return false;
     }
+
     /**
      * @access public
      * @return User
      * @ReturnType Agent
      * @throws HTTPException
      */
-    public function readUser()
-    {
+    public function readUser() {
         if ($this->verifyAuth()) {
             $userDAO = new UserDAO();
             return $userDAO->read($this->currentUserId);
@@ -113,8 +115,7 @@ class AuthServiceImpl implements AuthService
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);
     }
 
-    public function createUser($user){
-
+    public function createUser($user) {
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
@@ -122,12 +123,15 @@ class AuthServiceImpl implements AuthService
             $user->setEmailError(true);
             return false;
         }
-        if (!is_null($userDAO->findByUserName($user->getUserName()))) {
-            $user->setUserNameError(true);
-            return false;
-        }
         $userDAO->create($user);
         return true;
+    }
+
+    public function findByEmail($user) {
+        $userDAO = new UserDAO();
+        if (!is_null($userDAO->findByEmail($user->getEmail()))) {
+            return true;
+        }
     }
 
     /**
@@ -139,40 +143,49 @@ class AuthServiceImpl implements AuthService
      * @ParamType password String
      * @ReturnType boolean
      */
-    public function editUser($user)
-    {
+    public function editUser(User $user) {
+        $id = $_POST["id"];
+        $email = $user->getEmail();
+        $password = $user->getPassword();
+        $newPassword = $user->getNewPassword();
+
+        $userDAO = new UserDAO();
+        if ($this->verifyAuth()) {
+            $user->setID($this->currentUserId);
+            if ((!is_null($userDAO->findByEmail($email)) && ($email !== $userDAO->findById($id)->getEmail()))) {
+                $user->setEmailError(true);
+                return false;
+            }
+            if (!empty($password)) {
+                $dbUser = $userDAO->findById($id);
+                if (password_verify($password, $dbUser->getPassword())) {
+                    $user->setPassword(password_hash($newPassword, PASSWORD_DEFAULT));
+                } else {
+                    $user->setPassword($dbUser->getPassword());
+                }
+            }
+            $userDAO->update($user);
+            return true;
+        }
+    }
+
+
+    /**
+     * @param $user
+     * @return bool
+     */
+    public function updatePassword($user) {
         $password = $user->getPassword();
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
             $user->set($this->currentUserId);
-            if ($userDAO->read($this->currentUserId)->getEmail() == $user->getEmail()) {
-                if (!is_null($userDAO->findByUserName($user->getUserName()))) {
-                    $user->setUserNameError(true);
-                    return false;
-                }
-            }
-            if ($userDAO->read($this->currentUserId)->getUserName() == $user->getUserName()) {
-                if (!is_null($userDAO->findByEmail($user->getEmail()))) {
-                    $user->setEmailError(true);
-                    return false;
-                }
-            }
             $userDAO->update($user);
             return true;
-        } else {
-            if (!is_null($userDAO->findByEmail($user->getEmail()))) {
-                $user->setEmailError(true);
-                return false;
-            }
-            if (!is_null($userDAO->findByUserName($user->getUserName()))) {
-                $user->setUserNameError(true);
-                return false;
-            }
-            $userDAO->create($user);
-            return true;
         }
+        return false;
     }
+
     /**
      * @access public
      * @param String token
@@ -181,8 +194,7 @@ class AuthServiceImpl implements AuthService
      * @ReturnType boolean
      */
     public
-    function validateToken($token)
-    {
+    function validateToken($token) {
         $tokenArray = explode(":", $token);
         $authTokenDAO = new AuthTokenDAO();
         $authToken = $authTokenDAO->findBySelector($tokenArray[0]);
@@ -200,6 +212,7 @@ class AuthServiceImpl implements AuthService
         }
         return false;
     }
+
     /**
      * @access public
      * @param int type
@@ -215,9 +228,7 @@ class AuthServiceImpl implements AuthService
      * https://stackoverflow.com/a/31419246
      * @throws \Exception
      */
-    public
-    function issueToken($type = self::AGENT_TOKEN, $email = null)
-    {
+    public function issueToken($type = self::AGENT_TOKEN, $email = null) {
         $token = new AuthToken();
         $token->setSelector(bin2hex(random_bytes(5)));
         if ($type === self::AGENT_TOKEN) {

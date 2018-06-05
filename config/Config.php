@@ -24,6 +24,9 @@ class Config
             self::$config["email"]["sendgrid-apikey"] = $data["email"]["sendgrid-apikey"];
             self::$config["pdf"]["hypdf-user"] = $data["pdf"]["hypdf-user"];
             self::$config["pdf"]["hypdf-password"] = $data["pdf"]["hypdf-password"];
+            self::$config["s3"]["key"] = $data["s3"]["key"];
+            self::$config["s3"]["secret"] = $data["s3"]["secret"];
+            self::$config["s3"]["name"] = $data["s3"]["name"];
         } else {
             if (isset($_ENV["DATABASE_URL"])) {
                 $dbopts = parse_url(getenv('DATABASE_URL'));
@@ -39,6 +42,15 @@ class Config
             }
             if (isset($_ENV["HYPDF_PASSWORD"])) {
                 self::$config["pdf"]["hypdf-password"] = getenv('HYPDF_PASSWORD');
+            }
+            if (isset($_ENV["S3_KEY"])) {
+                self::$config["s3"]["key"] = getenv('S3_KEY');
+            }
+            if (isset($_ENV["S3_SECRET"])) {
+                self::$config["s3"]["secret"] = getenv('S3_SECRET');
+            }
+            if (isset($_ENV["S3_NAME"])) {
+                self::$config["s3"]["name"] = getenv('S3_NAME');
             }
         }
     }
@@ -63,5 +75,12 @@ class Config
         if (empty(self::$config))
             self::init();
         return self::$config["pdf"][$key];
+    }
+
+    public static function s3Config($key)
+    {
+        if (empty(self::$config))
+            self::init();
+        return self::$config["s3"][$key];
     }
 }

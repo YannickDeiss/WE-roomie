@@ -1,4 +1,60 @@
 LIST OF TODOS DURING THE PROJECT
 
-404 PAGE
-.env files
+Pages
+    - New 404 PAGE
+    - New Search result page
+    - Edit profile page
+    - Design footer
+
+Functionality
+    [HOMEPAGE]
+    DONE ---- Show the latest listings
+
+    [SEARCH]
+    - Implement Search
+
+    [LISTINGS]
+    DONE ---- Create listing
+    DONE ---- Allow for uploads and retrieval of images through amazon aws s3
+    DONE ---- GeoLocation by Google for Location field
+    DONE ---- Show list of my posted listings
+    DONE ---- Delete my listing
+    - Edit my listing
+    DONE ---- Email a list of my listings to me
+    - Print a listing from the detail view page
+
+    [LOGIN]
+    DONE ----- Remember me function during the login process
+    DONE ----- Show name or email in the logged in navbar
+
+    [MODALS]
+    DONE ----- Give feedback of already existing email address
+    - Give feedback about false email or password during login process
+    - Reactivate error feedback
+
+    [PROFILE]
+    - Edit profile
+        - Change email address
+        - Change username
+        - Change password
+
+Design
+    - Edit your profile title add margin (sunscht frog loris)
+    - Add Edit Profile link somewhere
+    - Add Search link to the navbar which links to search page
+    - Add link to logo to navigate back to homepage "/"
+    - Make location the biggest element in the search box
+    DONE ----- Add remember me checkbox to login modal
+    - Fix Mobile View of Modals
+    - Make sure everything is ok in mobile view
+    DONE ----- Make the word Search change appearance when hovered
+    DONE ----- Make the snake in the modals react to hover and not to mouse pressed
+    - Make font smaller on homepage in the latest listing cards
+    DONE ----- Fix misalignment in modals "submit"
+
+Bugs
+
+- Authtoken are not being deleted in the database at the moment during password reset process
+- Check AuthServiceImpl for completeness and unnecessary code
+
+

@@ -25,16 +25,18 @@ class PasswordResetController
     
     public static function requestView(){
         $view = new TemplateView("password_request.php");
+        $view->token = $_GET["token"];
         LayoutRendering::basicLayout($view);
     }
     
-    public static function reset(){
+    public static function updatePassword(){
         if(AuthServiceImpl::getInstance()->validateToken($_POST["token"])){
             $user = AuthServiceImpl::getInstance()->readUser();
             $user->setPassword($_POST["password"]);
+
             $userValidator = new UserValidator($user);
             if($userValidator->isValid()){
-                if(AuthServiceImpl::getInstance()->editUser($user)){
+                if(AuthServiceImpl::getInstance()->updatePassword($user)){
                     return true;
                 }
             }
@@ -50,7 +52,7 @@ class PasswordResetController
     public static function resetEmail(){
         $token = AuthServiceImpl::getInstance()->issueToken(AuthServiceImpl::RESET_TOKEN, $_POST["email"]);
         $emailView = new TemplateView("view/password_resetEmail.php");
-        $emailView->resetLink = $GLOBALS["ROOT_URL"] . "/password/reset?token=" . $token;
+        $emailView->resetLink = $GLOBALS["ROOT_URL"] . "/password/request?token=" . $token;
         return EmailServiceClient::sendEmail($_POST["email"], "Password Reset Email", $emailView->render());
     }
 

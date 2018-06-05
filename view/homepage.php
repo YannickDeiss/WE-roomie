@@ -1,3 +1,7 @@
+<?php
+use view\TemplateView;
+?>
+
 <head>
     <link src="mapsStyle.css"
 </head>
@@ -9,7 +13,7 @@
 </header>
 
 <search class="search">
-    <div class="search-indicator" onclick="pageJump()">
+    <div class="wobble search-indicator" onclick="pageJump()">
         <p class="unselectable">Search</p>
         <i class="fas fa-angle-double-down"></i>
     </div>
@@ -46,7 +50,7 @@
                         </label>
                     </span>
             <div class="search-button-wrapper">
-                <button class="search-button">
+                <button class="search-button" value="submit">
                     <span class="unselectable">Search</span>
                 </button>
             </div>
@@ -57,25 +61,36 @@
     <div class="latest-available">
         <h2>Latest Available Rooms</h2>
     </div>
-
+    <?php
+    foreach ($this->listings as $listing): ?>
     <div class="listing-card">
         <div class="make-3D-space">
             <div class="product-card">
                 <div class="product-front">
                     <div class="shadow"></div>
-                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt.png" alt=""/>
+                    <?php if (!empty($listing->getImage1())){
+                        echo '
+                                <img src="'?>
+                        <?php echo TemplateView::noHTML($listing->getImage1()); ?> <?php echo '"
+                                     alt=""/>';
+                    }else{
+                        echo '
+                                <img src="dist/images/not-available.jpg" alt=""/>';
+                    }?>
                     <div class="image_overlay"></div>
-                    <div class="view_details">View details</div>
+                    <div class="view_details">View images</div>
                     <div class="stats">
                         <div class="stats-container">
-                            <span class="product_price">$39</span>
-                            <span class="product_name">Adidas Originals</span>
-                            <p>Men's running shirt</p>
+                            <span class="product_price">CHF <?php echo TemplateView::noHTML($listing->getPrice()); ?></span>
+                            <span class="product_name"><?php echo TemplateView::noHTML($listing->getTitle()); ?></span>
+                            <p>Available from <?php echo TemplateView::noHTML($listing->getMoveindate()); ?></p>
 
                             <div class="product-options">
-                                <strong>SIZES</strong>
-                                <span>XS, S, M, L, XL, XXL</span>
-                                <strong>COLORS</strong>
+                                <strong>Rooms</strong>
+                                <span><?php echo TemplateView::noHTML($listing->getNumberofrooms()); ?></span>
+                                <strong><a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/search/<?php echo $listing->getId(); ?>'>
+                                        View Details
+                                    </a></strong>
                             </div>
                         </div>
                     </div>
@@ -84,18 +99,37 @@
                     <div class="shadow"></div>
                     <div class="carousel">
                         <ul class="unselectable">
-                            <li>
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large.png"
+                            <?php if (!empty($listing->getImage1())){
+                                echo '
+                                <li>
+                                <img src="'?>
+                                <?php echo TemplateView::noHTML($listing->getImage1()); ?> <?php echo '"
                                      alt=""/>
-                            </li>
-                            <li>
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large2.png"
+                                </li>';
+                            }else{
+                                echo '
+                                <li>
+                                <img src="dist/images/not-available.jpg" alt=""/>
+                                </li>';
+                            }?>
+
+                            <?php if (!empty($listing->getImage2())){
+                                echo '
+                                <li>
+                                <img src="'?>
+                                <?php echo TemplateView::noHTML($listing->getImage2()); ?> <?php echo '"
                                      alt=""/>
-                            </li>
-                            <li>
-                                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large3.png"
+                                </li>';
+                            }?>
+
+                            <?php if (!empty($listing->getImage3())){
+                                echo '
+                                <li>
+                                <img src="'?>
+                                <?php echo TemplateView::noHTML($listing->getImage3()); ?> <?php echo '"
                                      alt=""/>
-                            </li>
+                                </li>';
+                            }?>
                         </ul>
                         <div class="arrows-perspective">
                             <div class="carouselPrev">
@@ -116,38 +150,21 @@
             </div>
         </div>
     </div>
+
+    <?php endforeach; ?>
 </main>
 
  <script>
 
-    var placeSearch, autocomplete;
-    var componentForm = {
-        street_number: 'short_name',
-        route: 'long_name',
-        locality: 'long_name',
-        administrative_area_level_1: 'short_name',
-        country: 'long_name',
-        postal_code: 'short_name'
-    };
-
     function initAutocomplete() {
-        // Create the autocomplete object, restricting the search to geographical
-        // location types.
-        //https://stackoverflow.com/questions/42135049/google-maps-autocomplete-to-restrict-places-shown-in-a-specific-country
         autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
-            {types: ['(cities)'], componentRestrictions: {country: 'CH'}});
-
-        // When the user selects an address from the dropdown, populate the address
-        // fields in the form.
-        autocomplete.addListener('place_changed', fillInAddress);
+            {types: ['(regions)'], componentRestrictions: {country: 'CH'}});
     }
 
     function pageJump() {
-        document.getElementById("searchArea").scrollIntoView({behavior: "smooth"});;
+        document.getElementById("searchArea").scrollIntoView({behavior: "smooth"});
     }
-
-
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAY-l7QLzikVgEmkS67AMHR1cI0c9tKgIQ&libraries=places&callback=initAutocomplete"
         async defer></script>

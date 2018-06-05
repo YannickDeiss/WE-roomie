@@ -9,12 +9,9 @@
 namespace view;
 
 use controller\AuthController;
-use service\AuthServiceImpl;
-
 
 class LayoutRendering
 {
-
     public static function basicLayout(TemplateView $contentView)
     {
         $view = new TemplateView("layout.php");
@@ -26,7 +23,6 @@ class LayoutRendering
         }
         $view->content = $contentView->render();
         $view->footer = (new TemplateView("footer.php"))->render();
-        //Test comment
         echo $view->render();
     }
 }

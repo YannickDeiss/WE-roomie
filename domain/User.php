@@ -26,15 +26,18 @@ class User
     /**
      * @AttributeType String
      */
-    protected $email;
+
+    protected $newPassword;
     /**
-     * @AttributeType Bool
+     * @AttributeType String
      */
-    protected $isAdmin;
+    protected $email;
 
-    private $emailError;
+    protected $emailError;
 
-    private $userNameError;
+    protected $passwordMatchError;
+
+
     /**
      * @access public
      * @return int
@@ -111,23 +114,7 @@ class User
         $this->email = $email;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getIsAdmin()
-    {
-        return $this->isAdmin;
-    }
-
-    /**
-     * @param mixed $isAdmin
-     */
-    public function setIsAdmin($isAdmin)
-    {
-        $this->isAdmin = $isAdmin;
-    }
-
-    public function set($currentUserId)
+    public function setID($currentUserId)
     {
         $this->id = $currentUserId;
 
@@ -138,9 +125,9 @@ class User
         $this->emailError = $hasError;
     }
 
-    public function setUserNameError($hasError)
+    public function setPasswordMatchError($hasError)
     {
-        $this->userNameError = $hasError;
+        $this->passwordMatchError = $hasError;
     }
 
     /**
@@ -154,10 +141,27 @@ class User
     /**
      * @return mixed
      */
-    public function getUserNameError()
+    public function getPasswordMatchError()
     {
-        return $this->userNameError;
+        return $this->passwordMatchError;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNewPassword()
+    {
+        return $this->newPassword;
+    }
+
+    /**
+     * @param mixed $newPassword
+     */
+    public function setNewPassword($newPassword): void
+    {
+        $this->newPassword = $newPassword;
+    }
+
 
 
 }

@@ -16,34 +16,40 @@ class UserValidator
     private $nameError = null;
     private $emailError = null;
     private $passwordError = null;
-    private $userNameError;
+    private $newPasswordError = null;
+    private $passwordMatchError = null;
 
-    public function __construct(User $user = null)
+    public function __construct(User $user = null, $existingUser = false)
     {
         if (!is_null($user)) {
-            $this->validate($user);
+            $this->validate($user, $existingUser);
         }
     }
 
-    public function validate(User $agentuser)
+    public function validate(User $user, $existingUser)
     {
-        if (!is_null($agentuser)) {
-            if (empty($agentuser->getUserName())) {
-                $this->nameError = 'Please enter a name';
-                $this->valid = false;
-            }
-
-            if (empty($agentuser->getEmail())) {
+        if (!is_null($user)) {
+            if (empty($user->getEmail())) {
                 $this->emailError = 'Please enter an email address';
                 $this->valid = false;
-            } else if (!filter_var($agentuser->getEmail(), FILTER_VALIDATE_EMAIL)) {
+            } else if (!filter_var($user->getEmail(), FILTER_VALIDATE_EMAIL)) {
                 $this->emailError = 'Please enter a valid email address';
                 $this->valid = false;
             }
-
-            if (empty($agentuser->getPassword())) {
+            if (empty($user->getPassword()) && !$existingUser) {
                 $this->passwordError = 'Please enter a password';
                 $this->valid = false;
+
+            }
+            if (empty($user->getPassword()) && $existingUser && !empty($user->getNewPassword())) {
+                $this->passwordError = 'Please enter your old password';
+                $this->valid = false;
+
+            }
+            if (empty(!$user->getPassword()) && $existingUser && empty($user->getNewPassword())) {
+                $this->passwordError = 'Please enter a new password';
+                $this->valid = false;
+
             }
         } else {
             $this->valid = false;
@@ -93,14 +99,14 @@ class UserValidator
         return $this->passwordError;
     }
 
-    public function getUserNameError()
+    public function getPasswordMatchError()
     {
-        return $this->userNameError;
+        return $this->passwordMatchError;
     }
 
-    public function setUserNameError($userNameError)
+    public function setPasswordMatchError($passwordMatchError)
     {
-        $this->userNameError = $userNameError;
+        $this->passwordMatchError = $passwordMatchError;
         $this->valid = false;
     }
 }

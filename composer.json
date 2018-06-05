@@ -1,0 +1,23 @@
+{
+  "name": "fhnw/we-roomie",
+  "description": "Student Project",
+  "authors": [
+    {
+      "name": "Tobias Gerhard",
+      "email": "tobias.gerhard@students.fhnw.ch"
+    },
+    {
+      "name": "Loris Grether",
+      "email": "loris.grether@students.fhnw.ch"
+    },
+    {
+      "name": "Hermann Grieder",
+      "email": "hermann.grieder@students.fhnw.ch"
+    }
+  ],
+  "require": {
+    "php": "~7.1.9",
+    "aws/aws-sdk-php": "^3.56"
+
+  }
+}

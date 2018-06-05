@@ -6,29 +6,7 @@ use view\TemplateView;
 <main class="content">
     <div class="listing-grid">
         <div class="section-heading">
-            <h2>List of your posted rooms <?php echo "  &mdash;  Currently " . sizeof($this->listings) . " Rooms posted"?></h2>
-            <ul>
-                <li class="active">
-                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user/edit'>
-                        <i class="fas fa-edit"></i>
-                        <span>Edit Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user/emailListings'>
-                        <i class="fas fa-envelope"></i>
-                        <span>Send List</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="listing-item border-dotted">
-            <div class="add-listing-button-wrapper">
-                <button onclick="location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/create'" type="button" class="add-listing-button">
-                    <span class="unselectable">Add</span>
-                </button>
-            </div>
-        </div>
+            <h2>Search Results <?php echo "  &mdash;  We found " . sizeof($this->listings) . " rooms"?></h2>
         <?php
 
             foreach ($this->listings as $listing):
