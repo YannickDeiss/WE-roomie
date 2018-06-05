@@ -5,9 +5,15 @@
   - [Contributors](#contributors)
   - [Requirements](#the-following-requirements-were-defined)
   - [Optional Requirements](#optional-requirements)
-- [Design](#design)
-  - [Mockups](#mockups)
-  - [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Pre-Implementation](#pre-implementation)
+  - [Wireframes](#wireframes)
+  - [Database Model](#database-model)
+  - [Use Case Diagram](#use-case-diagram)
+- [Implementation](#implementation)
+  
+
+
+
   - [Domain Model](#domain-model)
   - [Data Access Model](#data-access-model)
 - [Implementation](#implementation)
@@ -68,42 +74,45 @@ The goal of this project was it, to create a website that connects people that a
 4. Facebook login
    * Users can login with their Facebook credentials via Facebook API
 
-### Use Case Diagram
-After the requirements have been designed, a use case diagram was created. The following diagram illustrates the use cases. 
-
-![Use Case Diagram](https://github.com/Yardie83/WE-roomie/blob/master/UseCaseDiagram.jpg "Use Case Diagram")
-
-Most use cases have already been shortly explained in the requirements section. However, hereafter, each of the use cases is explained more in detail.
-* **Register**: unregistered users can create an account which allows them to create ads for a room that they like to offer.
-* **User Login**: registered user that are currently logged out can log in using their credentials (email and password). After that, 
-* **Logout**: logged-in users can logout, what terminates the current session.
-* **Search entry**: registered users can search for rooms with specific requirements (room size, price, etc.).
-* **Contact advertiser**: logged-in users can contact an advertiser using a contact form.
-* **Delete user**: the admin can fully delete user from the database.
-* **Change profile**: users can change their profile data with regards to email and username
-* **Create entry**: users can create ads through a online form. These ads appear on the website, which displays all the available rooms.
-* **Edit entry**: entries (ads) can be edited with respect to description text, address etc.
-* **Delete entry**: entries (ads) can be fully deleted, so that they do not appear in the database anymore.
-
-The image above illustrates the use cases that were defined at the very beginning. However, during implementation, certain changes took place:
-* Being an unregistered user does not keep the user from looking at and searching for ads.
-* There is no "admin"; registered users are capable to make adjustments to their entries themselves. However, having full access to the database makes us (the creators) somewhat of the admins.
-* The optional functionalities were not implemented.
-
-### Wireframes
-In order to have a general idea of the GUI, 4 simple mockups were created. These wireframes can be found hereafter.
+### Pre-Implementation
+###### Wireframes
+In order to have a general idea of the GUI and a better understanding for what we are going to develop, 4 simple mock-ups were created. These wireframes can be found hereafter. However, during implementation we adjusted to our needs.
 ![Available Rooms](https://github.com/Yardie83/roomie/blob/master/AvailableRoomsMockup.png "Available Rooms")
 ![Registration](https://github.com/Yardie83/roomie/blob/master/RegistrationMockup.png "Registration")
 ![Room Details](https://github.com/Yardie83/roomie/blob/master/RoomDetailMockup.png "Room Details")
 ![Search Page](https://github.com/Yardie83/roomie/blob/master/SearchPageMockup.png "Search Page")
 
-### Database Model
-To store the data, a PostgreSQL database was created. The database contains 3 tables; authtoken, ListingAppartments, users.
+###### Database Model
+To store the data, a PostgreSQL database was created. The database contains 3 tables; authtoken, apartment, user.
 * **authtoken**: used for the remember-me and password-reset functionality.
-* **ListingAppartments**: this table stores data about the apartments that are visible as ads.
-* **users**: the RegisteredUsers table stores the data about the users; id, username, mail, as well as the encrypted password.
+* **apartment**: this table stores data about the apartments that are visible as ads.
+* **user**: the user table stores the data about the users; id, username, mail, as well as the encrypted password.
+
+![Database Model](https://github.com/Yardie83/WE-roomie/blob/master/DataBaseModel.jpg "Database Model")
+
+The database is designed in a way that one user can have several apartments. However, one apartment corresponds to one user, and only one user.
+Additionally it is worth mentioning that the database does not store images as images in the apartment table, it stores links to images, which are stored on an Amazon server (AWS S3).
+
+###### Use Case Diagram
+Based on the defined requirements, a use case diagram was created. The following diagram illustrates the use cases. 
+
+![Use Case Diagram](https://github.com/Yardie83/WE-roomie/blob/master/UseCaseDiagram.jpg "Use Case Diagram")
+
+Most use cases have already been shortly explained in the requirements section. However, hereafter, each of the use cases is explained more in detail.
+* **Register**: unregistered users can create an account which allows them to create ads for a room that they like to offer.
+* **User Login**: registered user that are currently logged out can log in using their credentials (email and password). After that, they have access to edit their profile, their ads, or to create new ads.
+* **Logout**: logged-in users can logout, what terminates the current session.
+* **Search ad**: users can search for rooms with specific requirements (room size, price, etc.).
+* **Contact advertiser**: users can contact an advertiser using a contact form.
+* **Delete account**: users can delete their own account as soon as they are logged in.
+* **Change profile**: users can change their profile data with regards to email and username.
+* **Create ad**: logged-in users can create ads. These ads appear on the website, which displays all the available rooms.
+* **Edit ad**: entries (ads) can be edited with respect to description text, address etc.
+* **Delete ad**: entries (ads) can be fully deleted, so that they do not appear in the database anymore.
+* **Password reset**: if forgotten, users have the possibility to reset their password.
 
 ### Implementation
+During the implementation phase, the patterns from the pre-implementation phase are 
 As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively. It has been adjusted and extended to our needs. Subsequently, important classes are described.
 * **Router**: The router routes the requests to the correct resource/destination.
 * **View**: The view folder contains all the HTML pages that are necessary for the website, including headers and the footer as well as CSS files.
@@ -111,6 +120,59 @@ As foundation of the implemented code acts the framework that was developed duri
 * **ListingDAO and UserDAO**: The corresponding class handles the database requests and manipulates the data stored in the respective table.
 * **Listing**: Holds the data for an apartment.
 * **User**: Holds the data for the user.
+
+
+
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+
+
+
+
+Hereafter, the detailed code, which is used to create the database, is shown.
+```SQL
+CREATE TABLE apartment
+(
+  id INTEGER DEFAULT nextval('apartment_id_seq'::regclass) PRIMARY KEY NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  street VARCHAR(255) NOT NULL,
+  zip INTEGER NOT NULL,
+  numberofrooms VARCHAR(255) NOT NULL,
+  price INTEGER NOT NULL,
+  squaremeters INTEGER NOT NULL,
+  publisheddate DATE NOT NULL,
+  description VARCHAR(1000) NOT NULL,
+  moveindate DATE NOT NULL,
+  image1 VARCHAR(255),
+  image2 VARCHAR(255),
+  image3 VARCHAR(255),
+  userid INTEGER NOT NULL,
+  city VARCHAR(255),
+  canton VARCHAR(255),
+  streetnumber INTEGER,
+  CONSTRAINT fkapartment122597 FOREIGN KEY (userid) REFERENCES "user" (id)
+);
+CREATE TABLE authtoken
+(
+  id INTEGER DEFAULT nextval('authtoken_id_seq'::regclass) PRIMARY KEY NOT NULL,
+  selector VARCHAR(255) NOT NULL,
+  validator VARCHAR(255) NOT NULL,
+  expiration TIMESTAMP NOT NULL,
+  type INTEGER NOT NULL,
+  userid INTEGER,
+  CONSTRAINT authtoken_user_id_fk FOREIGN KEY (userid) REFERENCES "user" (id)
+);
+CREATE TABLE "user"
+(
+  id INTEGER DEFAULT nextval('user_id_seq'::regclass) PRIMARY KEY NOT NULL,
+  username VARCHAR(255),
+  password VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL
+);
+```
 
 ### Conclusion
 To be mentioned:
