@@ -166,20 +166,23 @@ class ListingDAO extends BasicDAO
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Listing");
     }
 
-    public function filterListings(Listing $listing)
+    public function filterListings(Listing $listing, $minRooms, $maxRooms, $minPrice, $maxPrice)
     {
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment"
             WHERE
             upper(city) = :city OR
-            numberofrooms = :numberofrooms OR
-            price = :price OR
-            squaremeters = :squaremeters OR');
+            upper(canton) = :canton OR
+            numberofrooms BETWEEN :minRooms AND :maxRooms OR
+            price BETWEEN :minPrice AND :maxPrice
+            ORDER BY id DESC ');
 
         $stmt->bindValue(':city', strtoupper($listing->getCity()));
-        $stmt->bindValue(':numberofrooms', floatval($listing->getNumberofrooms()));
-        $stmt->bindValue(':price', floatval($listing->getPrice()));
-        $stmt->bindValue(':squaremeters', floatval($listing->getSquaremeters()));
+        $stmt->bindValue(':canton', strtoupper($listing->getCanton()));
+        $stmt->bindValue(':minRooms', intval($minRooms));
+        $stmt->bindValue(':maxRooms', intval($maxRooms));
+        $stmt->bindValue(':minPrice', intval($minPrice));
+        $stmt->bindValue(':maxPrice', intval($maxPrice));
         $stmt->execute();
 
         return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\Listing");

@@ -29,6 +29,7 @@ use view\TemplateView;
                 </button>
             </div>
         </div>
+
         <?php
 
             foreach ($this->listings as $listing):

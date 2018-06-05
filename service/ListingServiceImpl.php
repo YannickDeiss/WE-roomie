@@ -112,9 +112,9 @@ class ListingServiceImpl implements ListingService
      * @return Listing[]
      * @ReturnType Listing[]
      */
-    public function filterListings(Listing $listing) {
+    public function filterListings(Listing $listing, $uno, $due, $tres, $quatro) {
         $listingDAO = new ListingDAO();
-        return $listingDAO->filterListings($listing);
+        return $listingDAO->filterListings($listing, $uno, $due, $tres, $quatro);
     }
 
     public function findListingById($id)

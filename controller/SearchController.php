@@ -23,19 +23,17 @@ class SearchController
     public static function readAll(){
         $listing = new Listing();
 
-        $split = explode(",", ($_POST["city"]), [0]);
-        //$listing->setCity($_POST["city"]);
+        $split = explode(',', ($_POST["city"]));
+
+        $listing->setCity($split[0]);
 
         $minRooms = ($_POST["minRooms"]);
         $maxRooms = ($_POST["maxRooms"]);
         $minRent = ($_POST["minRent"]);
         $maxRent = ($_POST["maxRent"]);
 
-        $listing->setNumberofrooms($_POST["rooms"]);
-        $listing->setPrice($_POST["price"]);
-        $listing->setSquaremeters($_POST["squareMeters"]);
         $contentView = new TemplateView("view/search_result.php");
-        $contentView->listings = (new ListingServiceImpl())->filterListings($listing);
+        $contentView->listings = (new ListingServiceImpl())->filterListings($listing, $minRooms, $maxRooms, $minRent, $maxRent);
         $contentView->result = true;
         LayoutRendering::basicLayout($contentView );
     }

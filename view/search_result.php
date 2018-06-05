@@ -7,8 +7,8 @@ use view\TemplateView;
     <div class="listing-grid">
         <div class="section-heading">
             <h2>Search Results <?php echo "  &mdash;  We found " . sizeof($this->listings) . " rooms"?></h2>
+</div>
         <?php
-
             foreach ($this->listings as $listing):
                 $street = $listing->getStreet();?>
 
@@ -32,12 +32,7 @@ use view\TemplateView;
             </div>
             <div class="options">
                 <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/search/<?php echo $listing->getId(); ?>'>
-                    <i class="fa fa-share-square"></i>Preview</a>
-                <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit?id=<?php echo $listing->getId(); ?>'>
-                    <i class="fa fa-edit"></i>Edit</a>
-                <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/delete?id=<?php echo $listing->getId(); ?>'>
-                    <!-- the link above needs to be changed with the real one -->
-                    <i class="fa fa-trash"></i>Delete</a>
+                    <i class="fa fa-share-square"></i>View Details</a>
             </div>
         </div>
         <?php endforeach; ?>
