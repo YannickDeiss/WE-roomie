@@ -610,6 +610,9 @@ p {
     line-height: 1;
     text-align: center; } }
 
+.search-tag {
+  height: 12rem; }
+
 .search-indicator {
   position: relative;
   top: -75px;

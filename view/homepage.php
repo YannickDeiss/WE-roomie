@@ -17,6 +17,7 @@ use view\TemplateView;
         <p class="unselectable">Search</p>
         <i class="fas fa-angle-double-down"></i>
     </div>
+    <form class="search-tag" action="">
     <div class="search-form" id="searchArea">
         <div class="search-form-wrapper">
                     <span class="input input--isao">
@@ -56,6 +57,7 @@ use view\TemplateView;
             </div>
         </div>
     </div>
+    </form>
 </search>
 <main class="content">
     <div class="latest-available">
