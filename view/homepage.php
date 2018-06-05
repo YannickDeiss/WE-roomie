@@ -17,7 +17,7 @@ use view\TemplateView;
         <p class="unselectable">Search</p>
         <i class="fas fa-angle-double-down"></i>
     </div>
-    <form class="search-tag" action="">
+    <form class="search-tag" type="submit" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/search">
     <div class="search-form" id="searchArea">
         <div class="search-form-wrapper">
                     <span class="input input--isao">

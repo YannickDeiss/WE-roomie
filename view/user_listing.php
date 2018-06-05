@@ -46,7 +46,7 @@ use view\TemplateView;
                 <div class="listing-details">
                     <ul>
                         <li>Rent: <?php echo TemplateView::noHTML($listing->getPrice()); ?> CHF</li>
-                        <li>Size: <?php echo TemplateView::noHTML($listing->getSquaremeters()); ?> m<sup>2</sup></li>
+                        <li>Size: <?php echo TemplateView::noHTML($listing->getSquaremeters()); ?>&nbsp;m<sup>2</sup></li>
                         <li>Rooms: <?php echo TemplateView::noHTML($listing->getNumberofrooms()); ?> </li>
                         <li>From: <?php echo TemplateView::noHTML($listing->getMoveindate()); ?></li>
                     </ul>
