@@ -70,7 +70,7 @@ The goal of this project was it, to create a website that connects people that a
 ### Use Case Diagram
 After the requirements have been designed, a use case diagram was created. The following diagram illustrates the use cases. 
 
-![Use Case Diagram](https://github.com/Yardie83/WE-roomie/blob/master/UseCaseDiagram.jpeg "Use Case Diagram")
+![Use Case Diagram](https://github.com/Yardie83/WE-roomie/blob/master/UseCaseDiagram.jpg "Use Case Diagram")
 
 Most use cases have already been shortly explained in the requirements section. However, hereafter, each of the use cases is explained more in detail.
 * **Register**: unregistered users can create an account which allows them to create ads for a room that they like to offer.
