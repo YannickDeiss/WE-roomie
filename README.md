@@ -9,6 +9,7 @@
   - [Wireframes](#wireframes)
   - [Database Model](#database-model)
   - [Use Case Diagram](#use-case-diagram)
+- [Implementation](#implementation)
   
 
 
@@ -110,13 +111,8 @@ Most use cases have already been shortly explained in the requirements section. 
 * **Delete ad**: entries (ads) can be fully deleted, so that they do not appear in the database anymore.
 * **Password reset**: if forgotten, users have the possibility to reset their password.
 
-
-
-
-
-
-
 ### Implementation
+During the implementation phase, the patterns from the pre-implementation phase are 
 As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively. It has been adjusted and extended to our needs. Subsequently, important classes are described.
 * **Router**: The router routes the requests to the correct resource/destination.
 * **View**: The view folder contains all the HTML pages that are necessary for the website, including headers and the footer as well as CSS files.
@@ -124,6 +120,17 @@ As foundation of the implemented code acts the framework that was developed duri
 * **ListingDAO and UserDAO**: The corresponding class handles the database requests and manipulates the data stored in the respective table.
 * **Listing**: Holds the data for an apartment.
 * **User**: Holds the data for the user.
+
+
+
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+**::::::::::::::::::::::::::::::::::**
+
+
+
 
 Hereafter, the detailed code, which is used to create the database, is shown.
 ```SQL
