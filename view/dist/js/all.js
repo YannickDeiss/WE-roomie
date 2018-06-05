@@ -31,13 +31,13 @@ window.onload = function () {
         if (event.target === loginModal) {
             toggleLoginModal();
         }
-        if (event.target === signupModal) {
-            toggleSignupModal();
-        }
+        // if (event.target === signupModal) {
+        //     toggleSignupModal();
+        // }
     }
 
     loginTrigger.addEventListener("click", toggleLoginModal);
-    signupTrigger.addEventListener("click", toggleSignupModal);
+    // signupTrigger.addEventListener("click", toggleSignupModal);
 
     window.addEventListener("click", windowOnClick);
 

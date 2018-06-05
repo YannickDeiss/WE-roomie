@@ -27,12 +27,6 @@ use view\TemplateView;
             </div>
         </div>
         <div class="contact-area">
-            <div class="contact-details">
-                <h1>Contact</h1>
-                <p>Hermann Grieder</p>
-                <p>email@email.com</p>
-                <p>079 000 00 00</p>
-            </div>
             <div class="contact-form">
                 <div class="form-layout contact">
                     <form class="entry-form contact" method="post" action="">
@@ -59,8 +53,6 @@ use view\TemplateView;
             </div>
         </div>
         <div class="map-area" id="map">
-
-
             <iframe width="100%" height="100%" frameborder='0'
                     scrolling='no' marginheight='0' marginwidth='0'
                     src='https://maps.google.com/maps?&amp;q="an der hohlen gasse 6"&amp;output=embed'>
