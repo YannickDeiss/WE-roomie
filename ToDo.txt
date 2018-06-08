@@ -1,7 +1,3 @@
-Pages
-    HERMANN -- New 404 PAGE
-    DONE -- Design footer
-
 Functionality
 
     [LISTINGS]

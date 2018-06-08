@@ -16,19 +16,22 @@ use view\TemplateView;
 
 class ListingController
 {
-    public static function create() {
+    public static function create()
+    {
         $contentView = new TemplateView("view/user_listing_edit.php");
         LayoutRendering::basicLayout($contentView);
     }
 
-    public static function edit() {
+    public static function edit()
+    {
         $id = $_GET["id"];
         $contentView = new TemplateView("view/user_listing_edit.php");
         $contentView->listing = (new ListingServiceImpl())->readListing($id);
         LayoutRendering::basicLayout($contentView);
     }
 
-    public static function update() {
+    public static function update()
+    {
         $listing = new Listing();
 
         $listing->setId("");
@@ -41,11 +44,18 @@ class ListingController
         // NEW FOR WE-ROOMIE
         $listing->setTitle($_POST["title"]);
 
-
-        $listing->setStreet($_POST["title"]);
         $listing->setStreet($_POST["street"]);
-        $listing->setStreetnumber($_POST["streetNumber"]);
-        $listing->setPlz($_POST["plz"]);
+        $listing->setStreetnumber(null);
+        $listing->setPlz(null);
+
+        if ($_POST["streetNumber"] !== "") {
+            $listing->setStreetnumber($_POST["streetNumber"]);
+        }
+
+        if ($_POST["plz"] !== "") {
+            $listing->setPlz($_POST["plz"]);
+        }
+
         $listing->setCity($_POST["city"]);
         $listing->setCanton($_POST["canton"]);
 
@@ -68,17 +78,37 @@ class ListingController
 
         $aws = new AWSUploadService();
 
+        $dbListing = new Listing();
+
+        if ($listing->getId() !== "") {
+            $dbListing = (new ListingServiceImpl())->findListingById($listing->getId())[0];
+        }
+
+        $listing->setImage1(null);
+        $listing->setImage2(null);
+        $listing->setImage3(null);
+
         if (!empty($_FILES['image1']['name'])) {
             $imageAddress = $aws->uploadImage($_FILES['image1']);
             $listing->setImage1($imageAddress);
+        } else if (!is_null($dbListing)) {
+            $listing->setImage1($dbListing->getImage1());
         }
         if (!empty($_FILES['image2']['name'])) {
             $imageAddress = $aws->uploadImage($_FILES['image2']);
             $listing->setImage2($imageAddress);
+        } else if (!is_null($dbListing)) {
+            if (!empty($dbListing)) {
+                $listing->setImage2($dbListing->getImage2());
+            }
         }
-        if(!empty($_FILES['image3']['name'])) {
+        if (!empty($_FILES['image3']['name'])) {
             $imageAddress = $aws->uploadImage($_FILES['image3']);
             $listing->setImage3($imageAddress);
+        } else if (!is_null($dbListing)) {
+            if (!empty($dbListing)) {
+                $listing->setImage3($dbListing->getImage3());
+            }
         }
 
 
@@ -96,31 +126,36 @@ class ListingController
         return true;
     }
 
-    public static function isNumber($entry) {
+    public static function isNumber($entry)
+    {
         if (ctype_digit($entry)) {
             return true;
         }
         return false;
     }
 
-    public static function readAll() {
+    public static function readAll()
+    {
         $contentView = new TemplateView("view/user_listing.php");
         $contentView->listings = (new ListingServiceImpl())->findAllListings();
         LayoutRendering::basicLayout($contentView);
     }
 
-    public static function readTopTen() {
+    public static function readTopTen()
+    {
         $contentView = new TemplateView("assets/adSection/adSection.php");
         $contentView->listings = (new ListingServiceImpl())->findTopTen();
         LayoutRendering::basicLayout($contentView);
     }
 
 
-    public static function delete() {
+    public static function delete()
+    {
         $id = $_GET["id"];
         (new ListingServiceImpl())->deleteListing($id);
     }
 
-    public static function editView() {
+    public static function editView()
+    {
     }
 }

@@ -68,6 +68,9 @@ class ListingServiceImpl implements ListingService
 
     }
 
+
+
+
     /**
      * @access public
      * @param int listingId

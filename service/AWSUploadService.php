@@ -53,7 +53,7 @@ class AWSUploadService
                 'ACL' => 'public-read'
             ]);
             //Remove the temp file
-            unlink($tmp_file_path);
+            //unlink($tmp_file_path);
             // Print the URL to the object.
             return $result['ObjectURL'] . PHP_EOL;
         } catch (S3Exception $e) {

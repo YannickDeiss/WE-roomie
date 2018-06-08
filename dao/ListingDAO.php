@@ -69,37 +69,36 @@ class ListingDAO extends BasicDAO
      * @ReturnType Listing
      */
     public function update(Listing $listing) {
-        print_r($listing);
         $stmt = $this->pdoInstance->prepare('
-            UPDATE "listingApartment" SET 
-            "userID" = :userID,
+            UPDATE "apartment" SET 
+            "userid" = :userid,
+            title = :title,
             street = :street, 
-            plz = :plz, 
+            streetnumber = :streetnumber,
+            zip = :zip, 
             city = :city, 
             canton = :canton, 
             numberofrooms = :numberofrooms, 
             price = :price, 
             squaremeters = :squaremeters, 
-            publisheddate = :publisheddate, 
             moveindate = :moveindate, 
-            moveoutdate = :moveoutdate, 
             description = :description, 
             image1 = :image1, 
             image2 = :image2, 
             image3 = :image3
             WHERE id = :id');
         $stmt->bindValue(':id', $listing->getId());
-        $stmt->bindValue(':userID', $listing->getUserID());
+        $stmt->bindValue(':userid', $listing->getUserID());
+        $stmt->bindValue(':title', $listing->getTitle());
         $stmt->bindValue(':street', $listing->getStreet());
-        $stmt->bindValue(':plz', $listing->getPlz());
+        $stmt->bindValue(':streetnumber', $listing->getStreetnumber());
+        $stmt->bindValue(':zip', $listing->getPlz());
         $stmt->bindValue(':city', $listing->getCity());
         $stmt->bindValue(':canton', $listing->getCanton());
         $stmt->bindValue(':numberofrooms', $listing->getNumberofrooms());
         $stmt->bindValue(':price', $listing->getPrice());
         $stmt->bindValue(':squaremeters', $listing->getSquaremeters());
-        $stmt->bindValue(':publisheddate', $listing->getPublishedDate());
         $stmt->bindValue(':moveindate', $listing->getMoveindate());
-        $stmt->bindValue(':moveoutdate', $listing->getMoveoutdate());
         $stmt->bindValue(':description', $listing->getDescription());
         $stmt->bindValue(':image1', $listing->getImage1());
         $stmt->bindValue(':image2', $listing->getImage2());
@@ -171,9 +170,9 @@ class ListingDAO extends BasicDAO
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment"
             WHERE
-            upper(city) = :city OR
-            upper(canton) = :canton OR
-            numberofrooms BETWEEN :minRooms AND :maxRooms OR
+            upper(city) = :city AND 
+            upper(canton) = :canton AND
+            numberofrooms BETWEEN :minRooms AND :maxRooms AND
             price BETWEEN :minPrice AND :maxPrice
             ORDER BY id DESC ');
 
