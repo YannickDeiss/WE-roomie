@@ -28,7 +28,7 @@ Design
     - Grauer Balken hinter Suchfeld auf Homepage
     - Farbe des Footers reicht nicht bis ganz unten
     - On Detail view change green map to white
-    - Own API?
+    - Own API??
 
 Bugs
 
