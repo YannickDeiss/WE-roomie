@@ -173,7 +173,7 @@ CREATE TABLE user
 * AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))  
 * 404 Page ////////////////////////////
 ![404 Page](https://github.com/Yardie83/WE-roomie/blob/master/404.gif?raw=true "404 Page")
-
+ALLE FUNKTIONEN AUFLISTEN
   
   
 ### Usage  
