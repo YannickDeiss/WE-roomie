@@ -22,8 +22,8 @@ use view\TemplateView;
         <div class="search-form-wrapper">
                     <span class="input input--isao">
                         <input class="input__field input__field--isao" id="autocomplete" placeholder="" name="city" type="text"/>
-                        <label class="input__label input__label--isao" data-content="Location">
-                            <span class="input__label-content input__label-content--isao">Location</span>
+                        <label class="input__label input__label--isao" data-content="City">
+                            <span class="input__label-content input__label-content--isao">City</span>
                         </label>
                     </span>
             <span class="input input--isao">

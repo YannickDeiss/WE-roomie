@@ -48,25 +48,29 @@ $listing = $this->listing[0];
         <div class="contact-area">
             <div class="contact-form">
                 <div class="form-layout contact">
-                    <form class="entry-form contact" method="post" action="">
+                    <form class="entry-form contact" method="post" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/emailContact/">
                         <h1>Contact the advertiser</h1>
+
+                        <input hidden type="text" name="listingID" value="<?php echo $listing->getId(); ?>" />
+                        <input hidden type="text" name="userID" value="<?php echo $listing->getUserID(); ?>" />
+
                         <div class="form-group">
-                            <input type="text" required/>
+                            <input type="text" required name="firstName"/>
                             <label>First Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" required/>
+                            <input type="text" required name="lastName"/>
                             <label>Last Name</label>
                         </div>
                         <div class="form-group">
-                            <input type="text" required/>
+                            <input type="text" required name="email"/>
                             <label>E-mail</label>
                         </div>
                         <div class="form-group">
-                            <textarea name="description" cols="40" rows="5" required></textarea>
+                            <textarea cols="40" rows="5" required name="message"></textarea>
                             <label class="label-top">Message</label>
                         </div>
-                        <input type="button" class="green" value="Post"/>
+                        <input type="button" class="green" onclick="form.submit()" value="Submit"/>
                     </form>
                 </div>
             </div>

@@ -115,9 +115,22 @@ class ListingServiceImpl implements ListingService
      * @return Listing[]
      * @ReturnType Listing[]
      */
-    public function filterListings(Listing $listing, $uno, $due, $tres, $quatro) {
+    public function filterListings(Listing $listing, $minRooms, $maxRooms, $minPrice, $maxPrice) {
         $listingDAO = new ListingDAO();
-        return $listingDAO->filterListings($listing, $uno, $due, $tres, $quatro);
+
+        if ($maxRooms !== "" && $minRooms > $maxRooms){
+            $value = $minRooms;
+            $minRooms = $maxRooms;
+            $maxRooms = $value;
+        }
+
+        if ($maxPrice !== "" && $minPrice > $maxPrice){
+            $value = $minPrice;
+            $minPrice = $maxPrice;
+            $maxPrice = $value;
+        }
+
+        return $listingDAO->filterListings($listing, $minRooms, $maxRooms, $minPrice, $maxPrice);
     }
 
     public function findListingById($id)

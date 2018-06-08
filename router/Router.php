@@ -186,6 +186,12 @@ class Router
             Router::redirect("/user/");
         });
 
+        self::route("POST", "/listing/emailContact/", function () {
+            EmailController::sendContactEmail();
+        });
+
+
+
 // Listing CRUD
 
 

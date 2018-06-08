@@ -111,6 +111,12 @@ class ListingController
             }
         }
 
+        $imageList = (array($listing->getImage1(), $listing->getImage2(), $listing->getImage3()));
+        rsort($imageList);
+
+        $listing->setImage1($imageList[0]);
+        $listing->setImage2($imageList[1]);
+        $listing->setImage3($imageList[2]);
 
 //        TODO: Available from date has to be processed and correctly written to the database
         $availableFrom = ($_POST["availableFrom"]);

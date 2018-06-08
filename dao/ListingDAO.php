@@ -170,14 +170,12 @@ class ListingDAO extends BasicDAO
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment"
             WHERE
-            upper(city) = :city AND 
-            upper(canton) = :canton AND
+            upper(city) = :city AND
             numberofrooms BETWEEN :minRooms AND :maxRooms AND
             price BETWEEN :minPrice AND :maxPrice
             ORDER BY id DESC ');
 
         $stmt->bindValue(':city', strtoupper($listing->getCity()));
-        $stmt->bindValue(':canton', strtoupper($listing->getCanton()));
         $stmt->bindValue(':minRooms', intval($minRooms));
         $stmt->bindValue(':maxRooms', intval($maxRooms));
         $stmt->bindValue(':minPrice', intval($minPrice));
