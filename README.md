@@ -112,7 +112,6 @@ Most use cases have already been shortly explained in the requirements section. 
 * **Edit ad**: entries (ads) can be edited with respect to description text, address etc.  
 * **Delete ad**: entries (ads) can be fully deleted, so that they do not appear in the database anymore.  
 * **Password reset**: if forgotten, users have the possibility to reset their password. 
-* **Remember me**: the browser remembers the user, even if he/she closes the browser. For a certain timeframe, the user is logged in without having to enter the credentials each time.
 
 ###### Deployment Diagram
 The deployment is pretty straightforward. The code to be executed is stored on a Heroku Webserver. This extends to the database, too. It was initially planned that the images are stored in the PostgreSQL database, which is located on the Heroku Webserver as well. However, during implementation we hit on problems concerning whis matter what finally led to the decision, to adjust the deployment in such a way, that the PostgreSQL database only stores links to images, which are stored on a Amazon AWS S3 server. Subsequently you find the final deployment diagram. 
@@ -168,7 +167,9 @@ CREATE TABLE user
 ![Google Maps API](https://github.com/Yardie83/WE-Roomie/blob/master/GoogleMaps.jpg "Google Maps API") 
 * **[Google Places API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=de)**: in addition to the Google Maps API, the Google places API was implemented. Especially the functionality "autocomplete" was implemented. It is restricted to regions in Switzerland.
 ![Google Places API](https://github.com/Yardie83/WE-Roomie/blob/master/Autocomplete.jpg "Google Places API")
-* **[Amazon AWS S3](https://aws.amazon.com/de/s3/?sc_channel=PS&sc_campaign=acquisition_CH&sc_publisher=google&sc_medium=english_s3_b&sc_content=s3_e&sc_detail=amazon%20aws%20s3&sc_category=s3&sc_segment=192061622625&sc_matchtype=e&sc_country=CH&s_kwcid=AL!4422!3!192061622625!e!!g!!amazon%20aws%20s3&ef_id=WPOELwAABVI2I3xL:20180608143028:s "Amazon AWS S3")**: Amazon S3 is object storage built to store and retrieve any amount of data from anywhere. In our case, we use it to store images and retrieve them in order to display them on our website.
+* **[Amazon AWS S3](https://aws.amazon.com/s3/?nc1=f_ls"Amazon AWS S3")**: Amazon S3 is object storage built to store and retrieve any amount of data from anywhere. In our case, we use it to store images and retrieve them in order to display them on our website.
+* **[SendGrid](https://sendgrid.com/"SendGrid")**: SendGrid API is used for any kind of E-Mail communication. For the contact form as well as the reset password functionality.
+* **[HyPDF](https://hypdf.com/info/index"HyPDF")**: our website uses the HyPDF API to create PDF.
 * AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))  
 * 404 Page
   
