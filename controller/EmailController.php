@@ -34,6 +34,13 @@ class EmailController
         $email = $_POST["email"];
         $message = $_POST["message"];
 
-        return EmailServiceClient::sendContactEmail($toEmail, $firstName, $lastName, $email, $message);
+        $emailView = new TemplateView("view/listingContactEmail.php");
+        $emailView->listings = (new ListingServiceImpl())->findAllListings();
+        $emailView->firstName = $firstName;
+        $emailView->lastName = $lastName;
+        $emailView->email = $email;
+        $emailView->message = $message;
+
+        return EmailServiceClient::sendEmail($toEmail, $email, $firstName . " " . $lastName, "Interested party in your listing on roomie.ch", $emailView->render());
     }
 }
