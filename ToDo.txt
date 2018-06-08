@@ -36,4 +36,5 @@ Bugs
 - Check AuthServiceImpl for completeness and unnecessary code
 - SignUp Modal Ajax does not work
 - Serach functionality: e.g. if you search for a room with min. rent of 2000, rooms with rent less than 2000 appear
+- Search funcitonality: Wenn nur nicht alle Felder ausgefüllt werden erscheinen keine Einträge
 - Bei Eingabe einer Mailadresse, welche nicht in der Datenbank ist, landet man auf einer Error-Seite

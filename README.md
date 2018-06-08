@@ -114,7 +114,7 @@ Most use cases have already been shortly explained in the requirements section. 
 * **Password reset**: if forgotten, users have the possibility to reset their password. 
 
 ###### Deployment Diagram
-The deployment is pretty straightforward. The code to be executed is stored on a Heroku Webserver. This extends to the database, too. It was initially planned that the images are stored in the PostgreSQL database, which is located on the Heroku Webserver as well. However, during implementation we hit on problems concerning whis matter what finally led to the decision, to adjust the deployment in such a way, that the PostgreSQL database only stores links to images, which are stored on a Amazon AWS S3 server. Subsequently you find the final deployment diagram. 
+The deployment is pretty straightforward. The code to be executed is stored on a Heroku Webserver. This extends to the database, too. It was initially planned that the images are stored in the PostgreSQL database, which is located on the Heroku Webserver as well. However, during implementation we hit on problems concerning this matter what finally led to the decision, to adjust the deployment in such a way, that the PostgreSQL database only stores links to images, which are stored on a Amazon AWS S3 server. Subsequently you find the final deployment diagram. 
   
 ### Implementation  
 ###### Important Classes
@@ -179,7 +179,7 @@ Beschreiben, welche buttons welche Aktionen hervorrufen, Suche: AND, nicht OR
   
   
 ###### Additionally implemented features to be mentioned:  
-*  **Search Functionality:** The website offers search functionalities to serach the available rooms. Additionally it is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent".
+*  **Search Functionality:** The website offers search functionalities to serach the available rooms. Additionally it is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent". However, it needs to be mentioned that we realized that the search functionality is somewhat like a very complex SQL thing that requires many man hour to make it perfect - even for such a somewhat small search section.
   
   
   
