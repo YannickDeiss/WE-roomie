@@ -7,6 +7,7 @@ require_once("config/Autoloader.php");
 
 use controller\ErrorController;
 use router\Router;
+use controller\PDFController;
 
 use http\HTTPException;
 use http\HTTPHeader;
