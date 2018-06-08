@@ -31,7 +31,7 @@ use view\TemplateView;
                 </div>
             </div>
             <div class="options">
-                <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/search/<?php echo $listing->getId(); ?>'>
+                <a target="_blank" href='<?php echo $GLOBALS["ROOT_URL"]; ?>/search/<?php echo $listing->getId(); ?>'>
                     <i class="fa fa-share-square"></i>View Details</a>
             </div>
         </div>
