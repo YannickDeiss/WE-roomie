@@ -13,10 +13,6 @@ $listing = $this->listing[0];
         <td style="width: 274.5px; padding-left: 10px; font-family: Helvetica;"><?php echo TemplateView::noHTML($listing->getStreet()); ?></td>
     </tr>
     <tr style="height: 30px; border-top: 1px solid rgb(244,71,107)">
-        <td style="width: 186px; padding-left: 10px; font-family: Helvetica; font-weight: bold;">Zip Code</td>
-        <td style="width: 274.5px; padding-left: 10px; font-family: Helvetica;"><?php echo TemplateView::noHTML($listing->getPlz()); ?></td>
-    </tr>
-    <tr style="height: 30px; border-top: 1px solid rgb(244,71,107)">
         <td style="width: 186px; padding-left: 10px; font-family: Helvetica; font-weight: bold;">City</td>
         <td style="width: 274.5px; padding-left: 10px; font-family: Helvetica;"><?php echo TemplateView::noHTML($listing->getCity()); ?></td>
     </tr>
