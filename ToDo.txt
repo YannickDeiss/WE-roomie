@@ -36,5 +36,4 @@ Bugs
 - Authtoken are not being deleted in the database at the moment during password reset process
 - Check AuthServiceImpl for completeness and unnecessary code
 - SignUp Modal Ajax does not work
-- After search and viewing a listing pressing the back button end in an error (->open in new tab)
 - Contact advertiser functionality
