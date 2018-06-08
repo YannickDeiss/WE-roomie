@@ -1,3 +1,15 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Hermann Grieder
+ * Date: 5/29/2018
+ * Time: 3:33 PM
+ */
+
+use view\TemplateView;
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -47,13 +59,13 @@
                     <tr>
                         <td>
 
-                            <h3>Welcome, Elijah Baily</h3>
+                            <h3>Email from  roomie.ch user <?php echo TemplateView::noHTML($this->$firstName . " " . $this->$lastName); ?></h3>
 
                             <p class="callout">
-                                This email is about the following listing:  <a href="#">Do it Now! &raquo;</a>
+                                This email is about the following listing:  <a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/search/<?php echo TemplateView::noHTML($listing->getId()); ?>">Your listing &raquo;</a>
                             </p>
 
-                            <p>Message goes here</p>
+                            <p><?php echo TemplateView::noHTML($this->$message); ?></p>
 
                             <br/>
                             <br/>

@@ -59,7 +59,7 @@ use view\TemplateView;
                         <?php
                         foreach ($this->listings as $listing): /* @var Listing $listing */ ?>
                 <tr>
-                    <td><?php echo $listing->getId(); ?> </td>
+                    <td><?php echo TemplateView::noHTML($listing->getId()); ?> </td>
                     <td><?php echo TemplateView::noHTML($listing->getTitle()); ?></td>
                     <td><?php echo TemplateView::noHTML($listing->getNumberofrooms()); ?> </td>
                     <td><?php echo TemplateView::noHTML($listing->getPrice()); ?> </td>
