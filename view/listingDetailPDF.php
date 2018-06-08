@@ -26,7 +26,7 @@ $listing = $this->listing[0];
     </tr>
     <tr style="height: 30px; border-top: 1px solid rgb(244,71,107)">
         <td style="width: 186px; padding-left: 10px; font-family: Helvetica; font-weight: bold;">Square meters</td>
-        <td style="width: 274.5px; padding-left: 10px; font-family: Helvetica;"><?php echo TemplateView::noHTML($listing->getSquaremeters()); ?></td>
+        <td style="width: 274.5px; padding-left: 10px; font-family: Helvetica;"><?php echo TemplateView::noHTML($listing->getSquaremeters()); ?> m<sup>2</sup></td>
     </tr>
     <tr style="height: 30px; border-top: 1px solid rgb(244,71,107)">
         <td style="width: 186px; padding-left: 10px; font-family: Helvetica; font-weight: bold;">Rent</td>
