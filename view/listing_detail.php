@@ -25,7 +25,7 @@ $listing = $this->listing[0];
             <div class="listing-item">
                 <div class="listing-info">
                     <h2><?php echo TemplateView::noHTML($listing->getTitle()) ?></h2>
-                    <h3><?php echo TemplateView::noHTML($listing->getStreet() . " " . $listing->getStreetNumber() . (isset($street) ? ", " . $listing->getCity() : $listing->getCity())) ?></h3>
+                    <h3><?php echo TemplateView::noHTML($listing->getStreet() . " " . $listing->getStreetNumber() .  ", " . (isset($street) ? ", " . $listing->getCity() : $listing->getCity())) ?></h3>
                     <p>
                         <?php echo TemplateView::noHTML($listing->getDescription()); ?>
                     </p>
