@@ -1,21 +1,9 @@
 Functionality
 
-    [LISTINGS]
-    LORIS -- Edit my listing
-    TOBIAS -- PDF: Print a listing from the detail view page
-    HERMANN -- Send email to listing publisher
-
     [MODALS]
     - Give feedback of already existing email address
     - Give feedback about false email or password during login process
     - Reactivate error feedback
-
-    [PROFILE]
-    HERMANN
-        - Edit profile
-        - Change email address
-        - Change username
-        - Change password
 
 Design
     - Edit your profile title add margin (sunscht frog loris)
@@ -29,6 +17,7 @@ Design
     - Farbe des Footers reicht nicht bis ganz unten
     - On Detail view change green map to white
     - Own API??
+    - After sending a contact email show the user some feedback
 
 Bugs
 
