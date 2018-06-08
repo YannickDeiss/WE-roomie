@@ -38,6 +38,10 @@ $listing = $this->listing[0];
                         </ul>
                     </div>
                 </div>
+                <div class="options">
+                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/pdf/<?php echo $listing->getId(); ?>'>
+                        <i class="far fa-file-pdf""></i>PDF</a>
+                </div>
             </div>
         </div>
         <div class="contact-area">

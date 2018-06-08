@@ -1,7 +1,5 @@
 <?php
 
-use controller\AuthController;
-
 ?>
 </div>
 <footer class="footer-distributed">
@@ -79,12 +77,7 @@ use controller\AuthController;
 </footer>
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="dist/js/all.min.js" async defer></script>
-<?php
-if (!AuthController::authenticate()) {
-    echo '<script src="dist/js/validator.js" async defer></script>';
-}
-?>
-
+<script src="dist/js/validator.js" async defer></script>
 
 </body>
 
