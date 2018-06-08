@@ -40,7 +40,7 @@ $listing = $this->listing[0];
                     </div>
                 </div>
                 <div class="options">
-                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/pdf/{id}<?php echo $listing->getId(); ?>'>
+                    <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/pdf/<?php echo $listing->getId(); ?>'>
                         <i class="far fa-file-pdf"></i>PDF</a>
                 </div>
             </div>
