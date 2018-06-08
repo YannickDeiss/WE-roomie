@@ -51,8 +51,8 @@ $listing = $this->listing[0];
                     <form class="entry-form contact" method="post" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/emailContact/">
                         <h1>Contact the advertiser</h1>
 
-                        <input hidden type="text" name="listingID" value="<?php echo $listing->getId(); ?>" />
-                        <input hidden type="text" name="userID" value="<?php echo $listing->getUserID(); ?>" />
+                        <input hidden type="text" name="listingID" value="<?php echo TemplateView::noHTML($listing->getId()); ?>" />
+                        <input hidden type="text" name="userID" value="<?php echo TemplateView::noHTML($listing->getUserID()); ?>" />
 
                         <div class="form-group">
                             <input type="text" required name="firstName"/>
