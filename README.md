@@ -91,8 +91,7 @@ To store the data, a PostgreSQL database was created. The database contains 3 ta
   
 ![Database Model](https://github.com/Yardie83/WE-roomie/blob/master/DataBaseModel.jpg "Database Model")  
   
-The database is designed in a way that one user can have several apartments. However, one apartment corresponds to one user, and only one user.  
-Additionally it is worth mentioning that the database does not store images as images in the apartment table, it stores links to images, which are stored on an Amazon server (AWS S3).  Hereafter is an image, visualizing this:
+The database is designed in a way that one user can have several apartments. However, one apartment corresponds to one user, and only one user.  Additionally it is worth mentioning that the database does not store images as images in the apartment table, it stores links to images, which are stored on an Amazon server (AWS S3).  Hereafter is an image, visualizing this in line 4:
 ![Database Link To Images](https://github.com/Yardie83/WE-roomie/blob/master/DatabaseLinkToImages.jpg "Database Link To Images")
 
   
@@ -112,7 +111,10 @@ Most use cases have already been shortly explained in the requirements section. 
 * **Create ad**: logged-in users can create ads. These ads appear on the website, which displays all the available rooms.  
 * **Edit ad**: entries (ads) can be edited with respect to description text, address etc.  
 * **Delete ad**: entries (ads) can be fully deleted, so that they do not appear in the database anymore.  
-* **Password reset**: if forgotten, users have the possibility to reset their password.  
+* **Password reset**: if forgotten, users have the possibility to reset their password. 
+
+###### Deployment Diagram
+The deployment is pretty straightforward. The code to be executed is stored on a Heroku Webserver. This extends to the database, too. It was initially planned that the images are stored in the PostgreSQL database, which is located on the Heroku Webserver as well. However, during implementation we hit on problems concerning whis matter what finally led to the decision, to adjust the deployment in such a way, that the PostgreSQL database only stores links to images, which are stored on a Amazon AWS S3 server. Subsequently you find the final deployment diagram. 
   
 ### Implementation  
 ###### Important Classes
@@ -180,22 +182,17 @@ Beschreiben, welche buttons welche Aktionen hervorrufen, Suche: AND, nicht OR
 **::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**
 **::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**
 **::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**
-**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**
-  
-  
-  
 
-```  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
 ### Conclusion  
 To be mentioned:  
 - The welcome page displays the newest 3 entries  
 - Bilder von Responsiveness hochladen
+- All requirements implemented
 
 ## UML diagrams
 
