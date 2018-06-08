@@ -23,8 +23,10 @@ Design
     - Add Search link to the navbar which links to search page
     - Make location the biggest element in the search box
     - Fix Mobile View of Modals
-    - Make sure everything is ok in mobile view (Responsiveness)
+    - Make sure everything is ok in mobile view (Responsiveness -> fix mobile view)
     - Make font smaller on homepage in the latest listing cards
+    - Grauer Balken hinter Suchfeld auf Homepage
+    - Farbe des Footers reicht nicht bis ganz unten
     - On Detail view change green map to white
 
 Bugs
