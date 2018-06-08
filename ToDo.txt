@@ -25,6 +25,7 @@ Design
     - Fix Mobile View of Modals
     - Make sure everything is ok in mobile view (Responsiveness)
     - Make font smaller on homepage in the latest listing cards
+    - On Detail view change green map to white
 
 Bugs
 

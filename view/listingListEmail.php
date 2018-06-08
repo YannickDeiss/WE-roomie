@@ -14,25 +14,13 @@ use view\TemplateView;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title></title>
-    <style>
-        body {
-            margin: 0px !important;
-            padding: 0px !important;
-        }
-
-        @media only screen and (max-width: 480px) {
-            .wrapper {
-                width: 100% !important;
-            }
-    </style>
+    <title>Contact Email</title>
 </head>
 <body>
 
 
 <!--[if (gte mso 9)|(IE)]>
-<table align="center" border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#f96f5d"
-       style="background-color:#2b3452;">
+<table align="center" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <td align="center" valign="top">
 <![endif]-->
