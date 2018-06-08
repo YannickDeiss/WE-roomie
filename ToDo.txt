@@ -21,10 +21,9 @@ Design
     - Edit your profile title add margin (sunscht frog loris)
     - Add Edit Profile link somewhere
     - Add Search link to the navbar which links to search page
-    - Add link to logo to navigate back to homepage "/"
     - Make location the biggest element in the search box
     - Fix Mobile View of Modals
-    - Make sure everything is ok in mobile view
+    - Make sure everything is ok in mobile view (Responsiveness)
     - Make font smaller on homepage in the latest listing cards
 
 Bugs
@@ -32,5 +31,4 @@ Bugs
 - Authtoken are not being deleted in the database at the moment during password reset process
 - Check AuthServiceImpl for completeness and unnecessary code
 - SignUp Modal Ajax does not work
-- After search and viewing a listing pressing the back button end in an error (->open in new tab)
-- Contact advertiser functionality
+- Serach functionality: e.g. if you search for a room with min. rent of 2000, rooms with rent less than 2000 appear

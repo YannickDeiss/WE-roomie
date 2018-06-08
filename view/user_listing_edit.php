@@ -13,6 +13,8 @@ use validator\ListingValidator;
 
 isset($this->listing) ? $listing = $this->listing : $listing = new Listing();
 isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $listingValidator = new ListingValidator();
+$street = $listing->getStreet();
+$streetNumber = $listing->getStreetnumber();
 ?>
 
 <main class="content">
@@ -41,14 +43,14 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
 
                 <!--TODO:-->
                 <div class="form-group">
-                    <input id="autocomplete" placeholder="" type="text" required name="location"/>
+                    <input id="autocomplete" placeholder="" type="text" required name="location" value="<?php echo TemplateView::noHTML($listing->getStreet() . " " . $listing->getStreetNumber() . (isset($street, $streetNumber) ? ", " . $listing->getCity(): $listing->getCity()))?>"/>
                     <label>Location</label>
                 </div>
-                <input hidden id="street" placeholder="" type="text" required name="street"/>
-                <input hidden id="streetNumber" placeholder="" type="number" step="1" required name="streetNumber"/>
-                <input hidden id="plz" placeholder="" type="text" required name="plz"/>
-                <input hidden id="city" placeholder="" type="text" required name="city"/>
-                <input hidden id="canton" placeholder="" type="text" required name="canton"/>
+                <input hidden id="street" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getStreet()) ?>" required name="street"/>
+                <input hidden id="streetNumber" placeholder="" type="number" step="1" value="<?php echo TemplateView::noHTML($listing->getStreetnumber()) ?>" required name="streetNumber"/>
+                <input hidden id="plz" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getPlz()) ?>" required name="plz"/>
+                <input hidden id="city" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getCity()) ?>" required name="city"/>
+                <input hidden id="canton" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getCanton()) ?>" required name="canton"/>
 
                 <div class="form-group">
                     <input type="number" step="0.5" required name="rooms" value="<?php echo TemplateView::noHTML($listing->getNumberofrooms()) ?>"/>
@@ -77,7 +79,7 @@ isset($this->listingValidator) ? $listingValidator = $this->listingValidator : $
 
 
                 <div class="form-group">
-                    <input type="file" name="image1"/>
+                    <input type="file" name="image1" />
                     <label class="label-top">Image 1</label>
                 </div>
 
