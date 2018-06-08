@@ -35,3 +35,4 @@ Bugs
 - Authtoken are not being deleted in the database at the moment during password reset process
 - Check AuthServiceImpl for completeness and unnecessary code
 - SignUp Modal Ajax does not work
+- Serach functionality: e.g. if you search for a room with min. rent of 2000, rooms with rent less than 2000 appear
