@@ -112,6 +112,7 @@ Most use cases have already been shortly explained in the requirements section. 
 * **Edit ad**: entries (ads) can be edited with respect to description text, address etc.  
 * **Delete ad**: entries (ads) can be fully deleted, so that they do not appear in the database anymore.  
 * **Password reset**: if forgotten, users have the possibility to reset their password. 
+* **Remember me**: the browser remembers the user, even if he/she closes the browser. For a certain timeframe, the user is logged in without having to enter the credentials each time.
 
 ###### Deployment Diagram
 The deployment is pretty straightforward. The code to be executed is stored on a Heroku Webserver. This extends to the database, too. It was initially planned that the images are stored in the PostgreSQL database, which is located on the Heroku Webserver as well. However, during implementation we hit on problems concerning whis matter what finally led to the decision, to adjust the deployment in such a way, that the PostgreSQL database only stores links to images, which are stored on a Amazon AWS S3 server. Subsequently you find the final deployment diagram. 
@@ -163,10 +164,13 @@ CREATE TABLE user
   
   
 ###### Applied techniques, APIs and 3rd party code  
-- Google Places API Autocomplete (IMAGE!!!!)
-- Google Maps API  (IMAGE!!!!)
-- Amazon ASW S3  
-- AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))  
+* **[Google Maps API](https://www.google.com "Google's Homepage")**: the Google Maps API is used in order to display the room's location on the map. 
+![Google Maps API](https://github.com/Yardie83/WE-Roomie/blob/master/GoogleMaps.jpg "Google Maps API") 
+* **[Google Places API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=de)**: in addition to the Google Maps API, the Google places API was implemented. Especially the functionality "autocomplete" was implemented. It is restricted to regions in Switzerland.
+![Google Places API](https://github.com/Yardie83/WE-Roomie/blob/master/Autocomplete.jpg "Google Places API")
+* Amazon ASW S3  
+* AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))  
+* 404 Page
   
   
 ### Usage  
