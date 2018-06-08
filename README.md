@@ -125,6 +125,7 @@ During the implementation phase, the previous plans were implemented. As foundat
 * **ListingDAO and UserDAO**: The corresponding class handles the database requests and manipulates the data stored in the respective table.  
 * **Listing**: Holds the data for an apartment.  
 * **User**: Holds the data for the user. 
+* **AWSUploadService**: Responsible for the communication between the Heroku Webserver and the Amazon Server, on which the Images are stored. It uploads the images to the Amazon Server and returns the link of the picture.
 ###### Database
 The database was set up as a PostgreSQL on a Heroku Webserver as defined under the section [Database Model](#database-model), using the following code:
 ```SQL  
