@@ -156,13 +156,13 @@ class AuthServiceImpl implements AuthService
                 $user->setEmailError(true);
                 return false;
             }
+            $dbUser = $userDAO->findById($id);
             if (!empty($password)) {
-                $dbUser = $userDAO->findById($id);
                 if (password_verify($password, $dbUser->getPassword())) {
                     $user->setPassword(password_hash($newPassword, PASSWORD_DEFAULT));
-                } else {
-                    $user->setPassword($dbUser->getPassword());
                 }
+            } else {
+                $user->setPassword($dbUser->getPassword());
             }
             $userDAO->update($user);
             return true;

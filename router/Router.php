@@ -213,7 +213,9 @@ class Router
         });
 
         self::route("GET", "/pdf/{id}", function ($id) {
-            PDFController::generatePDFCustomers($id);
+            PDFController::generateDetailPDF($id);
         });
     }
+
+
 }

@@ -1,8 +1,8 @@
 $(function () {
     $('#signup-submit').on('click', function (e) {
             console.log('click');
-            let passwordField = $('#signup-password');
-            let passwordError = $('#signup-password-error');
+            var passwordField = $('#signup-password');
+            var passwordError = $('#signup-password-error');
 
             $('#signup-email-error').hide();
             passwordError.hide();
@@ -28,7 +28,6 @@ $(function () {
                     } else if (passwordField.val().length <= 10) {
                         passwordError.fadeIn(300).show();
                     } else {
-                        $(".signup-modal").classList.toggle("show-modal");
                         $('#signup-form').submit();
                     }
                 },
