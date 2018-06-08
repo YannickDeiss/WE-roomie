@@ -78,10 +78,10 @@ The goal of this project was it, to create a website that connects people that a
 ### Pre-Implementation  
 ###### Wireframes  
 In order to have a general idea of the GUI and a better understanding for what we are going to develop, 4 simple mock-ups were created. These wireframes can be found hereafter. However, during implementation we adjusted to our needs.  
-![Available Rooms] https://github.com/Yardie83/roomie/blob/master/AvailableRoomsMockup.png "Available Rooms")  
-![Registration](https://github.com/Yardie83/roomie/blob/master/RegistrationMockup.png "Registration")  
-![Room Details](https://github.com/Yardie83/roomie/blob/master/RoomDetailMockup.png "Room Details")  
-![Search Page](https://github.com/Yardie83/roomie/blob/master/SearchPageMockup.png "Search Page")  
+![Available Rooms](https://github.com/Yardie83/WE-Roomie/blob/master/AvailableRoomsMockup.png "Available Rooms")
+![Registration](https://github.com/Yardie83/WE-Roomie/blob/master/RegistrationMockup.png "Registration")  
+![Room Details](https://github.com/Yardie83/WE-Roomie/blob/master/RoomDetailMockup.png "Room Details")  
+![Search Page](https://github.com/Yardie83/WE-Roomie/blob/master/SearchPageMockup.png "Search Page")  
   
 ###### Database Model  
 To store the data, a PostgreSQL database was created. The database contains 3 tables; authtoken, apartment, user.  
