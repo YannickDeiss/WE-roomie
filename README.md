@@ -30,7 +30,9 @@
 - [Deployment](#deployment)    
     
     
-### Introduction ###### Overview The goal of this project was it, to create a website that connects people that are looking for a room in a shared apartment to people, that are offering a room in a shared apartment in a very pragmatic and simple way.    
+### Introduction
+###### Overview
+The goal of this project was it, to create a website that connects people that are looking for a room in a shared apartment to people, that are offering a room in a shared apartment in a very pragmatic and simple way.    
     
 ###### Contributors: * Loris Grether (database, front-end)    
 * Hermann Grieder (server-side, front-end, GUI)    
@@ -70,7 +72,9 @@
 4. Autocomplete for addresses    
    * Using the Google places API, users should get place suggestions when filling out the search form    
     
-### Pre-Implementation ###### Wireframes In order to have a general idea of the GUI and a better understanding for what we are going to develop, 4 simple mock-ups were created. These wireframes can be found hereafter. However, during implementation we adjusted to our needs.    
+### Pre-Implementation
+###### Wireframes
+In order to have a general idea of the GUI and a better understanding for what we are going to develop, 4 simple mock-ups were created. These wireframes can be found hereafter. However, during implementation we adjusted to our needs.    
 ![Available Rooms](https://github.com/Yardie83/WE-Roomie/blob/master/AvailableRoomsMockup.png "Available Rooms")  
 ![Registration](https://github.com/Yardie83/WE-Roomie/blob/master/RegistrationMockup.png "Registration")    
 ![Room Details](https://github.com/Yardie83/WE-Roomie/blob/master/RoomDetailMockup.png "Room Details")    
@@ -112,7 +116,8 @@ The deployment is pretty straightforward. The code to be executed is stored on a
 Based on the requirement analysis we knew, that there will be mainly apartments and users. The following graphic shows the interdependence of these objects. 1 user can have 0 or many ads, or 1 or many ad(s) belong to 1 user. In addition to that, 1 user can have 0 or 1 authtoken.
 ![Database Model](https://github.com/Yardie83/WE-roomie/blob/master/DomainModel.jpg "Database Model")
     
-### Implementation ###### Important Classes  
+### Implementation
+###### Important Classes  
 During the implementation phase, the previous plans were implemented. As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively. It has been adjusted and extended to our needs. Subsequently, important classes are described.    
 * **Router**: The router routes the requests to the correct resource/destination.    
 * **View**: The view folder contains all the HTML pages that are necessary for the website, including headers and the footer as well as CSS files.    
@@ -141,11 +146,13 @@ CONSTRAINT fkapartment122597 FOREIGN KEY (userid) REFERENCES "user" (id) ); CREA
 CONSTRAINT authtoken_user_id_fk FOREIGN KEY (userid) REFERENCES "user" (id) ); CREATE TABLE user (    
   id INTEGER DEFAULT nextval('user_id_seq'::regclass) PRIMARY KEY NOT NULL,  username VARCHAR(255),    
   password VARCHAR(255) NOT NULL,    
-email VARCHAR(255) NOT NULL ); ```  
+email VARCHAR(255) NOT NULL );
+``` 
      
     
     
- ###### Applied techniques, APIs and 3rd party code * **[Google Maps API](https://www.google.com "Google's Homepage")**: the Google Maps API is used in order to display the room's location on the map.   
+###### Applied techniques, APIs, 3rd party code, and easter eggs
+* **[Google Maps API](https://www.google.com "Google's Homepage")**: the Google Maps API is used in order to display the room's location on the map.   
 ![Google Maps API](https://github.com/Yardie83/WE-Roomie/blob/master/GoogleMaps.jpg "Google Maps API")   
 * **[Google Places API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=de)**: in addition to the Google Maps API, the Google places API was implemented. Especially the functionality "autocomplete" was implemented. It is restricted to regions in Switzerland.  
 ![Google Places API](https://github.com/Yardie83/WE-Roomie/blob/master/Autocomplete.gif?raw=true "Google Places API")  
@@ -160,7 +167,8 @@ email VARCHAR(255) NOT NULL ); ```
 ### Usage Beschreiben, welche buttons welche Aktionen hervorrufen, Suche: AND, nicht OR    
     
     
-###### Additionally implemented features to be mentioned: *  **Search Functionality:** The website offers search functionalities to serach the available rooms. Additionally it is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent". However, it needs to be mentioned that we realized that the search functionality is somewhat like a very complex SQL thing that requires many man hour to make it perfect - even for such a somewhat small search section.  
+###### Additionally implemented features to be mentioned:
+* **Search Functionality:** The website offers search functionalities to serach the available rooms. Additionally it is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent". However, it needs to be mentioned that we realized that the search functionality is somewhat like a very complex SQL thing that requires many man hour to make it perfect - even for such a somewhat small search section.  
     
     
     
