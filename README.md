@@ -65,7 +65,8 @@ The goal of this project was it, to create a website that connects people that a
    * The GUI is responsive, meaning it adapts to the screen size    
 9. Minimized error rate    
    * The website should be as error-prone as it is possible within the suggested time exposure    
-###### Optional requirements: 1. Messaging function    
+###### Optional requirements:
+1. Messaging function   
    * Users can get in touch with an advertiser using an integrated message function    
 2. Gallery    
    * Users can upload pictures with their ads    
@@ -120,7 +121,7 @@ Based on the requirement analysis we knew, that there will be mainly apartments 
     
 ### Implementation
 ###### Important Classes  
-During the implementation phase, the previous plans were implemented. As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively. It has been adjusted and extended to our needs. Subsequently, important classes are described.    
+During the implementation phase, the previous plans were implemented. As foundation of the implemented code acts the framework that was developed during classes or pre-developed by the lecturer respectively (https://github.com/andreasmartin/WE-CRM). It has been adjusted and extended to our needs. Subsequently, important classes are described.    
 * **Router**: The router routes the requests to the correct resource/destination.    
 * **View**: The view folder contains all the HTML pages that are necessary for the website, including headers and the footer as well as CSS files.    
 * **Controller**: The controller folder contains the controller files in order to manipulate the view, or the model respectively.    
@@ -188,4 +189,5 @@ email VARCHAR(255) NOT NULL );
 - The welcome page displays the newest 3 entries    
 - Bilder von Responsiveness hochladen  
 - All requirements implemented  
+- The website was tested under Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari iOS
   
