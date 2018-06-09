@@ -6,7 +6,7 @@ $(function () {
 
             $('#signup-email-error').hide();
             passwordError.hide();
-            if (passwordField.val().length < 10) {
+            if (passwordField.val().length < 9) {
                 passwordError.fadeIn(300).show();
                 return;
             }
@@ -25,7 +25,7 @@ $(function () {
                         console.log(response);
                         $('#signup-password').val('');
                         $('#signup-email-error').fadeIn(300).show();
-                    } else if (passwordField.val().length <= 10) {
+                    } else if (passwordField.val().length < 9) {
                         passwordError.fadeIn(300).show();
                     } else {
                         $('#signup-form').submit();
