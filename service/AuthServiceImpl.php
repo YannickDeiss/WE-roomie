@@ -252,10 +252,13 @@ class AuthServiceImpl implements AuthService
         } elseif (isset($email)) {
             $token->setType(self::RESET_TOKEN);
 
-            $userID = (new UserDAO())->findByEmail($email)->getId();
+            $userID = null;
+            if (!is_null((new UserDAO())->findByEmail($email))) {
+                $userID = (new UserDAO())->findByEmail($email)->getId();
+            }
 
             if ($userID !== null) {
-                $token->setUserID((new UserDAO())->findByEmail($email)->getId());
+                $token->setUserID($userID);
                 $timestamp = (new \DateTime('now'))->modify('+1 hour');
             }
             else{
