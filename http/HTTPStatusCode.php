@@ -85,4 +85,6 @@ interface HTTPStatusCode
     const HTTP_511_NETWORK_AUTHENTICATION_REQUIRED = "Network Authentication Required"; // RFC 6585
     const HTTP_598_NETWORK_READ_TIMEOUT_ERROR = "Network read timeout error"; // Unknown
     const HTTP_599_NETWORK_CONNECT_TIMEOUT_ERROR = "Network connect timeout error"; // Unknown
+    const HTTP_418_I_AM_A_TEAPOT = "I’m a teapot"; // Unknown
+
 }

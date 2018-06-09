@@ -118,6 +118,22 @@ class ListingServiceImpl implements ListingService
     public function filterListings(Listing $listing, $minRooms, $maxRooms, $minPrice, $maxPrice) {
         $listingDAO = new ListingDAO();
 
+        if ($minRooms === ""){
+            $minRooms = 1;
+        }
+
+        if ($maxRooms === ""){
+            $maxRooms = 100;
+        }
+
+        if ($minPrice === ""){
+            $minPrice = 1;
+        }
+
+        if ($maxPrice === ""){
+            $maxPrice = 1000000;
+        }
+
         if ($maxRooms !== "" && $minRooms > $maxRooms){
             $value = $minRooms;
             $minRooms = $maxRooms;
