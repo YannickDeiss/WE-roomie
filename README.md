@@ -36,11 +36,13 @@
 ###### Overview
 The goal of this project was it, to create a website that connects people that are looking for a room in a shared apartment to people, that are offering a room in a shared apartment in a very pragmatic and simple way.    
     
-###### Contributors: * Loris Grether (database, front-end)    
+###### Contributors: 
+* Loris Grether (database, front-end)    
 * Hermann Grieder (server-side, front-end, GUI)    
 * Tobias Gerhard (GUI, Documentation, front-end)    
     
-###### The following requirements were defined: 1. Authentication    
+###### The following requirements were defined:
+1. Authentication    
    * If the password is forgotten, it should be possible to get a new one using email    
    * The password is securely stored    
 2. Content management by users    
@@ -83,7 +85,8 @@ In order to have a general idea of the GUI and a better understanding for what w
 ![Room Details](https://github.com/Yardie83/WE-Roomie/blob/master/RoomDetailMockup.png "Room Details")    
 ![Search Page](https://github.com/Yardie83/WE-Roomie/blob/master/SearchPageMockup.png "Search Page")    
     
-###### Database Model To store the data, a PostgreSQL database was created. The database contains 3 tables; authtoken, apartment, user.    
+###### Database Model
+To store the data, a PostgreSQL database was created. The database contains 3 tables; authtoken, apartment, user.    
 * **authtoken**: used for the remember-me and password-reset functionality.    
 * **apartment**: this table stores data about the apartments that are visible as ads.    
 * **user**: the user table stores the data about the users; id, username, mail, as well as the encrypted password.    
@@ -94,7 +97,8 @@ The database is designed in a way that one user can have several apartments. How
 ![Database Link To Images](https://github.com/Yardie83/WE-roomie/blob/master/DatabaseLinkToImages.jpg "Database Link To Images")  
   
     
-###### Use Case Diagram Based on the defined requirements, a use case diagram was created. The following diagram illustrates the use cases.     
+###### Use Case Diagram
+Based on the defined requirements, a use case diagram was created. The following diagram illustrates the use cases.     
     
 ![Use Case Diagram](https://github.com/Yardie83/WE-roomie/blob/master/UseCaseDiagram.jpg "Use Case Diagram")    
     
@@ -165,7 +169,8 @@ email VARCHAR(255) NOT NULL );
 * AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))    
 * Our 404 page was taken from a template and adjusted to our needs:  
 ![404 Page](https://github.com/Yardie83/WE-roomie/blob/master/404.gif?raw=true "404 Page")  
-    
+* Click on the search button and you don't need to scroll down to the search area:
+![SearchButton](https://github.com/Yardie83/WE-roomie/blob/master/SearchButton.gif?raw=true "SearchButton")
     
 ### Usage Beschreiben, welche buttons welche Aktionen hervorrufen, Suche: AND, nicht OR    
     
