@@ -156,51 +156,33 @@ CONSTRAINT authtoken_user_id_fk FOREIGN KEY (userid) REFERENCES "user" (id) ); C
   password VARCHAR(255) NOT NULL,    
 email VARCHAR(255) NOT NULL );
 ``` 
-     
     
     
 ###### Applied techniques, APIs, 3rd party code, and easter eggs
 * **[Google Maps API](https://www.google.com "Google's Homepage")**: the Google Maps API is used in order to display the room's location on the map.   
-![Google Maps API](https://github.com/Yardie83/WE-Roomie/blob/master/GoogleMaps.jpg "Google Maps API")   
+![Google Maps API](https://github.com/Yardie83/WE-Roomie/blob/master/GoogleMaps.gif "Google Maps API")   
 * **[Google Places API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=de)**: in addition to the Google Maps API, the Google places API was implemented. Especially the functionality "autocomplete" was implemented. It is restricted to regions in Switzerland.  
 ![Google Places API](https://github.com/Yardie83/WE-Roomie/blob/master/Autocomplete.gif?raw=true "Google Places API")  
 * **[Amazon AWS S3](https://aws.amazon.com/s3/?nc1=f_ls"Amazon AWS S3")**: Amazon S3 is object storage built to store and retrieve any amount of data from anywhere. In our case, we use it to store images and retrieve them in order to display them on our website.  
 * **[SendGrid](https://sendgrid.com/"SendGrid")**: SendGrid API is used for any kind of E-Mail communication. For the contact form as well as the reset password functionality.  
 * **[HyPDF](https://hypdf.com/info/index"HyPDF")**: our website uses the HyPDF API to create PDF.  
-* AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))    
-* Our 404 page was taken from a template and adjusted to our needs:  
+* Our **404 page** was taken from a template and adjusted to our needs:  
 ![404 Page](https://github.com/Yardie83/WE-roomie/blob/master/404.gif?raw=true "404 Page")  
-* Click on the search button and you don't need to scroll down to the search area:
+* Click on the **search button** and you don't need to scroll down to the search area:
 ![SearchButton](https://github.com/Yardie83/WE-roomie/blob/master/SearchButton.gif?raw=true "SearchButton")
-* The success callback in the AJAX function either shows an error message or submits the form and signs up/logs in the user:
+* The success callback in the **AJAX** function either shows an error message or submits the form and signs up/logs in the user:
 ![RegisterPWSize](https://github.com/Yardie83/WE-roomie/blob/master/RegisterPWSize.gif?raw=true "RegisterPWSize")
 ![EmailExists](https://github.com/Yardie83/WE-roomie/blob/master/EmailExists.gif?raw=true "EmailExists")
-* The website offers search functionalities to search the available rooms. It is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent":
+* The website offers **search functionalities** to search the available rooms. It is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent":
 ![ConfusedSearch](https://github.com/Yardie83/WE-roomie/blob/master/ConfusedSearch.gif?raw=true "ConfusedSearch")
+* You can give yourself a **username**:
+![Username](https://github.com/Yardie83/WE-roomie/blob/master/Username.gif?raw=true "Username")
 
-
-
-
-### Usage Beschreiben, welche buttons welche Aktionen hervorrufen, Suche: AND, nicht OR    
-    
-    
-###### Additionally implemented features to be mentioned:
-* **Search Functionality:** The website offers search functionalities to search the available rooms. It is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent".
-    
-    
-    
-**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::** **::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**  
-**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**  
-**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**  
   
-  
-  
-  
-  
-  
-### Conclusion To be mentioned:    
-- The welcome page displays the newest 3 entries    
-- Bilder von Responsiveness hochladen  
-- All requirements implemented  
-- The website was tested under Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari iOS
+### Conclusion and important points to be mentioned:
+- We have implemented all the planned features and requirements, even the optional ones
+- The website has been tested with Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari iOS
+- Most "fake-apartments" are located in Basel, so this information may help you to test the search functionality
+- The landing page displays the 10 newest ads
+- If this was a real website, ads would be checked before they are finally published, since it is rather a "dummy site", we believe that only content is uploaded that does not need to be reviewed
   

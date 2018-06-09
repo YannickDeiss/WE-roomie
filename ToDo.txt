@@ -11,13 +11,13 @@ Design
     - Make sure everything is ok in mobile view (Responsiveness -> fix mobile view)
     - Make font smaller on homepage in the latest listing cards
     - Farbe des Footers reicht nicht bis ganz unten
-    - Own API??
     - After sending a contact email show the user some feedback
     - Links aus Footer löschen (Pricing, Blog, About etc.)
     - Footer erscheint nicht in mobile view
     - Mobile view besser als gestern, noch nicht perfekt (Suchfeld passt sich z.B. nicht an)
     - PDF Button in Detailview erscheint jeweils an verschiedenen Positionen, abhängig von der Bildschirmgrösse
     - Keine Fehlermeldung bei Login falls falsches Passwort od. falscher Benutzername eingegeben wird (es wird einfach auf Homepage zurückgegangen)
+    - "Search" und "Add" Button in Header einfügen(?)
 
 Bugs
 
