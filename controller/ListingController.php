@@ -128,7 +128,7 @@ class ListingController
 
     public static function isNumber($entry)
     {
-        if (ctype_digit($entry)) {
+        if (is_numeric($entry)) {
             return true;
         }
         return false;

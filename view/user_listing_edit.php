@@ -23,7 +23,8 @@ $streetNumber = $listing->getStreetnumber();
             <h2><?php echo isset($this->listing) ? "EDIT YOUR LISTING" : "POST YOUR LISTING"; ?></h2>
         </div>
         <div class="form-layout">
-            <form class="entry-form" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit" enctype="multipart/form-data">
+            <form class="entry-form" method="POST" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/listing/edit"
+                  enctype="multipart/form-data">
                 <h1><?php echo isset($this->listing) ? "EDIT YOUR LISTING" : "POST YOUR LISTING"; ?></h1>
 
                 <?php
@@ -43,33 +44,44 @@ $streetNumber = $listing->getStreetnumber();
 
                 <!--TODO:-->
                 <div class="form-group">
-                    <input id="autocomplete" placeholder="" type="text" required name="location" value="<?php echo TemplateView::noHTML($listing->getStreet() . " " . $listing->getStreetNumber() . (isset($street, $streetNumber) ? ", " . $listing->getCity(): $listing->getCity()))?>"/>
+                    <input id="autocomplete" placeholder="" type="text" required name="location"
+                           value="<?php echo TemplateView::noHTML($listing->getStreet() . " " . $listing->getStreetNumber() . (isset($street, $streetNumber) ? ", " . $listing->getCity() : $listing->getCity())) ?>"/>
                     <label>Location</label>
                 </div>
-                <input hidden id="street" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getStreet()) ?>" required name="street"/>
-                <input hidden id="streetNumber" placeholder="" type="number" step="1" value="<?php echo TemplateView::noHTML($listing->getStreetnumber()) ?>" required name="streetNumber"/>
-                <input hidden id="plz" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getPlz()) ?>" required name="plz"/>
-                <input hidden id="city" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getCity()) ?>" required name="city"/>
-                <input hidden id="canton" placeholder="" type="text" value="<?php echo TemplateView::noHTML($listing->getCanton()) ?>" required name="canton"/>
+                <input hidden id="street" placeholder="" type="text"
+                       value="<?php echo TemplateView::noHTML($listing->getStreet()) ?>" name="street"/>
+                <input hidden id="streetNumber" placeholder="" type="number" step="1"
+                       value="<?php echo TemplateView::noHTML($listing->getStreetnumber()) ?>" name="streetNumber"/>
+                <input hidden id="plz" placeholder="" type="text"
+                       value="<?php echo TemplateView::noHTML($listing->getPlz()) ?>" name="plz"/>
+                <input hidden id="city" placeholder="" type="text"
+                       value="<?php echo TemplateView::noHTML($listing->getCity()) ?>" name="city"/>
+                <input hidden id="canton" placeholder="" type="text"
+                       value="<?php echo TemplateView::noHTML($listing->getCanton()) ?>" name="canton"/>
 
                 <div class="form-group">
-                    <input type="number" step="0.5" required name="rooms" value="<?php echo TemplateView::noHTML($listing->getNumberofrooms()) ?>"/>
+                    <input type="number" min="0" id="rooms" step="0.5" required name="rooms"
+                           value="<?php echo TemplateView::noHTML($listing->getNumberofrooms()) ?>"/>
                     <label>Rooms</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" step="0.5" required name="rent" value="<?php echo TemplateView::noHTML($listing->getPrice()) ?>"/>
+                    <input type="number" id="rent" step="0.5" min="0" required name="rent"
+                           value="<?php echo TemplateView::noHTML($listing->getPrice()) ?>"/>
                     <label>Rent</label>
                 </div>
                 <div class="form-group">
-                    <input type="number" step="1" required name="squareMeters" value="<?php echo TemplateView::noHTML($listing->getSquaremeters()) ?>"/>
+                    <input type="number" id="squr" step="1" required min="0" name="squareMeters"
+                           value="<?php echo TemplateView::noHTML($listing->getSquaremeters()) ?>"/>
                     <label>Square Meters</label>
                 </div>
                 <div class="form-group">
-                    <input type="date" required name="availableFrom" value="<?php echo TemplateView::noHTML($listing->getMoveindate()) ?>"/>
+                    <input type="date" id="date" required name="availableFrom"
+                           value="<?php echo TemplateView::noHTML($listing->getMoveindate()) ?>"/>
                     <label class="label-top">Available From</label>
                 </div>
                 <div class="form-group">
-                    <textarea name="description" cols="40" rows="5" required><?php echo TemplateView::noHTML($listing->getDescription()) ?></textarea>
+                    <textarea name="description" id="desc" cols="40" rows="5"
+                              required><?php echo TemplateView::noHTML($listing->getDescription()) ?></textarea>
                     <label class="label-top">Description</label>
                 </div>
 
@@ -79,7 +91,7 @@ $streetNumber = $listing->getStreetnumber();
 
 
                 <div class="form-group">
-                    <input type="file" name="image1" />
+                    <input type="file" name="image1"/>
                     <label class="label-top">Image 1</label>
                 </div>
 
@@ -100,9 +112,9 @@ $streetNumber = $listing->getStreetnumber();
                     <input type="file" name="image3"/>
                     <label class="label-top">Image 3</label>
                 </div>
-                <!--                <input type="button" class="green" onclick="submitForm()" value="Submit"/>-->
-                <!--                <input id="submit_handle" type="submit" style="display: none">-->
-                <input type="button" class="green" onclick="form.submit()" value="Submit"/>
+                <input type="button" class="green" onclick="submitForm()" value="Submit"/>
+                <input id="submit_handle" type="submit" style="display: none">
+                <!--                <input type="button" class="green" onclick="form.submit()" value="Submit"/>-->
                 <input type="button" value="Cancel"
                        onclick="window.location.href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user'"/>
             </form>
@@ -114,8 +126,10 @@ $streetNumber = $listing->getStreetnumber();
 <script>
 
     function submitForm() {
-        // $('#submit_handle').click();
-        $('#entry-form').submit();
+        var form = $('.entry-form')[0];
+        if (form.checkValidity()) {
+            $('#submit_handle').click();
+        }
     }
 
     function initialize() {
@@ -151,7 +165,7 @@ $streetNumber = $listing->getStreetnumber();
 
                         document.getElementById('canton').value = place.address_components[i].long_name;
 
-                    }else if (place.address_components[i].types[j] == "administrative_area_level_2"){
+                    } else if (place.address_components[i].types[j] == "administrative_area_level_2") {
 
                         document.getElementById('canton').value = place.address_components[i].long_name;
                     }

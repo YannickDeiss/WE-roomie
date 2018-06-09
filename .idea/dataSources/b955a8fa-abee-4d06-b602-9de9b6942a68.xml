@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-06-09.13:37:40.398</IntrospectionTimestamp>
-      <IntrospectionStateNumber>61672223</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-06-09.15:16:07.972</IntrospectionTimestamp>
+      <IntrospectionStateNumber>61857715</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -46,7 +46,7 @@
     </sequence>
     <table id="12" parent="3" name="apartment">
       <ObjectId>17381660</ObjectId>
-      <StateNumber>61226574</StateNumber>
+      <StateNumber>61857715</StateNumber>
     </table>
     <table id="13" parent="3" name="authtoken">
       <ObjectId>17381669</ObjectId>
@@ -83,9 +83,9 @@
     </column>
     <column id="19" parent="12" name="numberofrooms">
       <Position>5</Position>
-      <DataType>integer|0</DataType>
+      <DataType>numeric|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>61226574</StateNumber>
+      <StateNumber>61857715</StateNumber>
     </column>
     <column id="20" parent="12" name="price">
       <Position>6</Position>

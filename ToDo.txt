@@ -24,6 +24,8 @@ Bugs
 - Authtoken are not being deleted in the database at the moment during password reset process
 - Check AuthServiceImpl for completeness and unnecessary code
 - SignUp Modal Ajax does not work
-- Bei Eingabe einer Mailadresse, welche nicht in der Datenbank ist, landet man auf einer Error-Seite
 - Snake effect auf password reset seite geht nicht
+
+Einer der beiden geht jetzt
+- Bei Eingabe einer Mailadresse, welche nicht in der Datenbank ist, landet man auf einer Error-Seite
 - Reset Password mit nicht in Datenbank vorhandener Mailadresse (Man landet auf weisser Page "Fatal Error: Uncaught Error"

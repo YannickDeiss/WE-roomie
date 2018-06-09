@@ -20,7 +20,8 @@ class ListingDAO extends BasicDAO
      * @ParamType listing Listing
      * @ReturnType Listing
      */
-    public function create(Listing $listing) {
+    public function create(Listing $listing)
+    {
         $stmt = $this->pdoInstance->prepare('
             INSERT INTO "apartment" ("userid", title, street, streetnumber, zip, city, canton, numberofrooms, price, squaremeters, publisheddate, moveindate, description, image1, image2, image3)
            VALUES (:userid, :title, :street, :streetnumber, :zip, :city, :canton, :numberofrooms, :price, :squaremeters, :publisheddate, :moveindate, :description, :image1, :image2, :image3)');
@@ -50,7 +51,8 @@ class ListingDAO extends BasicDAO
      * @ParamType userId int
      * @ReturnType Listing
      */
-    public function read($userId) {
+    public function read($userId)
+    {
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment" WHERE id = :id;');
         $stmt->bindValue(':id', $userId);
@@ -68,7 +70,8 @@ class ListingDAO extends BasicDAO
      * @ParamType listing Listing
      * @ReturnType Listing
      */
-    public function update(Listing $listing) {
+    public function update(Listing $listing)
+    {
         $stmt = $this->pdoInstance->prepare('
             UPDATE "apartment" SET 
             "userid" = :userid,
@@ -112,7 +115,8 @@ class ListingDAO extends BasicDAO
      * @param Listing $listing
      * @ParamType listing Listing
      */
-    public function delete(Listing $listing) {
+    public function delete(Listing $listing)
+    {
         $stmt = $this->pdoInstance->prepare('
             DELETE FROM "apartment"
             WHERE id = :id
@@ -128,7 +132,8 @@ class ListingDAO extends BasicDAO
      * @ParamType userId int
      * @ReturnType Listing[]
      */
-    public function findByUserID($userid) {
+    public function findByUserID($userid)
+    {
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment" WHERE "userid" = :Id ORDER BY id DESC;');
         $stmt->bindValue(':Id', $userid);
@@ -143,7 +148,8 @@ class ListingDAO extends BasicDAO
      * @ParamType userId int
      * @ReturnType Listing[]
      */
-    public function findListingById($id) {
+    public function findListingById($id)
+    {
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment" WHERE "id" = :Id;');
         $stmt->bindValue(':Id', $id);
@@ -158,7 +164,8 @@ class ListingDAO extends BasicDAO
      * @ParamType userId int
      * @ReturnType Listing[]
      */
-    public function findTopTen() {
+    public function findTopTen()
+    {
         $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment" ORDER BY id DESC LIMIT 10');
         $stmt->execute();
@@ -167,7 +174,18 @@ class ListingDAO extends BasicDAO
 
     public function filterListings(Listing $listing, $minRooms, $maxRooms, $minPrice, $maxPrice)
     {
-        $stmt = $this->pdoInstance->prepare('
+        $stmt = null;
+
+        if ($listing->getCity() === "") {
+            $stmt = $this->pdoInstance->prepare('
+            SELECT * FROM "apartment"
+            WHERE
+            numberofrooms BETWEEN :minRooms AND :maxRooms AND
+            price BETWEEN :minPrice AND :maxPrice
+            ORDER BY id DESC LIMIT 10');
+        } else {
+
+            $stmt = $this->pdoInstance->prepare('
             SELECT * FROM "apartment"
             WHERE
             upper(city) = :city AND
@@ -175,7 +193,9 @@ class ListingDAO extends BasicDAO
             price BETWEEN :minPrice AND :maxPrice
             ORDER BY id DESC ');
 
-        $stmt->bindValue(':city', strtoupper($listing->getCity()));
+            $stmt->bindValue(':city', strtoupper($listing->getCity()));
+        }
+
         $stmt->bindValue(':minRooms', intval($minRooms));
         $stmt->bindValue(':maxRooms', intval($maxRooms));
         $stmt->bindValue(':minPrice', intval($minPrice));
