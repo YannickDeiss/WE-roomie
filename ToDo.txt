@@ -18,6 +18,7 @@ Design
     - PDF Button in Detailview erscheint jeweils an verschiedenen Positionen, abhängig von der Bildschirmgrösse
     - Keine Fehlermeldung bei Login falls falsches Passwort od. falscher Benutzername eingegeben wird (es wird einfach auf Homepage zurückgegangen)
     - "Search" und "Add" Button in Header einfügen(?)
+    - Bei Password Reset: Wenn man auf den in der Mail klickt und seine Passworter Re-typed muss nur das obere eingetippt werden; sind nicht beide Passwörter gleich kann das Formular trotzdem abgeschickt werden und das obere Passwort ist das neue Passwort. Das "Retype" Password feld ist demnach überflüssig.
 
 Bugs
 

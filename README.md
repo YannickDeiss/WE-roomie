@@ -118,7 +118,8 @@ Most use cases have already been shortly explained in the requirements section. 
   
 ###### Deployment Diagram  
 The deployment is pretty straightforward. The code to be executed is stored on a Heroku Webserver. This extends to the database, too. It was initially planned that the images are stored in the PostgreSQL database, which is located on the Heroku Webserver as well. However, during implementation we hit on problems concerning this matter what finally led to the decision, to adjust the deployment in such a way, that the PostgreSQL database only stores links to images, which are stored on a Amazon AWS S3 server. Subsequently you find the final deployment diagram.
-///////////////////////////////////
+![DeploymentDiagram](https://github.com/Yardie83/WE-roomie/blob/master/DeploymentDiagram.jpg "DeploymentDiagram")
+
 
 ###### Domain Model
 Based on the requirement analysis we knew, that there will be mainly apartments and users. The following graphic shows the interdependence of these objects. 1 user can have 0 or many ads, or 1 or many ad(s) belong to 1 user. In addition to that, 1 user can have 0 or 1 authtoken.
