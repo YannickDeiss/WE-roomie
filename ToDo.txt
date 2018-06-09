@@ -7,20 +7,13 @@ Functionality
 
 Design
     - Edit your profile title add margin (sunscht frog loris)
-    - Add Edit Profile link somewhere
-    - Add Search link to the navbar which links to search page
-    - Make location the biggest element in the search box
     - Fix Mobile View of Modals
     - Make sure everything is ok in mobile view (Responsiveness -> fix mobile view)
     - Make font smaller on homepage in the latest listing cards
-    - Grauer Balken hinter Suchfeld auf Homepage
     - Farbe des Footers reicht nicht bis ganz unten
-    - On Detail view change green map to white
     - Own API??
     - After sending a contact email show the user some feedback
     - Links aus Footer löschen (Pricing, Blog, About etc.)
-    - Github Icon verknüpfen in Footer
-    - Unbenutzte Icons in Footer löschen
     - Footer erscheint nicht in mobile view
     - Mobile view besser als gestern, noch nicht perfekt (Suchfeld passt sich z.B. nicht an)
     - PDF Button in Detailview erscheint jeweils an verschiedenen Positionen, abhängig von der Bildschirmgrösse

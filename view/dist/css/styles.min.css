@@ -1996,15 +1996,10 @@ form.form-layout {
 
 .listing-detail-grid .image-area {
     grid-column: span 1;
-    background-color: #000;
+    background-color: white;
     margin-left: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
-    transition: .3s
 }
 
-.listing-detail-grid .image-area:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2)
-}
 
 @media screen and (max-width: 768px) {
     .listing-detail-grid .image-area {
@@ -2087,7 +2082,7 @@ form.form-layout {
     grid-column: 1/span 3;
     grid-row: 2/span 2;
     margin-left: 10px;
-    background-color: green;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
     transition: .3s
 }

@@ -66,7 +66,7 @@
             <a href="#">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#">
+            <a href="https://github.com/Yardie83/WE-roomie">
                 <i class="fab fa-github"></i>
             </a>
 

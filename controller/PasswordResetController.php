@@ -53,7 +53,7 @@ class PasswordResetController
         $token = AuthServiceImpl::getInstance()->issueToken(AuthServiceImpl::RESET_TOKEN, $_POST["email"]);
         $emailView = new TemplateView("view/password_resetEmail.php");
         $emailView->resetLink = $GLOBALS["ROOT_URL"] . "/password/request?token=" . $token;
-        return EmailServiceClient::sendEmail($_POST["email"], "Password Reset Email", $emailView->render());
+        return EmailServiceClient::sendEmail($_POST["email"], "noreply@fhnw.ch", "Roomie support", "Password reset",  $emailView->render());
     }
 
     public static function checkEmailView()

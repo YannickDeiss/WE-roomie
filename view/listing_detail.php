@@ -11,15 +11,15 @@ $listing = $this->listing[0];
     <div class="listing-detail-grid">
         <div class="image-area">
             <img src="<?php echo TemplateView::noHTML($listing->getImage1()); ?>" width="100%" height="100%"
-                 alt="Listing Image">
+                 alt="">
         </div>
         <div class="image-area">
             <img src="<?php echo TemplateView::noHTML($listing->getImage2()); ?>" width="100%" height="100%"
-                 alt="Listing Image">
+                 alt="">
         </div>
         <div class="image-area">
             <img src="<?php echo TemplateView::noHTML($listing->getImage3()); ?>" width="100%" height="100%"
-                 alt="Listing Image">
+                 alt="">
         </div>
         <div class="details-area">
             <div class="listing-item">
