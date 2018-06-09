@@ -6,7 +6,7 @@ $(function () {
 
             $('#signup-email-error').hide();
             passwordError.hide();
-            if (passwordField.val().length <= 10) {
+            if (passwordField.val().length < 10) {
                 passwordError.fadeIn(300).show();
                 return;
             }

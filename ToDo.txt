@@ -49,8 +49,6 @@ Bugs
 - Change Password (Edit profile)
 
 [Funktioniert nicht]
-- Contact Form Email landet nicht beim empfänger
-- Search functionality wenn nicht alles eingegeben wird
 - Reset Password mit nicht in Datenbank vorhandener Mailadresse (Man landet auf weisser Page "Fatal Error: Uncaught Error"
 - Allgemein Password reset
 - Bei Registration: falls PW 10 Zeichen lang wird verlangt, dass es 10 Zeichen lang ist...
