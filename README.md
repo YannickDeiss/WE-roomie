@@ -166,12 +166,13 @@ CREATE TABLE user
 * **[Google Maps API](https://www.google.com "Google's Homepage")**: the Google Maps API is used in order to display the room's location on the map. 
 ![Google Maps API](https://github.com/Yardie83/WE-Roomie/blob/master/GoogleMaps.jpg "Google Maps API") 
 * **[Google Places API](https://developers.google.com/maps/documentation/javascript/places-autocomplete?hl=de)**: in addition to the Google Maps API, the Google places API was implemented. Especially the functionality "autocomplete" was implemented. It is restricted to regions in Switzerland.
-![Google Places API](https://github.com/Yardie83/WE-Roomie/blob/master/Autocomplete.gif"Google Places API")
+![Google Places API](https://github.com/Yardie83/WE-Roomie/blob/master/Autocomplete.gif "Google Places API")
 * **[Amazon AWS S3](https://aws.amazon.com/s3/?nc1=f_ls"Amazon AWS S3")**: Amazon S3 is object storage built to store and retrieve any amount of data from anywhere. In our case, we use it to store images and retrieve them in order to display them on our website.
 * **[SendGrid](https://sendgrid.com/"SendGrid")**: SendGrid API is used for any kind of E-Mail communication. For the contact form as well as the reset password functionality.
 * **[HyPDF](https://hypdf.com/info/index"HyPDF")**: our website uses the HyPDF API to create PDF.
 * AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))  
-* 404 Page
+* 404 Page////////////////////
+![404 Page](https://github.com/Yardie83/WE-roomie/blob/master/404.gif?raw=true "404 Page")
   
   
 ### Usage  
