@@ -165,7 +165,8 @@ email VARCHAR(255) NOT NULL );
 * AJAX (Sign-up-Form, AJAX wird angewendet, um die Emailadresse zu checken (ob sie bereits besteht) und das Passwort auf seine Gültigkeit zu überprüfen (Klasse View/Modale.php, view/dist/js/validator.js, router.php Zeile 127 (signupValidator)))    
 * Our 404 page was taken from a template and adjusted to our needs:  
 ![404 Page](https://github.com/Yardie83/WE-roomie/blob/master/404.gif?raw=true "404 Page")  
-    
+* Click on the search button and you don't need to scroll down to the search area:
+![SearchButton](https://github.com/Yardie83/WE-roomie/blob/master/SearchButton.gif?raw=true "SearchButton")
     
 ### Usage Beschreiben, welche buttons welche Aktionen hervorrufen, Suche: AND, nicht OR    
     
