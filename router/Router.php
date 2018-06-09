@@ -14,12 +14,9 @@ use controller\HomepageController;
 use controller\ListingController;
 use controller\RegisterController;
 use controller\AuthController;
-use controller\ErrorController;
 use controller\PasswordResetController;
 use controller\PDFController;
 use controller\SearchController;
-use controller\UserController;
-use http\Exception;
 use http\HTTPException;
 use http\HTTPStatusCode;
 use http\HTTPHeader;
@@ -191,8 +188,6 @@ class Router
             self::redirect("/search/" . $_POST["listingID"]);
 
         });
-
-
 
 // Listing CRUD
 

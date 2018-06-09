@@ -60,7 +60,4 @@ class AWSUploadService
             return $e->getMessage() . PHP_EOL;
         }
     }
-
-
-//    TODO: DELETE IMAGE ON S3 WHEN LISTING IS DELETED
 }

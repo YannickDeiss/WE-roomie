@@ -54,7 +54,7 @@ class RegisterController
         $user->setEmail($_POST["email"]);
         $user->setPassword($_POST["password"]);
         $emailOK = true;
-        if (AuthServiceImpl::getInstance()->findByEmail($user)) {
+        if (!AuthServiceImpl::getInstance()->findByEmail($user)) {
             $emailOK = false;
         }
         return $arr = array('email' => $emailOK);

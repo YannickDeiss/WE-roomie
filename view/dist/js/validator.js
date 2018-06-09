@@ -22,10 +22,9 @@ $(function () {
                 success: function (response) {
                     console.log(response);
                     if (response.email === false) {
-                        console.log(response);
                         $('#signup-password').val('');
                         $('#signup-email-error').fadeIn(300).show();
-                    } else if (passwordField.val().length < 9) {
+                    } else if (passwordField.val().length < 9   ) {
                         passwordError.fadeIn(300).show();
                     } else {
                         $('#signup-form').submit();
