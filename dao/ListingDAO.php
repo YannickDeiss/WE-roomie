@@ -24,7 +24,7 @@ class ListingDAO extends BasicDAO
         $stmt = $this->pdoInstance->prepare('
             INSERT INTO "apartment" ("userid", title, street, streetnumber, zip, city, canton, numberofrooms, price, squaremeters, publisheddate, moveindate, description, image1, image2, image3)
            VALUES (:userid, :title, :street, :streetnumber, :zip, :city, :canton, :numberofrooms, :price, :squaremeters, :publisheddate, :moveindate, :description, :image1, :image2, :image3)');
-        $stmt->bindValue(':userid', $listing->getUserID());
+        $stmt->bindValue(':userid', $listing->getUserid());
         $stmt->bindValue(':title', $listing->getTitle());
         $stmt->bindValue(':street', $listing->getStreet());
         $stmt->bindValue(':streetnumber', $listing->getStreetnumber());
@@ -88,7 +88,7 @@ class ListingDAO extends BasicDAO
             image3 = :image3
             WHERE id = :id');
         $stmt->bindValue(':id', $listing->getId());
-        $stmt->bindValue(':userid', $listing->getUserID());
+        $stmt->bindValue(':userid', $listing->getUserid());
         $stmt->bindValue(':title', $listing->getTitle());
         $stmt->bindValue(':street', $listing->getStreet());
         $stmt->bindValue(':streetnumber', $listing->getStreetnumber());

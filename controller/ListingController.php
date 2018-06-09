@@ -39,7 +39,7 @@ class ListingController
             $listing->setId($_POST["id"]);
         }
 
-        $listing->setUserID($_POST["userID"]);
+        $listing->setUserid($_POST["userID"]);
 
         // NEW FOR WE-ROOMIE
         $listing->setTitle($_POST["title"]);

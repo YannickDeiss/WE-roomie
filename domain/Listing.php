@@ -12,7 +12,7 @@ namespace domain;
 class Listing
 {
     protected $id;
-    protected $userID;
+    protected $userid;
     protected $title;
     protected $street;
     protected $streetnumber;
@@ -46,15 +46,15 @@ class Listing
     /**
      * @return int
      */
-    public function getUserID() {
-        return $this->userID;
+    public function getUserid() {
+        return $this->userid;
     }
 
     /**
-     * @param int $userID
+     * @param int $userid
      */
-    public function setUserID($userID) {
-        $this->userID = $userID;
+    public function setUserid($userid) {
+        $this->userid = $userid;
     }
 
     public function getTitle() {

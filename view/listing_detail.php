@@ -52,7 +52,7 @@ $listing = $this->listing[0];
                         <h1>Contact the advertiser</h1>
 
                         <input hidden type="text" name="listingID" value="<?php echo TemplateView::noHTML($listing->getId()); ?>" />
-                        <input hidden type="text" name="userID" value="<?php echo TemplateView::noHTML($listing->getUserID()); ?>" />
+                        <input hidden type="text" name="userID" value="<?php echo TemplateView::noHTML($listing->getUserid()); ?>" />
 
                         <div class="form-group">
                             <input type="text" required name="firstName"/>

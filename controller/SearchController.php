@@ -41,7 +41,7 @@ class SearchController
     {
         $contentView = new TemplateView("view/listing_detail.php");
         $contentView->listing = (new ListingServiceImpl())->findListingById($id);
-        //$contentView->user = AuthServiceImpl::getInstance()->readUser();
+//        $contentView->user = AuthServiceImpl::getInstance()->readUser();
         LayoutRendering::basicLayout($contentView );
     }
 }

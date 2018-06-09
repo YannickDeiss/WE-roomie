@@ -18,7 +18,7 @@ class EmailController
     public static function sendMeMyCustomers(){
         $emailView = new TemplateView("view/listingListEmail.php");
         $emailView->listings = (new ListingServiceImpl())->findAllListings();
-        return EmailServiceClient::sendEmail(AuthServiceImpl::getInstance()->readUser()->getEmail(), null, null, "My current listings", $emailView->render());
+        return EmailServiceClient::sendEmail(AuthServiceImpl::getInstance()->readUser()->getEmail(), "noreply@fhnw.ch", "Roomie Support", "My current listings", $emailView->render());
     }
 
     public static function sendContactEmail()
@@ -27,7 +27,7 @@ class EmailController
         $userID = $_POST["userID"];
 
         $userDAO = new UserDAO();
-        $toEmail = $userDAO->findById(36)->getEmail();
+        $toEmail = $userDAO->findById($userID)->getEmail();
 
         $firstName = $_POST["firstName"];
         $lastName  = $_POST["lastName"];

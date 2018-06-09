@@ -10,10 +10,10 @@ namespace service;
 use config\Config;
 class EmailServiceClient
 {
-    public static function sendEmail($toEmail, $fromEmail = "noreply@fhnw.ch", $name = "Roomie Support", $subject, $htmlData){
+    public static function sendEmail($toEmail, $fromEmail, $name, $subject, $htmlData){
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
-        $jsonObj->from->email = $toEmail;
+        $jsonObj->from->email = $fromEmail;
         $jsonObj->from->name = $name;
 
         $jsonObj->subject = $subject;
