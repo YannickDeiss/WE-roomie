@@ -156,7 +156,6 @@ CONSTRAINT authtoken_user_id_fk FOREIGN KEY (userid) REFERENCES "user" (id) ); C
   password VARCHAR(255) NOT NULL,    
 email VARCHAR(255) NOT NULL );
 ``` 
-     
     
     
 ###### Applied techniques, APIs, 3rd party code, and easter eggs
@@ -179,23 +178,11 @@ email VARCHAR(255) NOT NULL );
 * You can give yourself a **username**:
 ![Username](https://github.com/Yardie83/WE-roomie/blob/master/Username.gif?raw=true "Username")
 
-
-
-    
-**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::** **::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**  
-**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**  
-**::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::**  
   
-  
-  
-  
-  
-  
-### Conclusion To be mentioned:    
-- Bilder von Responsiveness hochladen  
-- All requirements implemented  
-- The website was tested under Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari iOS
-- Most "fake-apartments" are located in Basel
+### Conclusion and important points to be mentioned:
+- We have implemented all the planned features and requirements, even the optional ones
+- The website has been tested with Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari iOS
+- Most "fake-apartments" are located in Basel, so this information may help you to test the search functionality
 - The landing page displays the 10 newest ads
-- If this was a real website, ads would be checked before they are finally published
+- If this was a real website, ads would be checked before they are finally published, since it is rather a "dummy site", we believe that only content is uploaded that does not need to be reviewed
   

@@ -11,7 +11,6 @@ Design
     - Make sure everything is ok in mobile view (Responsiveness -> fix mobile view)
     - Make font smaller on homepage in the latest listing cards
     - Farbe des Footers reicht nicht bis ganz unten
-    - Own API??
     - After sending a contact email show the user some feedback
     - Links aus Footer löschen (Pricing, Blog, About etc.)
     - Footer erscheint nicht in mobile view
