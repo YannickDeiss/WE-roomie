@@ -40,8 +40,6 @@ class ListingController
         }
 
         $listing->setUserID($_POST["userID"]);
-
-        // NEW FOR WE-ROOMIE
         $listing->setTitle($_POST["title"]);
 
         $listing->setStreet($_POST["street"]);
@@ -118,11 +116,7 @@ class ListingController
         $listing->setImage2($imageList[1]);
         $listing->setImage3($imageList[2]);
 
-//        TODO: Available from date has to be processed and correctly written to the database
-        $availableFrom = ($_POST["availableFrom"]);
-
-//        $listing->setMoveindate($moveInYear . "-" . $moveInMonth . "-" . $moveInDay);
-        $listing->setMoveindate(date("Y-m-d"));
+        $listing->setMoveindate($_POST["availableFrom"]);
 
         if ($listing->getId() === "") {
             (new ListingServiceImpl())->createListing($listing);
