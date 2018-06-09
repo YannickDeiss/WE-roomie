@@ -34,7 +34,8 @@
     
 ### Introduction
 ###### Overview
-The goal of this project was it, to create a website that connects people that are looking for a room in a shared apartment to people, that are offering a room in a shared apartment in a very pragmatic and simple way.    
+The goal of this project was it, to create a website that connects people that are looking for a room in a shared apartment to people, that are offering a room in a shared apartment in a very pragmatic and simple way. This project can be found under the following link:
+https://we-roomie.herokuapp.com/
     
 ###### Contributors: 
 * Loris Grether (database, front-end)    
@@ -171,13 +172,20 @@ email VARCHAR(255) NOT NULL );
 ![404 Page](https://github.com/Yardie83/WE-roomie/blob/master/404.gif?raw=true "404 Page")  
 * Click on the search button and you don't need to scroll down to the search area:
 ![SearchButton](https://github.com/Yardie83/WE-roomie/blob/master/SearchButton.gif?raw=true "SearchButton")
-    
+* The success callback in the AJAX function either shows an error message or submits the form and signs up/logs in the user:
+![RegisterPWSize](https://github.com/Yardie83/WE-roomie/blob/master/RegisterPWSize.gif?raw=true "RegisterPWSize")
+![EmailExists](https://github.com/Yardie83/WE-roomie/blob/master/EmailExists.gif?raw=true "EmailExists")
+* The website offers search functionalities to search the available rooms. It is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent":
+![ConfusedSearch](https://github.com/Yardie83/WE-roomie/blob/master/ConfusedSearch.gif?raw=true "ConfusedSearch")
+
+
+
+
 ### Usage Beschreiben, welche buttons welche Aktionen hervorrufen, Suche: AND, nicht OR    
     
     
 ###### Additionally implemented features to be mentioned:
-* **Search Functionality:** The website offers search functionalities to serach the available rooms. Additionally it is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent". However, it needs to be mentioned that we realized that the search functionality is somewhat like a very complex SQL thing that requires many man hour to make it perfect - even for such a somewhat small search section.  
-    
+* **Search Functionality:** The website offers search functionalities to search the available rooms. It is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent".
     
     
     
