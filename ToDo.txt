@@ -18,6 +18,13 @@ Design
     - On Detail view change green map to white
     - Own API??
     - After sending a contact email show the user some feedback
+    - Links aus Footer löschen (Pricing, Blog, About etc.)
+    - Github Icon verknüpfen in Footer
+    - Unbenutzte Icons in Footer löschen
+    - Footer erscheint nicht in mobile view
+    - Mobile view besser als gestern, noch nicht perfekt (Suchfeld passt sich z.B. nicht an)
+    - PDF Button in Detailview erscheint jeweils an verschiedenen Positionen, abhängig von der Bildschirmgrösse
+    - Keine Fehlermeldung bei Login falls falsches Passwort od. falscher Benutzername eingegeben wird (es wird einfach auf Homepage zurückgegangen)
 
 Bugs
 
@@ -27,3 +34,22 @@ Bugs
 - Serach functionality: e.g. if you search for a room with min. rent of 2000, rooms with rent less than 2000 appear
 - Search funcitonality: Wenn nur nicht alle Felder ausgefüllt werden erscheinen keine Einträge
 - Bei Eingabe einer Mailadresse, welche nicht in der Datenbank ist, landet man auf einer Error-Seite
+
+
+[Funktioniert]
+- Login
+- Logout
+- Remember Me functionality
+- Current list senden per Email an User
+- Edit Ad
+- PDF
+- Change Email (Edit Profile)
+- Change username (Edit profile)
+- Change Password (Edit profile)
+
+[Funktioniert nicht]
+- Contact Form Email landet nicht beim empfänger
+- Search functionality wenn nicht alles eingegeben wird
+- Reset Password mit nicht in Datenbank vorhandener Mailadresse (Man landet auf weisser Page "Fatal Error: Uncaught Error"
+- Allgemein Password reset
+- Bei Registration: falls PW 10 Zeichen lang wird verlangt, dass es 10 Zeichen lang ist...
