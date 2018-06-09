@@ -179,7 +179,7 @@ class AuthServiceImpl implements AuthService
         $user->setPassword(password_hash($password, PASSWORD_DEFAULT));
         $userDAO = new UserDAO();
         if ($this->verifyAuth()) {
-            $user->set($this->currentUserId);
+            $user->setID($this->currentUserId);
             $userDAO->update($user);
             return true;
         }
