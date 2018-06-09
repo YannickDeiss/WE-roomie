@@ -60,7 +60,7 @@ class UserDAO extends BasicDAO
         if ($stmt->rowCount() > 0) {
             return $stmt->fetchAll(\PDO::FETCH_CLASS, "domain\User")[0];
         }
-        return new User();
+        return null;
     }
 
     public function findByUserName($userName)

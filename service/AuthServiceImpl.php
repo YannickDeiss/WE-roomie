@@ -141,6 +141,7 @@ class AuthServiceImpl implements AuthService
         if (!is_null($userDAO->findByEmail($user->getEmail()))) {
             return true;
         }
+        return false;
     }
 
     /**
