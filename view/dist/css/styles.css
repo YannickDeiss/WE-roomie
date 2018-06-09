@@ -436,7 +436,10 @@ p {
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: auto 2fr auto auto 1fr;
-  grid-template-areas: "nav nav nav nav nav"  "header header header header header"  "search search search search search"  "content content content content content"; }
+  grid-template-areas: "nav nav nav nav nav" 
+ "header header header header header" 
+ "search search search search search" 
+ "content content content content content"; }
 
 @media screen and (max-width: 768px) {
   .container {
@@ -1913,12 +1916,8 @@ form.form-layout {
       grid-template-columns: 90vw; } }
   .listing-detail-grid .image-area {
     grid-column: span 1;
-    background-color: black;
-    margin-left: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s; }
-    .listing-detail-grid .image-area:hover {
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); }
+    background-color: white;
+    margin-left: 10px;}
     @media screen and (max-width: 768px) {
       .listing-detail-grid .image-area {
         grid-column: 1 / -1;
@@ -1973,7 +1972,7 @@ form.form-layout {
     grid-column: 1 / span 3;
     grid-row: 2 / span 2;
     margin-left: 10px;
-    background-color: green;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s; }
     .listing-detail-grid .map-area:hover {

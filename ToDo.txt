@@ -1,37 +1,29 @@
 Functionality
 
-    [LISTINGS]
-    LORIS -- Edit my listing
-    TOBIAS -- PDF: Print a listing from the detail view page
-    HERMANN -- Send email to listing publisher
-
     [MODALS]
     - Give feedback of already existing email address
     - Give feedback about false email or password during login process
     - Reactivate error feedback
 
-    [PROFILE]
-    HERMANN
-        - Edit profile
-        - Change email address
-        - Change username
-        - Change password
-
 Design
     - Edit your profile title add margin (sunscht frog loris)
-    - Add Edit Profile link somewhere
-    - Add Search link to the navbar which links to search page
-    - Make location the biggest element in the search box
     - Fix Mobile View of Modals
     - Make sure everything is ok in mobile view (Responsiveness -> fix mobile view)
     - Make font smaller on homepage in the latest listing cards
-    - Grauer Balken hinter Suchfeld auf Homepage
     - Farbe des Footers reicht nicht bis ganz unten
-    - On Detail view change green map to white
+    - Own API??
+    - After sending a contact email show the user some feedback
+    - Links aus Footer löschen (Pricing, Blog, About etc.)
+    - Footer erscheint nicht in mobile view
+    - Mobile view besser als gestern, noch nicht perfekt (Suchfeld passt sich z.B. nicht an)
+    - PDF Button in Detailview erscheint jeweils an verschiedenen Positionen, abhängig von der Bildschirmgrösse
+    - Keine Fehlermeldung bei Login falls falsches Passwort od. falscher Benutzername eingegeben wird (es wird einfach auf Homepage zurückgegangen)
 
 Bugs
 
 - Authtoken are not being deleted in the database at the moment during password reset process
 - Check AuthServiceImpl for completeness and unnecessary code
 - SignUp Modal Ajax does not work
-- Serach functionality: e.g. if you search for a room with min. rent of 2000, rooms with rent less than 2000 appear
+- Bei Eingabe einer Mailadresse, welche nicht in der Datenbank ist, landet man auf einer Error-Seite
+- Snake effect auf password reset seite geht nicht
+- Reset Password mit nicht in Datenbank vorhandener Mailadresse (Man landet auf weisser Page "Fatal Error: Uncaught Error"

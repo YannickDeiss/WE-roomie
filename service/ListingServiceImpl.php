@@ -27,7 +27,7 @@ class ListingServiceImpl implements ListingService
     public function createListing(Listing $listing) {
         if (AuthServiceImpl::getInstance()->verifyAuth()) {
             $listingDAO = new ListingDAO();
-            $listing->setUserID(AuthServiceImpl::getInstance()->getCurrentUserId());
+            $listing->setUserid(AuthServiceImpl::getInstance()->getCurrentUserId());
             return $listingDAO->create($listing);
         }
         throw new HTTPException(HTTPStatusCode::HTTP_401_UNAUTHORIZED);

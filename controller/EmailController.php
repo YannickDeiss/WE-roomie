@@ -18,7 +18,7 @@ class EmailController
     public static function sendMeMyCustomers(){
         $emailView = new TemplateView("view/listingListEmail.php");
         $emailView->listings = (new ListingServiceImpl())->findAllListings();
-        return EmailServiceClient::sendEmail(AuthServiceImpl::getInstance()->readUser()->getEmail(), "My current listings", $emailView->render());
+        return EmailServiceClient::sendEmail(AuthServiceImpl::getInstance()->readUser()->getEmail(), "noreply@fhnw.ch", "Roomie Support", "My current listings", $emailView->render());
     }
 
     public static function sendContactEmail()
@@ -30,17 +30,17 @@ class EmailController
         $toEmail = $userDAO->findById($userID)->getEmail();
 
         $firstName = $_POST["firstName"];
-        $lastName  = $_POST["lasttName"];
+        $lastName  = $_POST["lastName"];
         $email = $_POST["email"];
         $message = $_POST["message"];
 
         $emailView = new TemplateView("view/listingContactEmail.php");
-        $emailView->listings = (new ListingServiceImpl())->findAllListings();
+        $emailView->listing = (new ListingServiceImpl())->findListingById($listingID);
         $emailView->firstName = $firstName;
         $emailView->lastName = $lastName;
         $emailView->email = $email;
         $emailView->message = $message;
 
-        return EmailServiceClient::sendEmail($toEmail, $email, $firstName . " " . $lastName, "Interested party in your listing on roomie.ch", $emailView->render());
+        EmailServiceClient::sendEmail($toEmail, $email, $firstName . " " . $lastName, "Interested party in your listing on roomie.ch", $emailView->render());
     }
 }

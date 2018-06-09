@@ -188,6 +188,8 @@ class Router
 
         self::route("POST", "/listing/emailContact/", function () {
             EmailController::sendContactEmail();
+            self::redirect("/search/" . $_POST["listingID"]);
+
         });
 
 
