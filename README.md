@@ -4,32 +4,20 @@
  - [Introduction](#introduction)
 	 - [Overview](#overview)
 	 - [Contributors](#contributors)
-	 - [Requirements](#the-following-requirements-were-defined)
+	 - [Requirements](#requirements)
 	 - [Optional Requirements](#optional-requirements)    
 - [Pre-Implementation](#pre-implementation)
 	- [Wireframes](#wireframes)
 	- [Database Model](#database-model)
 	- [Use Case Diagram](#use-case-diagram)
+	- [Deployment Diagram](#deployment-diagram)
 	- [Domain Model](#domain-model)    
 - [Implementation](#implementation)
-	- Zeugs Adden
-      
-    
-    
-    
-  
- - [Data Access Model](#data-access-model)    
-- [Implementation](#implementation)    
-  - [Stage 1: Structure](#stage-1-structure)    
-  - [Stage 2: Autoloader and Routing](#stage-2-autoloader-and-routing)    
-  - [Stage 3: Database](#stage-3-database)    
-  - [Stage 4: Database Access and Domain Objects](#stage-4-database-access-and-domain-objects)    
-  - [Stage 5: Business Service](#stage-5-business-services)    
-  - [Stage 6: Register/Login](#stage-6-registerlogin)    
-  - [Stage 7: Course offerings view frontend](#stage-7-course-offerings-view-frontend)    
-  - [Stage 8: PDF creation](#stage-8-pdf-creation)    
-  - [Stage 9: Email Service](#stage-9-email-service)    
-- [Deployment](#deployment)    
+    - [Important Classes](#important-classes)
+	- [Database](#database)
+	- [Applied techniques, APIs, 3rd party code, and easter eggs](#applied-techniques,-APIs,-3rd-party-code,-and easter-eggs)
+- [Conclusion and important points to be mentioned](#conclusion-and-important-points-to-be-mentioned)
+ 
     
     
 ### Introduction
@@ -37,12 +25,13 @@
 The goal of this project was it, to create a website that connects people that are looking for a room in a shared apartment to people, that are offering a room in a shared apartment in a very pragmatic and simple way. This project can be found under the following link:
 https://we-roomie.herokuapp.com/
     
-###### Contributors: 
+###### Contributors
 * Loris Grether (database, front-end)    
 * Hermann Grieder (server-side, front-end, GUI)    
 * Tobias Gerhard (GUI, Documentation, front-end)    
     
-###### The following requirements were defined:
+###### Requirements
+The following requirements were defined:
 1. Authentication    
    * If the password is forgotten, it should be possible to get a new one using email    
    * The password is securely stored    
@@ -68,7 +57,8 @@ https://we-roomie.herokuapp.com/
    * The GUI is responsive, meaning it adapts to the screen size    
 9. Minimized error rate    
    * The website should be as error-prone as it is possible within the suggested time exposure    
-###### Optional requirements:
+
+###### Optional requirements
 1. Messaging function   
    * Users can get in touch with an advertiser using an integrated message function    
 2. Gallery    
@@ -97,7 +87,6 @@ To store the data, a PostgreSQL database was created. The database contains 3 ta
 The database is designed in a way that one user can have several apartments. However, one apartment corresponds to one user, and only one user.  Additionally it is worth mentioning that the database does not store images as images in the apartment table, it stores links to images, which are stored on an Amazon server (AWS S3).  Hereafter is an image, visualizing this in line 4:  
 ![Database Link To Images](https://github.com/Yardie83/WE-roomie/blob/master/DatabaseLinkToImages.jpg "Database Link To Images")  
   
-    
 ###### Use Case Diagram
 Based on the defined requirements, a use case diagram was created. The following diagram illustrates the use cases.     
     
@@ -120,7 +109,6 @@ Most use cases have already been shortly explained in the requirements section. 
 The deployment is pretty straightforward. The code to be executed is stored on a Heroku Webserver. This extends to the database, too. It was initially planned that the images are stored in the PostgreSQL database, which is located on the Heroku Webserver as well. However, during implementation we hit on problems concerning this matter what finally led to the decision, to adjust the deployment in such a way, that the PostgreSQL database only stores links to images, which are stored on a Amazon AWS S3 server. Subsequently you find the final deployment diagram.
 ![DeploymentDiagram](https://github.com/Yardie83/WE-roomie/blob/master/DeploymentDiagram.jpg "DeploymentDiagram")
 
-
 ###### Domain Model
 Based on the requirement analysis we knew, that there will be mainly apartments and users. The following graphic shows the interdependence of these objects. 1 user can have 0 or many ads, or 1 or many ad(s) belong to 1 user. In addition to that, 1 user can have 0 or 1 authtoken.
 ![Database Model](https://github.com/Yardie83/WE-roomie/blob/master/DomainModel.jpg "Database Model")
@@ -135,6 +123,7 @@ During the implementation phase, the previous plans were implemented. As foundat
 * **Listing**: Holds the data for an apartment.    
 * **User**: Holds the data for the user.   
 * **AWSUploadService**: Responsible for the communication between the Heroku Webserver and the Amazon Server, on which the Images are stored. It uploads the images to the Amazon Server and returns the link of the picture.  
+
 ###### Database  
 The database was set up as a PostgreSQL on a Heroku Webserver as defined under the section [Database Model](#database-model), using the following code:  
 ```SQL CREATE TABLE apartment (    
@@ -158,7 +147,6 @@ CONSTRAINT authtoken_user_id_fk FOREIGN KEY (userid) REFERENCES "user" (id) ); C
 email VARCHAR(255) NOT NULL );
 ``` 
     
-    
 ###### Applied techniques, APIs, 3rd party code, and easter eggs
 * **[Google Maps API](https://www.google.com "Google's Homepage")**: the Google Maps API is used in order to display the room's location on the map.   
 ![Google Maps API](https://github.com/Yardie83/WE-Roomie/blob/master/GoogleMaps.gif "Google Maps API")   
@@ -179,11 +167,9 @@ email VARCHAR(255) NOT NULL );
 * You can give yourself a **username**:
 ![Username](https://github.com/Yardie83/WE-roomie/blob/master/Username.gif?raw=true "Username")
 
-  
-### Conclusion and important points to be mentioned:
+### Conclusion and important points to be mentioned
 - We have implemented all the planned features and requirements, even the optional ones and more; e.g., users can send themselves a list with all the rooms of them online, using the "Send List" Button
 - The website has been tested with Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari iOS
 - Most "fake-apartments" are located in Basel, so this information may help you to test the search functionality
 - The landing page displays the 10 newest ads
 - If this was a real website, ads would be checked before they are finally published, since it is rather a "dummy site", we believe that only content is uploaded that does not need to be reviewed
-  
