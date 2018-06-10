@@ -15,7 +15,7 @@
 - [Implementation](#implementation)
     - [Important Classes](#important-classes)
 	- [Database](#database)
-	- [Applied techniques, APIs, 3rd party code, and easter eggs](#applied-techniques-apis-3rd-party-code-and easter-eggs)
+	- [Applied techniques, APIs, 3rd party code, and easter eggs](#applied-techniques,-apis,-3rd-party-code,-and easter-eggs)
 - [Conclusion and important points to be mentioned](#conclusion-and-important-points-to-be-mentioned)
  
     
