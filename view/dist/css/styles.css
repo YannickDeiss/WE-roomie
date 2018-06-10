@@ -530,7 +530,7 @@ p {
 @media screen and (max-width: 768px) {
     .content {
         grid-template-columns: auto;
-        padding-left: 10px;
+        padding-left: 0px;
     }
 }
 
