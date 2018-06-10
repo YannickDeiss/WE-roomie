@@ -1613,6 +1613,20 @@ div.shadow {
     .reset-content {
         position: relative;
     }
+
+    #close-login-modal-button,
+    #close-signup-modal-button {
+        position: relative;
+        top: 15px;
+        left: 15px;
+    }
+
+    #close-login-modal-button:active,
+    #close-signup-modal-button:active {
+        position: relative;
+        left: 14px;
+        top: 16px;
+    }
 }
 
 .login-left,
