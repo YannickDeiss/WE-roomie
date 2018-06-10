@@ -1833,12 +1833,12 @@ form.form .remember-input {
 
 .listing-grid {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     grid-row-gap: 15px;
 }
 
 .section-heading {
-    grid-column: 1;
+    grid-column: 1/-1;
     background-color: #464646;
     margin-top: 15px;
     margin-bottom: 75px;
