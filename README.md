@@ -162,6 +162,7 @@ email VARCHAR(255) NOT NULL );
 * The success callback in the **AJAX** function either shows an error message or submits the form and signs up/logs in the user:
 ![RegisterPWSize](https://github.com/Yardie83/WE-roomie/blob/master/RegisterPWSize.gif?raw=true "RegisterPWSize")
 ![EmailExists](https://github.com/Yardie83/WE-roomie/blob/master/EmailExists.gif?raw=true "EmailExists")
+![EmailUnknown](https://github.com/Yardie83/WE-roomie/blob/master/EmailUnknown.gif?raw=true "EmailUnknown")
 * The website offers **search functionalities** to search the available rooms. It is worth mentioning, that the values "Min Rooms" and "Max Rooms" can't be confused, since in the backend the software maps the values accordingly anyway. This is also true for the values "Min Rent" and "Max Rent":
 ![ConfusedSearch](https://github.com/Yardie83/WE-roomie/blob/master/ConfusedSearch.gif?raw=true "ConfusedSearch")
 * You can give yourself a **username**:
