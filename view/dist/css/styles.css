@@ -1997,6 +1997,7 @@ form.form .remember-input {
     .listing-item img {
         grid-column: span 4;
         height: 350px;
+        margin: 0;
     }
 }
 
