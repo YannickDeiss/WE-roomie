@@ -1848,6 +1848,13 @@ form.form .remember-input {
 }
 
 @media screen and (max-width: 768px) {
+    .listing-grid {
+        padding: 15px;
+        display: grid;
+        grid-template-columns: 1fr 5fr 1fr;
+        grid-row-gap: 15px;
+    }
+
     .section-heading {
         margin-bottom: 0;
     }
