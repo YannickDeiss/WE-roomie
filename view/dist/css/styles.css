@@ -1982,7 +1982,7 @@ form.form .remember-input {
 @media screen and (max-width: 768px) {
     .listing-item img {
         grid-column: span 4;
-        height: 200px;
+        height: 350px;
     }
 }
 
@@ -2040,7 +2040,9 @@ form.form .remember-input {
     .listing-item .listing-info .listing-details ul li {
         text-align: left;
         float: none;
-        border-bottom: black solid 1px;
+        /*border-bottom: black solid 1px;*/
+        padding-top: 10px;
+
     }
 }
 
@@ -2048,6 +2050,19 @@ form.form .remember-input {
     grid-column: 2 / -1;
     text-align: right;
     margin: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .listing-item .options {
+        grid-column: 1 / -1;
+        text-align: center;
+    }
+
+    .listing-item .options a {
+        grid-column: 1 / -1;
+        padding-right: 5px;
+    }
+
 }
 
 .listing-item .options a {
