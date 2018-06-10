@@ -496,10 +496,9 @@ p {
 
 @media screen and (max-width: 768px) {
     .container {
-        height: 100vh;
         display: grid;
         grid-template-columns: auto;
-        grid-template-rows: auto 3fr minmax(auto-fit, 2fr) minmax(auto, 3fr) minmax(200px, 1fr);
+        grid-template-rows: auto 3fr auto auto auto;
         grid-template-areas: "nav nav nav nav nav" "header header header header header" "search search search search search" "content content content content content";
     }
 }
@@ -699,6 +698,15 @@ p {
     height: 12rem;
 }
 
+@media screen and (max-width: 768px) {
+
+    .search-tag {
+        height: 100%;
+        margin-bottom: 50px;
+    }
+
+}
+
 .search-indicator {
     position: relative;
     top: -75px;
@@ -729,7 +737,7 @@ p {
     align-content: center;
     width: 75%;
     margin: 0 auto;
-    height: 100%;
+    /*height: 100%;*/
     font-size: 150%;
     background: #3d4444;
     color: #fff;
@@ -911,6 +919,12 @@ p {
     flex-wrap: wrap;
     -webkit-justify-content: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 768px) {
+    .search-button-wrapper {
+        padding: 20px;
+    }
 }
 
 /* Common button styles */
@@ -2131,7 +2145,7 @@ form.form-layout {
     }
 }
 
-.entry-form{
+.entry-form {
     min-width: 450px;
 }
 
