@@ -13,11 +13,11 @@ $listing = $this->listing[0];
             <img src="<?php echo TemplateView::noHTML($listing->getImage1()); ?>" width="100%" height="100%"
                  alt="">
         </div>
-        <div class="image-area">
+        <div class="image-area2">
             <img src="<?php echo TemplateView::noHTML($listing->getImage2()); ?>" width="100%" height="100%"
                  alt="">
         </div>
-        <div class="image-area">
+        <div class="image-area3">
             <img src="<?php echo TemplateView::noHTML($listing->getImage3()); ?>" width="100%" height="100%"
                  alt="">
         </div>
