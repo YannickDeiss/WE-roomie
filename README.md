@@ -181,7 +181,7 @@ email VARCHAR(255) NOT NULL );
 
   
 ### Conclusion and important points to be mentioned:
-- We have implemented all the planned features and requirements, even the optional ones
+- We have implemented all the planned features and requirements, even the optional ones and more; e.g., users can send themselves a list with all the rooms of them online, using the "Send List" Button
 - The website has been tested with Google Chrome, Microsoft Edge, Mozilla Firefox, and Safari iOS
 - Most "fake-apartments" are located in Basel, so this information may help you to test the search functionality
 - The landing page displays the 10 newest ads
