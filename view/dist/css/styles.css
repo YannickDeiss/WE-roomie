@@ -530,7 +530,7 @@ p {
 @media screen and (max-width: 768px) {
     .content {
         grid-template-columns: auto;
-        padding-left: 20px;
+        padding-left: 10px;
     }
 }
 
@@ -1052,7 +1052,7 @@ p {
 .listing-card {
     width: 340px;
     font-family: "Helvetica Neue", sans-serif;
-    padding-left: 5px;
+    /*padding-left: 5px;*/
 }
 
 /* --- Product Card ---- */
