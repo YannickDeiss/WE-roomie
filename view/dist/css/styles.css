@@ -2341,7 +2341,7 @@ form.form-layout {
 @media screen and (max-width: 768px) {
     .listing-detail-grid {
         margin-left: 10px;
-        grid-template-columns: 90vw;
+        grid-template-columns: auto;
     }
 }
 
@@ -2353,7 +2353,7 @@ form.form-layout {
 
 @media screen and (max-width: 768px) {
     .listing-detail-grid .image-area {
-        grid-column: 1 / -1;
+        grid-column: 1;
         grid-row: 1;
         margin-left: 0;
     }
@@ -2373,8 +2373,7 @@ form.form-layout {
 
 @media screen and (max-width: 768px) {
     .listing-detail-grid .details-area {
-        grid-column: 1 / -1;
-        grid-row: 4;
+        grid-column: 1 ;
         margin-left: 0;
     }
 }
@@ -2395,7 +2394,7 @@ form.form-layout {
 
 @media screen and (max-width: 768px) {
     .listing-detail-grid .contact-area {
-        grid-column: 1 / -1;
+        grid-column: 1;
         grid-row: 7;
     }
 }
@@ -2443,8 +2442,8 @@ form.form-layout {
 
 @media screen and (max-width: 768px) {
     .listing-detail-grid .map-area {
-        grid-column: 1 / -1;
-        grid-row: 4;
+        grid-column: 1 / span 1;
+        grid-row: span 3;
     }
 }
 
