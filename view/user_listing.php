@@ -6,7 +6,7 @@ use view\TemplateView;
 <main class="content">
     <div class="listing-grid">
         <div class="section-heading">
-            <h2>List of your posted rooms <?php echo "  &mdash;  Currently " . sizeof($this->listings) . " Rooms posted"?></h2>
+            <h2>List of your posted rooms &mdash; <?php echo " Currently <strong style='color: #f96f5d;'>" . sizeof($this->listings) . " </strong> Rooms posted"?></h2>
             <ul>
                 <li class="active">
                     <a href='<?php echo $GLOBALS["ROOT_URL"]; ?>/user/edit'>

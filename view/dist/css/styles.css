@@ -1794,13 +1794,9 @@ form.form #login-submit,
 form.form #signup-submit,
 form.form #reset-submit {
     font-weight: bold;
-    margin-top: 35px;
+    margin-top: 40px;
     margin-left: 5px;
     transition: color 300ms;
-}
-
-form.form #signup-submit {
-    margin-top: 30px;
 }
 
 form.form #login-submit:focus,
@@ -1846,7 +1842,12 @@ form.form .remember-input {
 
 @media screen and (max-width: 768px) {
     .section-heading {
-        margin-bottom: 0px;
+        margin-bottom: 0;
+    }
+    .section-heading h2 {
+        text-align: left;
+        letter-spacing: normal;
+
     }
 }
 
@@ -1870,6 +1871,12 @@ form.form .remember-input {
     margin-bottom: 0px;
     position: absolute;
     right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .section-heading ul {
+        position: relative;
+    }
 }
 
 .section-heading ul li {
@@ -1942,8 +1949,7 @@ form.form .remember-input {
         color: #ffffff;
         font-size: 12px;
         font-weight: bold;
-        line-height: 10px;
-        letter-spacing: 0.25rem;
+        letter-spacing: 0.1rem;
     }
 }
 
