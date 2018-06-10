@@ -6,7 +6,7 @@ use view\TemplateView;
 <main class="content">
     <div class="listing-grid">
         <div class="section-heading">
-            <h2>Search Results <?php echo "  &mdash;  We found " . sizeof($this->listings) . " rooms"?></h2>
+            <h2>Search Results <?php echo "  &mdash;  We found <strong style='color: #f96f5d;'>" . sizeof($this->listings) . " </strong> rooms"?></h2>
 </div>
         <?php
             foreach ($this->listings as $listing):

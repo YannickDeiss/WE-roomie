@@ -114,8 +114,12 @@ class Router
 
 // Login path
 
+        self::route("POST", "/loginValidator", function () {
+            $response = AuthController::login();
+            echo json_encode($response);
+        });
+
         self::route("POST", "/login", function () {
-            AuthController::login();
             self::redirect("/user");
         });
 

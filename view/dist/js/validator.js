@@ -1,6 +1,5 @@
 $(function () {
     $('#signup-submit').on('click', function (e) {
-            console.log('click');
             var passwordField = $('#signup-password');
             var passwordError = $('#signup-password-error');
 
@@ -20,17 +19,16 @@ $(function () {
                     password: passwordField.val()
                 },
                 success: function (response) {
-                    console.log(response);
                     if (response.email === false) {
                         $('#signup-password').val('');
                         $('#signup-email-error').fadeIn(300).show();
-                    } else if (passwordField.val().length < 9   ) {
+                    } else if (passwordField.val().length < 9) {
                         passwordError.fadeIn(300).show();
                     } else {
                         $('#signup-form').submit();
                     }
                 },
-                error: function (response){
+                error: function (response) {
                     console.log('fail');
                 }
             });

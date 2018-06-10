@@ -33,10 +33,10 @@
             </svg>
             <form class="form" id="login-form" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/login" method="post">
                 <label class="login-label" for="email">Email</label>
+                <label class="login-label error hidden" id="login-error" for="email">*Email or Password wrong</label>
                 <input type="email" name="email" id="login-email" required>
-                <label class="login-label error hidden" for="email">*Email already exists</label>
                 <label class="login-label" for="password">Password</label>
-                <label class="login-label error hidden" for="email">*Password not strong enough</label>
+                <label class="login-label error hidden" id="login-password-error" for="email">*</label>
                 <input type="password" name="password" id="login-password" required>
                 <input type="submit" id="login-submit" value="Submit">
                 <label class="remember-label" for="email">Remember me</label>

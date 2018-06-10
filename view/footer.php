@@ -78,6 +78,7 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script src="dist/js/all.min.js" async defer></script>
 <script src="dist/js/validator.js" async defer></script>
+<script src="dist/js/loginValidator.js" async defer></script>
 
 </body>
 

@@ -36,7 +36,9 @@ class AuthController
             if(isset($_POST["remember"])) {
                 setcookie("token", $token, (new \DateTime('now'))->modify('+30 days')->getTimestamp(), "/");
             }
+            return $arr = array('valid' => true);;
         }
+        return $arr = array('valid' => false);;
     }
 
     public static function logout(){
